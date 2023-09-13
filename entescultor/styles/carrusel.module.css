@@ -1,0 +1,11 @@
+.carrusel {
+  cursor: pointer;
+}
+
+.play {
+  transition: 0.5s;
+}
+
+.play:hover {
+  transform: scale(1.3);
+}

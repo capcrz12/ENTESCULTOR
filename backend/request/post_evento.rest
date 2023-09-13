@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/eventos
+Content-Type: application/json
+
+{
+  "title": "Exposicion Colectiva Ciudad de Melilla",
+  "fecha": "14/12/2018",
+  "nota": "La obra \"Silentia\" finalista en el XIX Certamen de Pintura y Escultura Ciudad de Melilla",
+  "url": "https://www.youtube.com/watch?v=0x4fpGiC9yg&feature=youtu.be"
+}

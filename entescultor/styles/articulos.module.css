@@ -1,0 +1,100 @@
+.seccion {
+  color: #ffffff;
+  height: 95%;
+}
+
+.title {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  margin: 50px;
+}
+
+.fecha {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.completo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-height: 55vh;
+  gap: 30px;
+  margin-top: 20px;
+
+  overflow-y: scroll;
+}
+
+.completo::-webkit-scrollbar {
+  width: 0;
+}
+
+.texto {
+  margin: 20px;
+  padding: 20px;
+  text-align: justify;
+  font-size: 25px;
+}
+
+.enlace {
+  font-size: 25px;
+}
+
+.enlace:hover {
+  color: rgb(163, 22, 22);
+}
+
+.image {
+  max-width: 60vw;
+  max-height: 60vh;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+
+  .title {
+    font-size: 3vh;
+  }
+  
+  .fecha {
+    font-size: 2vh;
+  }
+  
+  .texto {
+    font-size: 2vh;
+  }
+  
+  .enlace {
+    font-size: 2vh;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+
+  .title {
+    font-size: 3vw;
+  }
+  
+  .fecha {
+    font-size: 2vw;
+  }
+  
+  .texto {
+    font-size: 2vw;
+  }
+  
+  .enlace {
+    font-size: 2vw;
+  }
+}

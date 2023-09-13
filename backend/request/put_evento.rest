@@ -1,0 +1,7 @@
+PUT http://localhost:3001/api/eventos/64e4c172837f543dd80bafd2
+Content-Type: application/json
+
+{
+  "title": "Exposicion \"Fragmentos\". Casa de las Tejerinas, Estepona",
+  "nota": "En julio de 2021 se inaugura la exposición \"Fragmentos\", le presentamos el vídeo"
+}

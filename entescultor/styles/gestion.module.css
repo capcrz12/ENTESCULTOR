@@ -1,0 +1,156 @@
+.layout {
+  height: 100vh;
+  width: 100vw;
+  background-color: aliceblue;
+  color: black;
+  overflow-x: hidden;
+}
+
+.pagina {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.identificacion {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  gap: 20px;
+
+  font-size: 100%;
+  
+  background: rgba(128, 128, 128, 0.472);
+  border-radius: 28px;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.2);
+
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: 200px;
+}
+
+.identificacion > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+}
+
+.error {
+  color: red;
+}
+
+.exito {
+  color: rgb(45, 98, 49);
+  position: absolute;
+  font-size: larger;
+  text-transform: uppercase;
+  top: 40vh;
+  right: 30vw;
+}
+
+.opciones {
+  width: 50vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 8%;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  align-items: center;
+}
+
+.opciones > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.formulario {
+  width: 30vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: auto;
+
+  font-size: 100%;
+
+  position: absolute;
+  top: 10%;
+  right: 5%;
+
+  background: rgb(170, 170, 170);
+  border-radius: 28px;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.2);
+
+  align-items: center;
+}
+
+.formulario > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+}
+
+.formulario > div > p {
+  font-size: 15px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
+
+.title {
+  margin-left: 300px;
+}
+
+.selector {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-left: 300px;
+}
+
+.serie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image {
+  max-height: 20vh;
+}
+
+.texto {
+  font-size: 20px;
+}
+
+.mini {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 80px;
+}
+
+.obrasSinSerie {
+  position: absolute;
+  top: 20vh;
+  left: 35vw;
+  width: 20vw;
+}

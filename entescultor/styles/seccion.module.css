@@ -1,0 +1,312 @@
+.presentacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  width: 100%;
+  position: fixed;
+  left: 10vw;
+  top: 30vh;
+}
+
+.indalecio {
+  width: 100%;
+
+  color: #FFF;
+  font-feature-settings: 'salt' on, 'liga' off;
+  /* Heading/H1 */
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 82px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 98px; /* 136.111% */
+  text-align: left;
+
+  user-select: none;
+}
+
+.info {
+  width: 65%;
+
+  color: #FFF;
+  font-feature-settings: 'salt' on, 'liga' off;
+  /* Lead / Lead 1 */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 177.778% */
+  text-align: left;
+
+  user-select: none;
+}
+
+.info_autor {
+  font-size: 4vh;
+
+  user-select: none;
+}
+
+.info_titulo {
+  width: 540px;
+
+  color: #FFF;
+  font-feature-settings: 'salt' on, 'liga' off;
+  /* Lead / Lead 1 */
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 177.778% */
+  text-align: left;
+
+  user-select: none;
+}
+
+.play {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.separador {
+  width: 80px;
+  height: 2px;
+  background: #FFF; 
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.recorrido {
+  color: #FFF;
+  font-feature-settings: 'salt' on, 'liga' off;
+  /* Others /Capitalised */
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 12px;
+
+  user-select: none;
+}
+
+.marco {
+  width: 65vw;
+  height: 850px;
+
+  position: fixed;
+  right: 100px;
+  top: 100px;
+
+  border-radius: 59px;
+  
+  background: rgba(217, 217, 217, 0.35);
+
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.7);
+}
+
+.texto {
+  color: #ffffff;
+  text-align: justify;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-right: 20px;
+  overflow-y: auto;
+}
+
+.pie {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  
+  margin-top: 100px;
+  margin-right: 100px;
+  float: right;
+
+}
+
+.pieInfo {
+  align-self: flex-end;
+  margin-bottom: 2%;
+}
+
+
+.imagenAutor {
+  max-height: 40vh;
+  max-width: 50vw;
+  aspect-ratio: auto 1142 / 944;
+  flex-shrink: 0;
+
+  border-radius: 38px;
+  box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.60);
+}
+
+
+@media (max-width: 1024px) and (orientation: portrait) {
+
+  .indalecio {
+    font-size: 6vh;
+    line-height: 7vh;
+  }
+
+  .info {
+    font-size: 2.5vh;
+  }
+
+  .info_titulo {
+    font-size: 2vh;
+    width: 60%;
+  }
+
+  .info_autor {
+    font-size: 3vh;
+  
+    user-select: none;
+  }
+
+  .presentacion {
+    position: absolute;
+    top: 5rem;
+    width: 90vw;
+  }
+  
+  .separador {
+    width: 40%;
+  }
+  
+  .recorrido {
+    font-size: 16px;
+  }
+
+  .marco {
+    width: 90vw;
+    height: 70vh;
+
+    position: absolute;
+    left: 1.25rem;
+    top: auto;
+    bottom: 1rem;
+
+    overflow: auto;
+  }
+
+  .texto {
+    font-size: 2vh;
+
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .pie {
+    margin-left: 1rem;
+    margin-top: 5rem;
+    align-self: center;
+    float: none;
+  
+  }
+  
+  .pieInfo {
+    display: none;
+  }
+  
+  
+  .imagenAutor {
+    max-width: 80vw;
+    max-height: 40vh;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+
+  .indalecio {
+    font-size: 6vw;
+    line-height: 7vw;
+  }
+
+  .info {
+    font-size: 2.5w;
+  }
+
+  .info_titulo {
+    font-size: 2vw;
+    width: 30%;
+  }
+
+  .info_autor {
+    font-size: 2vw;
+  }
+
+  .presentacion {
+    position: absolute;
+    top: 5rem;
+    width: 90vw;
+  }
+
+  .play {
+    position: absolute;
+    right: 4rem;
+    bottom: 1rem;
+  }
+  
+  .separador {
+    display: none;
+  }
+  
+  .recorrido {
+    display: none;
+  }
+
+  .marco {
+    width: 60vw;
+    height: 75vh;
+
+    position: absolute;
+    right: 1.25rem;
+    top: auto;
+    bottom: 1rem;
+
+    overflow: auto;
+  }
+
+  .texto {
+    font-size: 2vw;
+
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .pie {
+    margin-left: 1rem;
+    margin-top: 5rem;
+    align-self: center;
+    float: none;
+  
+  }
+  
+  .pieInfo {
+    display: none;
+  }
+  
+  
+  .imagenAutor {
+    max-width: 80vw;
+    max-height: 40vh;
+    margin-bottom: 1rem;
+  }
+}

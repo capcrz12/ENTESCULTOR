@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/articulos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWRjNWVhMjI2MWY1MjgyMDBjOWRjNyIsIm5vbWJyZVVzdWFyaW8iOiJjYXAxMiIsImlhdCI6MTY5MzMwNzQyOH0.ZS08GfywecofsjZC7_kh5PfDb3rxfILelEMHro94vgw
+
+{
+  "title": "Pérez Entrena expone 'Cinco pilares' en el Museo Ibáñez de Olula del Río",
+  "fecha": "28/06/2018",
+  "texto": "Hoy viernes 8 de junio, a las 19:30 horas tendrá lugar en la sala 17 del Museo Ibáñez de Olula del Río la inauguración de la exposición Cinco pilares del escultor granadino afincado desde hace años en Macael, Indalecio Pérez Entrena. Una exposición formada por nueve esculturas -cinco pilares y cuatro guardianes. Juan Manuel Martín Robles -director de la Fundación de Arte Ibáñez Cosentino y comisario de la muestra apunta que <<las obras dialogan entre ellas, como si de una gran puesta en escena se tratase, en perfecta armonía. Una propuesta, cuidada desde su concepción primigenia en los primeros esbozos mentales ideados por el artista, donde lo plástico y lo filosófico, al igual que los materiales que, puestos al servicio del creador, han dado origen y sentido a cada una de las obras.>> Con motivo de la inauguración de esta exposición, como broche al acto institucional, se estrenará en exclusiva en el Museo Ibáñez la obra Ágora, del músico Juan Cruz-Guevara. Una composición compuesta por cinco miniaturas musicales íntimamente relacionadas con los cinco pilares.",
+  "url": "https://www.diariodealmeria.es/ocio/Perez-Entrena-Museo-Ibanez-Olula_0_1252674865.html"
+}

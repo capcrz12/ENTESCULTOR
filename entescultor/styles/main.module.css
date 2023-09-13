@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  left: 175px;
+  top: 330px;
+  z-index: 9;
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .main {
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .main {
+    flex-direction: row;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    gap: 3rem;
+  }
+}

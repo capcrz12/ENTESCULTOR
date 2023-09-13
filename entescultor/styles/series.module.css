@@ -1,0 +1,146 @@
+.scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+
+    width: 1050px;
+    height: 900px;
+
+    position: fixed;
+    right: 100px;
+    top: 100px;
+    margin-top: 100px;
+}
+
+.child {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1050px;
+    height: 900px;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;    
+    scroll-snap-type: y mandatory;
+    gap: 600px;
+}
+
+.child::-webkit-scrollbar {
+    width: 0;
+  }
+
+.scroll::-webkit-scrollbar {
+    width: 0;
+  }
+
+.image {
+  max-height: 60vh;
+  max-width: 30vw;
+  image-rendering: auto;
+  aspect-ratio: auto;    
+
+    border-radius: 28px;
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 1);
+    transition: 0.5s;
+}
+
+.image:hover {
+    transform: scale(1.02);
+  }
+
+.serie {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;   
+}
+
+.texto {
+    color: #FFF;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 98px; /* 326.667% */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.contenedor {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    transform-origin: 0% 0%;
+    scroll-snap-align: start;
+  }
+
+@media (max-width: 1024px ) and (orientation: portrait) {
+  .scroll {
+    position: absolute;
+    left: 3rem;
+    top: 14rem;
+    width: 90vw;
+    height: 80vh;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .child {
+    gap: 10rem;
+  }
+
+  .serie {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .image {
+    max-height: 90vh;
+    max-width: 70vw;
+  }
+
+  .image:hover {
+    transform: scale(1);
+  }
+
+  .texto {
+    font-size: 8vw;
+  }
+}
+
+@media (max-width: 1024px ) and (orientation: landscape) {
+  .scroll {
+    position: absolute;
+    right: 0;
+    top: 4rem;
+    width: 60vw;
+    height: 80vh;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .child {
+    gap: 80px;
+  }
+
+  .serie {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .image {
+    max-height: 60vh;
+    max-width: 35vw;
+  }
+
+  .image:hover {
+    transform: scale(1);
+  }
+
+  .texto {
+    font-size: 6vh;
+  }
+}

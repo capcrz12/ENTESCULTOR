@@ -1,0 +1,39 @@
+import styles from '@/styles/obras.module.css'
+import AmpliarImagen from './ampliarImagen'
+import { getObrasBySerie } from '@/services/obras'
+
+export default async function ListaObras ({ name }) {
+  const obras = await getObrasBySerie(name)
+
+  return (
+    <section className={styles.scroll}>
+      <div className={styles.child}>
+        {obras.map(obra => (
+          <article key={obra.id}>
+            <div className={styles.contenedor}>
+              <div className={styles.serie}>
+                <div>
+                  <h2 className={styles.texto}>{obra.title}</h2>
+                  <div className={styles.info}>
+                    <div>
+                      <strong>MATERIAL</strong>
+                      <div>{obra.material}</div>
+                    </div>
+                    <div>
+                      <strong>DIMENSIONES</strong>
+                      <div>{obra.largo} x {obra.ancho} x {obra.alto}</div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.imagen}>
+                  <AmpliarImagen src={obra} />
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+        <div />
+      </div>
+    </section>
+  )
+}

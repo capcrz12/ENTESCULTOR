@@ -1,0 +1,88 @@
+.seccion {
+  color: #ffffff;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 50px;
+}
+
+.fecha {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.nota {
+  font-size: 18px;
+}
+
+.completo {
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  
+  height: 65vh;
+}
+
+.completo::-webkit-scrollbar {
+  width: 0;
+}
+
+.video {
+  align-self: center;
+  justify-self: center;
+
+  width: 50vw;
+  height: 60vh;
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .title {
+    font-size: 3vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .fecha {
+    font-size: 2vh;
+  }
+  
+  .nota {
+    font-size: 2vh;
+  }
+    
+  .video {
+    width: 80vw;
+    height: 30vh;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .title {
+    font-size: 3vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .fecha {
+    font-size: 2svw;
+  }
+  
+  .nota {
+    font-size: 2vw;
+  }
+    
+  .video {
+    width: 50vw;
+    height: 80vh;
+  }
+}

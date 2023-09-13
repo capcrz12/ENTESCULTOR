@@ -1,0 +1,376 @@
+.header {
+
+    width: 100vw;
+    height: 72px;
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    margin-bottom: 200px;
+
+    z-index: 10;
+  }
+
+.navigation {
+    display: flex;
+    
+    gap: 6vw;
+    text-align: center;
+    justify-content: center;
+    width: 100vw;
+}
+  
+.back {
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    z-index: 10;
+
+    transition: 0.5s;
+}
+
+.back:hover {
+    transform: scale(1.25);
+}
+
+/* Eliminamos los elementos que se usan en responsive mas pequeños */    
+@media (min-width: 1024px) {
+
+    .navigationLatI {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 5vw;
+        font-size: 25px;
+    }
+    
+    /* Sirve para corregir el menu para laptop debido al useState, debe ser igual a navigationLat*/
+    .showI {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 5vw;
+        font-size: 25px;
+    }
+    
+    .navigationLatD {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 5vw;
+        font-size: 25px;
+    }
+    
+    .showD {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 5vw;
+        font-size: 25px;
+    }
+    
+    .navigation a:hover {
+        color: red;
+    }
+
+
+    .entescultor {
+        color: #FFF;
+        text-align: center;
+        font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
+        font-family: Arimo;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 80% */
+        letter-spacing: 8px;
+    
+        user-select: none;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+
+    .div {
+        display: none;
+    }
+
+    .showFooter {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1024px) {
+
+    .header {
+        width: 100vw;
+    }
+
+    .entescultor {
+        color: #FFF;
+        text-align: center;
+        font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
+        font-family: Arimo;
+        letter-spacing: 6px;
+        font-size: 5vw;      
+        
+        user-select: none;
+    }
+
+    .navigationLatI {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 20px;
+        width: 100%;
+
+        position: absolute;
+        top: 52px;
+        right: 0px;
+        background: rgba(24, 24, 24, 0.9);
+        z-index: 10;
+        
+        transform: translateX(300%);
+        transition: 0.5s;
+    }
+    .navigationLatD {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 20px;
+        width: 100%;
+
+        position: absolute;
+        top: 181px;
+        right: 0px;
+        background: rgba(24, 24, 24, 0.9);  
+        z-index: 10;
+
+        transform: translateX(300%);
+        transition: 0.5s;
+    }
+
+    .navigationLatI > li:first-child {
+        padding-top: 20px;
+    }    
+
+    .navigationLatD > li:first-child {
+        padding-top: 20px;
+    }
+    
+    .navigationLatD > li:last-child {
+        padding-bottom: 100vh;
+        z-index: 10;
+    }
+
+    .hamburguesa {
+        width: 6%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        right: 1rem;
+        z-index: 11;
+
+        cursor: pointer;
+    }
+
+    .navigation {
+        background: rgba(24, 24, 24, 0.9);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .showI {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 20px;
+        width: 100%;
+
+        position: absolute;
+        top: 52px;
+        right: 0px;
+        background: rgba(24, 24, 24, 0.9);
+        z-index: 10;
+
+        transform: translateX(0);
+        transition: 0.5s;
+    }
+
+    .showD {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 20px;
+        width: 100%;
+
+        position: absolute;
+        top: 181px;
+        right: 0px;
+        background: rgba(24, 24, 24, 0.9); 
+        z-index: 10;
+
+        transform: translateX(0);
+        transition: 0.5s;
+    }
+
+    .showI > li:first-child {
+        margin-top: 20px;
+    }    
+
+    .showD > li:first-child {
+        padding-top: 20px;
+    }
+    
+    .showD > li:last-child {
+        padding-bottom: 100vh;
+        z-index: 10;
+    }
+
+
+    .back {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 10;
+        width: 8%;
+    
+        transition: 0.5s;
+    }
+    
+    .back:hover {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .barra {
+        position: absolute;
+        bottom: 10px;
+        left: 20%;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+        z-index: 10;
+
+        list-style: none;
+        
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .div {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0px;
+        margin-bottom: 25px;
+        z-index: 10;
+
+        transform: translateX(300%);
+        transition: 0.5s;
+    }
+    
+    .facebook {
+        line-height: 50px;
+        max-height: 100%;
+        font-size: 30px;
+        color: #3b5998;
+    }
+
+    .showFooter {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0px;
+        margin-bottom: 25px;
+        z-index: 11;
+
+        transform: translateX(0);
+        transition: 0.5s;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 1024px) {
+    .barra {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: center;
+        justify-content: flex-end;
+        width: 90%;
+        z-index: 10;
+        list-style: none;
+
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+    }
+    
+    .div {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0px;
+        margin-bottom: 25px;
+        z-index: 10;
+
+        transform: translateX(300%);
+        transition: 0.5s;
+    }
+    
+    .facebook {
+        line-height: 50px;
+        max-height: 100%;
+        font-size: 30px;
+        color: #3b5998;
+    }
+
+    .showFooter {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        width: 40vw;
+        height: 20vh;
+        right: 0px;
+        margin-bottom: 25px;
+        z-index: 10;
+
+        transform: translateX(0);
+        transition: 0.5s;
+    }
+
+    .hamburguesa {
+        width: 3%;
+    }
+}

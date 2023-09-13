@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/api/criticas/64e4d03dd2d4a002d7ffdfc9
