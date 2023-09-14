@@ -9,6 +9,8 @@ export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
   const [fecha, setFecha] = useState('')
   const [nota, setNota] = useState('')
   const [url, setUrl] = useState('')
+  const [images, setImages] = useState('')
+  const [enlace, setEnlace] = useState('')
 
 
   const handleSubmit = async (event) => {
@@ -18,7 +20,9 @@ export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
       title,
       fecha,
       nota,
-      url
+      url,
+      images,
+      enlace
     }
     
     try {      
@@ -39,8 +43,9 @@ export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
     <form className={styles.formulario} onSubmit={handleSubmit} encType="multipart/form-data">
       <button className={styles.cerrar} onClick={handleAnadirEvento}>Cerrar</button>
       <h1>AÑADIR EVENTO</h1>
+      <p>* : Campos requeridos</p>
       <div>
-        <label>Título del Evento:</label>
+        <label>Título del Evento *:</label>
         <input
           type='text'
           name='title'
@@ -55,31 +60,48 @@ export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
           type='text'
           name='fecha'
           value={fecha}
-          required
           onChange={(event) => setFecha(event.target.value)}
         />
       </div>
       <div>
-        <label>Nota del Artículo (ej: En julio de 2021 se inaugura la exposición \"Fragmentos\", le presentamos el vídeo )</label>
+        <label>Nota/Texto del Evento (ej: En julio de 2021 se inaugura la exposición \"Fragmentos\", le presentamos el vídeo )</label>
         <textarea
           type='text'
           cols="50" 
           rows="8"
           name='nota'
           value={nota}
-          required
           className={styles.textoAutor}
           onChange={(event) => setNota(event.target.value)}
         />
       </div>
       <div>
-        <label>Enlace al vídeo del evento:</label>
+        <label>Enlace del vídeo de YouTube del evento:</label>
         <input
           type='url'
           name='url'
           value={url}
-          required
           onChange={(event) => setUrl(event.target.value)}
+        />
+      </div>
+      <div>
+        <label>Imágenes del evento:</label>
+        <input
+          type='file'
+          name='images[]'
+          multiple
+          accept="image/jpeg"
+          onChange={(event) => setImages(event.target.files)}
+        />
+        <p>Solo se aceptan imagenes con extensión .jpg</p>
+      </div>
+      <div>
+        <label>Enlace al artículo del evento:</label>
+        <input
+          type='url'
+          name='enlace'
+          value={enlace}
+          onChange={(event) => setEnlace(event.target.value)}
         />
       </div>
       <button type='submit'>Añadir</button>

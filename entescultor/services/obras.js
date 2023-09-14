@@ -13,7 +13,7 @@ export const getObrasBySerie = (name) => {
     .then(res => res.json())
 }
 
-export const createObra = ({ title, image, material, largo, ancho, alto, serieId }) => {
+export const createObra = ({ title, images, material, largo, ancho, alto, serieId }) => {
 
   token = getToken()
   
@@ -25,7 +25,7 @@ export const createObra = ({ title, image, material, largo, ancho, alto, serieId
   }
 
   axios
-    .post('http://localhost:3001/api/obras', { title, image, material, largo, ancho, alto, serieId }, config)
+    .post('http://localhost:3001/api/obras', { title, images, material, largo, ancho, alto, serieId }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -140,7 +140,25 @@ export const putSerieObra = ({ serieId, id }) => {
     })
 }
 
-export const putImageObra = ({ image, id }) => {
+export const deleteImageObra = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/obras/deleteImage/${id}`, { image }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export const uploadImageObra = ({ image, id }) => {
 
   token = getToken()
 
@@ -152,7 +170,7 @@ export const putImageObra = ({ image, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/image/${id}`, { image }, config)
+    .put(`http://localhost:3001/api/obras/uploadImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data

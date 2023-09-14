@@ -2,7 +2,7 @@
 
 import styles from '@/styles/gestion.module.css'
 import { useEffect, useState } from 'react'
-import { putTitleObra, putAltoObra, putAnchoObra, putLargoObra, putMaterialObra, putSerieObra, putImageObra } from '@/services/obras'
+import { putTitleObra, putAltoObra, putAnchoObra, putLargoObra, putMaterialObra, putSerieObra, deleteImageObra, uploadImageObra } from '@/services/obras'
 
 export default function ModificarObraForm ({ handleModificarObra, setExito, obras, series }) {
   const [idObra, setIdObra] = useState('')
@@ -16,6 +16,22 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
   const [serieId, setSerieId] = useState('')
   const [image, setImage] = useState([])
   const [imageOriginal, setImageOriginal] = useState([])
+  const [nombreImage, setNombreImage] = useState('')
+  const [nuevaImage, setNuevaImage] = useState([])
+
+  useEffect(() => {
+    const obra = obras.find(obras => obras.id === idObra)
+
+    if (obra !== undefined) {
+      setNombreObra(obra.title)
+      setAlto(obra.alto)
+      setAncho(obra.ancho)
+      setLargo(obra.largo)
+      setMaterial(obra.material)
+      setImage(obra.url)
+      setImageOriginal(obra.images)
+    }
+  }, [idObra])
 
   const handleSubmitNombre = async (event) => {
     event.preventDefault()
@@ -143,16 +159,16 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
     }
   }
 
-  const handleSubmitImage = async (event) => {
+  const handleSubmitDeleteImage = async (event) => {
     event.preventDefault()
 
     try {
         const ObraModificar = {
-          image,
+          image: nombreImage,
           id: idObra
         }
 
-        putImageObra(ObraModificar)
+        deleteImageObra(ObraModificar)
         setExito('Modificado con éxito')
         setTimeout(() => {
           setExito('')
@@ -164,16 +180,25 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
     }
   }
 
-  const seleccionar = (event) => {
-    setIdObra(event.target.value)
-    const obra = obras.find(obras => obras.id === event.target.value)
-    setNombreObra(obra.title)
-    setAlto(obra.alto)
-    setAncho(obra.ancho)
-    setLargo(obra.largo)
-    setMaterial(obra.material)
-    setImage(obra.url)
-    setImageOriginal(obra.url)
+  const handleSubmitUploadImage = async (event) => {
+    event.preventDefault()
+
+    try {
+        const ObraModificar = {
+          image: nuevaImage,
+          id: idObra
+        }
+
+        uploadImageObra(ObraModificar)
+        setExito('Modificado con éxito')
+        setTimeout(() => {
+          setExito('')
+        }, 4000)
+
+    } catch (error) {
+      setExito('Error al realizar la subida')
+      console.error(error)
+    }
   }
 
   return (
@@ -218,7 +243,7 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
               <label className={styles.serie} key={obra.id}>
                 <article>
                   <div className={styles.obra} >
-                    <img alt='No disponible' src={`http://localhost:3001${obra.url}`} className={styles.image} />
+                    <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
                     <h2 className={styles.texto}>{obra.title}</h2>
                     <div>
                       <div>Largo: {obra.largo}</div>
@@ -233,7 +258,7 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
                   name='idObra'
                   value={obra.id}
                   required
-                  onChange={(event) => seleccionar(event)}
+                  onChange={(event) => setIdObra(event.target.value)}
                 />
               </label>
             ))}
@@ -247,7 +272,7 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
               <label className={styles.serie} key={obra.id}>
                 <article>
                   <div className={styles.obra} >
-                    <img alt='No disponible' src={`http://localhost:3001${obra.url}`} className={styles.image} />
+                    <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
                     <h2 className={styles.texto}>{obra.title}</h2>
                     <div>
                       <div>Largo: {obra.largo}</div>
@@ -262,7 +287,7 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
                   name='idObra'
                   value={obra.id}
                   required
-                  onChange={(event) => seleccionar(event)}
+                  onChange={(event) => setIdObra(event.target.value)}
                 />
               </label>
             ))}
@@ -357,21 +382,44 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
         <button type='submit'>CAMBIAR SERIE</button>
       </form>
 
-      <form className={styles.mini} onSubmit={handleSubmitImage} encType="multipart/form-data">
-        <label>Imagen actual:</label>
-        <div>
-          <img alt='No disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
-        </div>
-        <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva (se borrará la antigua):</label>
+        <label>Eliminar una imagen de la obra seleccionada.</label>
+        <label>Imagenes actuales:</label>
+        <form>
+          <label className={styles.selector}>
+            { imageOriginal.map(image => (
+              <label className={styles.serie} key={image}>
+                <article>
+                  <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                </article>
+                <input
+                  type='radio'
+                  name='nombreImage'
+                  value={image}
+                  required
+                  onChange={(event) => setNombreImage(event.target.value)}
+                />
+              </label>
+            ))}
+          </label>
+        </form>
+        { nombreImage !== '' ?
+            <form className={styles.mini} onSubmit={handleSubmitDeleteImage} encType="multipart/form-data">
+              <label className={styles.error}>Para eliminar la foto seleccionada, pulse eliminar:</label>
+              <button type='submit' className={styles.error}>ELIMINAR</button>  
+            </form>
+          : ''
+        }
+        <form onSubmit={handleSubmitUploadImage} encType="multipart/form-data">
+        <label>Añadir una imagen nueva de la obra:</label>
         <input
           type='file'
           name='image'
           required
           accept="image/jpeg"
-          onChange={(event) => setImage(event.target.files[0])}
+          onChange={(event) => setNuevaImage(event.target.files[0])}
         />
         <p>Solo se aceptan imagenes con extensión .jpg</p>
-        <button type='submit'>CAMBIAR</button>  
+        <button type='submit'>AÑADIR IMAGEN</button>  
       </form>
       </div>
       : ''

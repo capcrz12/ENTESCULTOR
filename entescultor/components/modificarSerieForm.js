@@ -107,20 +107,22 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
         <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva miniatura:</label>
         <label className={styles.selector}>
           {series.find((series) => series.id === idSerie).obras.map(obra => (
-            <label className={styles.serie} key={obra.id}>
+            obra.images.map(image => (
+            <label className={styles.serie} key={image}>
               <article>
                 <div className={styles.obra} >
-                  <img alt='No disponible' src={`http://localhost:3001${obra.url}`} className={styles.image} />
+                  <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
                 </div>
               </article>
               <input
                 type='radio'
                 name='obraUrl'
-                value={obra.url}
+                value={image}
                 required
                 onChange={(event) => setObraUrl(event.target.value)}
               />
             </label>
+            ))
           ))}
         </label>
         <button type='submit'>CAMBIAR</button>  

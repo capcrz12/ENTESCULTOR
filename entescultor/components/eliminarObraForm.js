@@ -9,11 +9,13 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
   const [idSerie, setIdSerie] = useState('')
   const [nombreObra, setNombreObra] = useState('')
   const [obrasFiltro, setObrasFiltro] = useState([])
+  const [obraImages, setObraImages] = useState([])
 
   useEffect (() => {
     const aux = obras.find((obras) => obras.id === idObra)
 
     if (aux !== undefined) {
+      setObraImages(aux.images)
       setNombreObra(aux.title)
     }
   }, [idObra])
@@ -80,7 +82,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
               <label className={styles.obra} key={obra.id}>
                 <article>
                   <div className={styles.obra} >
-                    <img alt='No disponible' src={`http://localhost:3001${obra.url}`} className={styles.image} />
+                    <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
                     <h2 className={styles.texto}>{obra.title}</h2>
                   </div>
                 </article>
@@ -103,7 +105,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
               <label className={styles.serie} key={obra.id}>
                 <article>
                   <div className={styles.obra} >
-                    <img alt='No disponible' src={`http://localhost:3001${obra.url}`} className={styles.image} />
+                    <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
                     <h2 className={styles.texto}>{obra.title}</h2>
                     <div>
                       <div>Largo: {obra.largo}</div>
@@ -135,7 +137,12 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
           <label>{nombreObra}</label>
         </div>
         <div>
-        <label><img alt='No disponible' src={`http://localhost:3001${obras.find((obras) => obras.id === idObra).url}`} className={styles.image} /></label>
+          { obraImages.map(image =>  (
+            <label key={image}>
+              <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+            </label>
+          ))
+          }
         </div>
         <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
       </form>

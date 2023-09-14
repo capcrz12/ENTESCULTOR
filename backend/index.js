@@ -24,8 +24,8 @@ const usuariosRouter = require('./controllers/usuarios')
 const loginRouter = require('./controllers/login')
 
 
-app.use(cors())
 app.use(express.json())
+app.use(cors())
 app.use('/images', express.static('images'))
 // Despues del build, sustituir la linea anterior por : app.use(express.static('//La ruta de la carpeta build'))
 

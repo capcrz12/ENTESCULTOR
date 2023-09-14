@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true
   },
   images: {
-    domains: ['via.placeholder.com', 'www.entescultor.com']
+    domains: ['via.placeholder.com', 'www.entescultor.com', 'localhost']
   },
   reactStrictMode: true
 }

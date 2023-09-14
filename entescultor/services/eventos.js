@@ -8,18 +8,19 @@ export const getAllEventos = () => {
     .then(res => res.json())
 }
 
-export const createEvento = ({ title, fecha, nota, url }) => {
+export const createEvento = ({ title, fecha, nota, url, images, enlace }) => {
 
   token = getToken()
   
   const config = {
     headers: {
       Authorization: token,
+      'Content-Type': 'multipart/form-data'
     }
   }
 
   axios
-    .post('http://localhost:3001/api/eventos', { title, fecha, nota, url }, config)
+    .post('http://localhost:3001/api/eventos', { title, fecha, nota, url, images, enlace }, config)
     .then((response) => {
       const { data } = response
       return data

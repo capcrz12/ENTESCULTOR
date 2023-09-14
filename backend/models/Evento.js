@@ -6,9 +6,7 @@ const eventosSchema = new Schema({
   nota: String,
   url: String,
   enlace: String,
-  images: [{
-    type: String
-  }]
+  images: [String]
 })
 
 // Transformamos el toJSON para poder quitar _id y __v

@@ -10,7 +10,7 @@ export default async function HomePage () {
       <div className={styles.indalecio}>Indalecio <br />Pérez Entrena</div>
       <div className={styles.info}>Pulsa el play para realizar un recorrido a través de las series y obras del autor, Indalecio Pérez Entrena</div>
       <div className={styles.play}>
-        <Carrusel imagenes={obras} />
+        <Carrusel obras={obras} />
         <div className={styles.separador} />
         <div className={styles.recorrido}>INICIAR RECORRIDO</div>
       </div>
