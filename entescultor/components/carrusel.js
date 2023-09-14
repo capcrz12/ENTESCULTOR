@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react'
 import { RViewer, RViewerTrigger } from 'react-viewerjs'
 import styles from '@/styles/carrusel.module.css'
 
-export default function Carrusel ({ imagenes }) {
+export default function Carrusel ({ obras }) {
   let urls = []
 
   useEffect(() => {
-    imagenes.map(imagen => {
-      urls.push (`http://localhost:3001${imagen.url}`)
+    obras.map(obra => {
+      obra.images.map(image => {
+        urls.push (`http://localhost:3001${image}`)
+      })
     })
   }, [])
 

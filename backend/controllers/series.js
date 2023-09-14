@@ -18,7 +18,7 @@ seriesRouter.get('/', async (request, response, next) => {
   try {
     const series = await Serie.find({}).populate('obras', {   // Populate == JOIN en SQL 
       title: 1,                                          //(muestra la informacion del array obras)
-      url: 1,                                            // Con : 1 decimos que queremos que se muestre
+      images: 1,                                         // Con : 1 decimos que queremos que se muestre
       material: 1,                                       // Por defecto muestra todos los atributos
       largo: 1,                                          // En este caso no mostramos el propio id de serie 
       ancho: 1,                                          // (ya lo tenemos en serieId)

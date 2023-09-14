@@ -26,7 +26,7 @@ export default async function ListaObras ({ name }) {
                   </div>
                 </div>
                 <div className={styles.imagen}>
-                  <AmpliarImagen src={obra} />
+                  <AmpliarImagen obra={obra} />
                 </div>
               </div>
             </div>

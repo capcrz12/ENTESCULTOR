@@ -1,10 +1,30 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RViewer, RViewerTrigger } from 'react-viewerjs'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
 import styles from '@/styles/obras.module.css'
 
-export default function AmpliarImagen ({ children, src }) {
+export default function AmpliarImagen ({ obra }) {
+
+  let urls = []
+
+  useEffect(() => {
+    obra.images.map(imagen => {
+      urls.push (`http://localhost:3001${imagen}`)
+    })
+  }, [])
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
+
   const options = {
     toolbar: {
       prev: false,
@@ -19,12 +39,16 @@ export default function AmpliarImagen ({ children, src }) {
   }
 
   return (
-    <div>
-      <RViewer options={options} imageUrls={`http://localhost:3001${src.url}`}>
-        <RViewerTrigger>
-          <img alt='No disponible' src={`http://localhost:3001${src.url}`} className={styles.image} />
-        </RViewerTrigger>
-      </RViewer>
-    </div>
+    <Slider {...settings} className={styles.carrusel}>
+      {obra.images.map(image => (
+        <div key={image}>
+          <RViewer options={options} imageUrls={urls}>
+            <RViewerTrigger >
+              <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+            </RViewerTrigger>
+          </RViewer>
+        </div>
+      ))}
+    </Slider>
   )
 }

@@ -11,8 +11,11 @@ const ERROR_HANDLERS = {
   TokenExpirerError: (res) =>
     res.status(401).json({ error: 'El token ha expirado' }),
 
-  MulterError: (res) =>
-    res.status(401).json({ error: 'Error con multer' }),
+  MulterError: (error, res) => {
+    const message = `este es el unexpected field -> ${error.field}`
+    console.log(message)
+    res.status(500).send(message)
+  },
 
   defaultError: res => res.status(500).end()
 }

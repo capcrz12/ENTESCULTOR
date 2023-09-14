@@ -147,18 +147,28 @@ obrasRouter.put('/serieId/:id', userExtractor, async (request, response, next) =
   } catch(err) { next(err)}
 })
 
-obrasRouter.put('/image/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+obrasRouter.put('/deleteImage/:id', userExtractor, async (request, response, next) => {
   const { id } = request.params
   const cuerpo = request.body
 
   const obraActual = await Obra.findById(id)
 
-  const serie = await Serie.findOne({image: obraActual.url})
+  const serie = await Serie.findOne({image: cuerpo.image})
 
-  deleteImage(`.${obraActual.url}`)
+  let masObras = await Obra.find({images : { $all: [cuerpo.image] }})
+
+  // Si masObras solo contiene una obra es porque solo se ha encontrado la obra
+  // que queremos borrar, y por tanto la imagen no se usa en otras obras
+  if (masObras.length === 1) {
+    deleteImage(`.${cuerpo.image}`)
+  }
+
+  let imagenes = obraActual.images
+
+  imagenes = imagenes.filter((imagen) => imagen !== cuerpo.image)
 
   const newObraInfo = {
-    url: `/images/obras/${request.file.originalname.replace(/ /g, "_")}`,
+    images: imagenes,
   }
 
   try {
@@ -168,9 +178,30 @@ obrasRouter.put('/image/:id', userExtractor, upload.single('image'), async (requ
     // se sustituye por la primera encontrada en la coleccion de obras
     // de esa serie 
     if (serie !== null) {
-      serie.image = `/images/obras/${request.file.originalname.replace(/ /g, "_")}`
+      serie.image = imagenes[0]
       await serie.save()
     }
+
+    response.json(result)
+  } catch(err) { next(err)}
+})
+
+obrasRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+  const { id } = request.params
+  const cuerpo = request.body
+
+  const obraActual = await Obra.findById(id)
+
+  let imagenes = obraActual.images
+
+  imagenes.push(`/images/obras/${request.file.originalname.replace(/ /g, "_")}`)
+
+  const newObraInfo = {
+    images: imagenes
+  }
+
+  try {
+    const result = await Obra.findByIdAndUpdate(id, newObraInfo, { new: true })
 
     response.json(result)
   } catch(err) { next(err)}
@@ -181,28 +212,39 @@ obrasRouter.delete('/:id', userExtractor, async (request, response, next) => {
   
   let obra = await Obra.findById(id)
 
-  const serie = await Serie.findOne({image: obra.url})
+  for (let i = 0; i<obra.images.length; i++) {
+    const serie = await Serie.findOne({image: obra.images[i]})
 
-  const url = `.${obra.url}`
+    const url = `.${obra.images[i]}`
+
+    let masObras = await Obra.find({images : { $all: [obra.images[i]] }})
+
+    // Si masObras solo contiene una obra es porque solo se ha encontrado la obra
+    // que queremos borrar, y por tanto la imagen no se usa en otras obras
+    if (masObras.length === 1) {
+      deleteImage(url)
+    }
+
+    try {
+      // Si la miniatura de la serie es la de la obra borrada, 
+      // se sustituye por la primera encontrada en la coleccion de obras
+      // de esa serie 
+      if (serie !== null) {
+        obra = await Obra.findOne({serieId: serie.id})
+        serie.image = obra.images[0]
+        await serie.save()
+      }
+    } catch(err) { next(err)}
+  }  
 
   try {
-    deleteImage(url)
     await Obra.findByIdAndDelete(id)
-
-    // Si la miniatura de la serie es la de la obra borrada, 
-    // se sustituye por la primera encontrada en la coleccion de obras
-    // de esa serie 
-    if (serie !== null) {
-      obra = await Obra.findOne({serieId: serie.id})
-      serie.image = obra.url
-      await serie.save()
-    }
 
     response.status(204).end()
   } catch(err) { next(err)}
 })
 
-obrasRouter.post('/', userExtractor, upload.single('image'), async (request, response, next) => {
+obrasRouter.post('/', userExtractor, upload.array('images[]'), async (request, response, next) => {
   try {
     const {
       title, 
@@ -213,12 +255,20 @@ obrasRouter.post('/', userExtractor, upload.single('image'), async (request, res
       serieId
     } = request.body
 
+    const numImages = request.files.length
+
+    let urlImages = []
+
+    for (let i = 0; i < numImages; i++) {
+      urlImages.push(`/images/obras/${request.files[i].originalname.replace(/ /g, "_")}`)
+    }
+
     // Buscamos la serie a la que pertenece
     const serie = await Serie.findById(serieId)
 
     const newObra = new Obra({
       title,
-      url: `/images/obras/${request.file.originalname.replace(/ /g, "_")}`,
+      images: urlImages,
       material,
       largo,
       ancho,

@@ -2,7 +2,7 @@ const {model, Schema} = require('mongoose')
 
 const obrasSchema = new Schema({
   title: String,
-  url: String,
+  images: [String],
   material: String,
   largo: Number,
   ancho: Number,

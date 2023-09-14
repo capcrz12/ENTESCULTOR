@@ -49,7 +49,7 @@
   gap: 500px;
 }
 
-.serie > div {
+.serie > div:first-child {
   display: flex;
   flex-direction: column;
   margin-top: 250px;
@@ -92,8 +92,21 @@
   user-select: none;
 }
 
+.carrusel {
+  height: 100%;
+}
+
+.carrusel > div {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
 .imagen {
-  margin-bottom: 300px;
+  width: 40vw;
+  height: 90vh;
 }
 
 .image {
@@ -101,7 +114,9 @@
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 1);
   transition: 0.5s;
   cursor: pointer;
+  margin: 0 auto;
 
+  max-width: 30vw;
   max-height: 70vh;
   image-rendering: auto;
   aspect-ratio: auto;

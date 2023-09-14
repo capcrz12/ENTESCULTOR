@@ -11,7 +11,7 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
   const [ancho, setAncho] = useState('')
   const [alto, setAlto] = useState('')
   const [serie, setSerie] = useState('')
-  const [image, setImage] = useState([])
+  const [images, setImages] = useState([])
   const [error, setError] = useState('')
 
   const handleSubmit = async (event) => {
@@ -20,25 +20,20 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
     try {
       const obraAnadir = {
         title: nombreObra,
-        image: image,
-        material: material,
-        largo: largo,
-        ancho: ancho,
-        alto: alto,
+        images,
+        material,
+        largo,
+        ancho,
+        alto,
         serieId: serie
       }
       
-      if (image.name.split('.').pop() === 'jpg'){
-        createObra(obraAnadir)
-        setExito('Añadido con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
-      }
-      else {
-        console.error(error)
-        setExito('Error al realizar la subida')
-      }
+      createObra(obraAnadir)
+      setExito('Añadido con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
+      
 
       handleCrearObra()
     } catch (error) {
@@ -120,10 +115,11 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
         <label>Imagen de la obra:</label>
         <input
           type='file'
-          name='image'
+          name='images[]'
           required
+          multiple
           accept="image/jpeg"
-          onChange={(event) => setImage(event.target.files[0])}
+          onChange={(event) => setImages(event.target.files)}
         />
         <p>Solo se aceptan imagenes con extensión .jpg</p>
       </div>
