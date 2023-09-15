@@ -7,8 +7,6 @@ export default async function ListaSeries () {
   return (
     <section className={styles.scroll}>
       <div className={styles.child}>
-        <div>
-        </div>
         {series.map(serie => (
           <article key={serie.id}>
             <div className={styles.contenedor}>

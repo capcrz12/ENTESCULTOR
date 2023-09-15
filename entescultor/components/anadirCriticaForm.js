@@ -8,6 +8,7 @@ export default function AnadirCriticaForm ({ handleAnadirCritica, setExito }) {
   const [autor, setAutor] = useState('')
   const [fecha, setFecha] = useState('')
   const [texto, setTexto] = useState('')
+  const [images, setImages] = useState([])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -15,7 +16,8 @@ export default function AnadirCriticaForm ({ handleAnadirCritica, setExito }) {
     const criticaAnadir = {
       autor,
       fecha,
-      texto
+      texto,
+      images
     }
     
     try {      
@@ -68,6 +70,17 @@ export default function AnadirCriticaForm ({ handleAnadirCritica, setExito }) {
           className={styles.textoAutor}
           onChange={(event) => setTexto(event.target.value)}
         />
+      </div>
+      <div>
+        <label>Imágenes de la crítica:</label>
+        <input
+          type='file'
+          name='images[]'
+          multiple
+          accept="image/jpeg"
+          onChange={(event) => setImages(event.target.files)}
+        />
+        <p>Solo se aceptan imagenes con extensión .jpg</p>
       </div>
       <button type='submit'>Añadir</button>
     </form>

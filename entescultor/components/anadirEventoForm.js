@@ -9,7 +9,7 @@ export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
   const [fecha, setFecha] = useState('')
   const [nota, setNota] = useState('')
   const [url, setUrl] = useState('')
-  const [images, setImages] = useState('')
+  const [images, setImages] = useState([])
   const [enlace, setEnlace] = useState('')
 
 

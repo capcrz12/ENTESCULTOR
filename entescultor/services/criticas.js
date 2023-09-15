@@ -8,18 +8,19 @@ export const getAllCriticas = () => {
     .then(res => res.json())
 }
 
-export const createCritica = ({ autor, fecha, texto }) => {
+export const createCritica = ({ autor, fecha, texto, images }) => {
 
   token = getToken()
   
   const config = {
     headers: {
       Authorization: token,
+      'Content-Type': 'multipart/form-data'
     }
   }
 
   axios
-    .post('http://localhost:3001/api/criticas', { autor, fecha, texto }, config)
+    .post('http://localhost:3001/api/criticas', { autor, fecha, texto, images }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -74,6 +75,43 @@ export const putTextoCritica = ({ texto, id }) => {
 
   axios
     .put(`http://localhost:3001/api/criticas/texto/${id}`, { texto }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export const deleteImageCritica = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/criticas/deleteImage/${id}`, { image }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export const uploadImageCritica = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/criticas/uploadImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
