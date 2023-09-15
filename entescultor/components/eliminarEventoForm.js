@@ -9,6 +9,7 @@ export default function EliminarEventoForm ({ handleEliminarEvento, setExito, ev
   const [title, setTitle] = useState('')
   const [fecha, setFecha] = useState('')
   const [nota, setNota] = useState('')
+  const [enlace, setEnlace] = useState('')
   const [url, setUrl] = useState('')
 
   useEffect (() => {
@@ -18,6 +19,7 @@ export default function EliminarEventoForm ({ handleEliminarEvento, setExito, ev
       setTitle(aux.title)
       setFecha(aux.fecha)
       setNota(aux.nota)
+      setEnlace(aux.enlace)
       setUrl(aux.url)
     }
   }, [idEvento])
@@ -71,6 +73,7 @@ export default function EliminarEventoForm ({ handleEliminarEvento, setExito, ev
           <label><strong>{title}</strong></label>
           <label>{fecha}</label>
           <label>{nota}</label>
+          <label><strong>{enlace}</strong></label>
           <label><strong>{url}</strong></label>
         <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
       </form>

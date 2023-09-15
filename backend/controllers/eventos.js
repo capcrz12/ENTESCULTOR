@@ -2,6 +2,8 @@ const eventosRouter = require('express').Router()
 const Evento = require('../models/Evento')
 const userExtractor = require('../middlewares/userExtractor')
 const multer = require('multer')
+const deleteImage = require('./deleteImage')
+
 
 
 const storage = multer.diskStorage({
@@ -75,6 +77,20 @@ eventosRouter.put('/nota/:id', userExtractor, async (request, response, next) =>
   } catch(err) { next(err)}
 })
 
+eventosRouter.put('/enlace/:id', userExtractor, async (request, response, next) => {
+  const { id } = request.params
+  const evento = request.body
+
+  const newEventoEnlace = {
+    enlace: evento.enlace
+  }
+
+  try {
+    const result = await Evento.findByIdAndUpdate(id, newEventoEnlace, { new: true })
+    response.json(result)
+  } catch(err) { next(err)}
+})
+
 eventosRouter.put('/url/:id', userExtractor, async (request, response, next) => {
   const { id } = request.params
   const evento = request.body
@@ -89,8 +105,72 @@ eventosRouter.put('/url/:id', userExtractor, async (request, response, next) => 
   } catch(err) { next(err)}
 })
 
+eventosRouter.put('/deleteImage/:id', userExtractor, async (request, response, next) => {
+  const { id } = request.params
+  const cuerpo = request.body
+
+  const eventoActual = await Evento.findById(id)
+
+  let masEventos = await Evento.find({images : { $all: [cuerpo.image] }})
+
+  // Si masEventos solo contiene un evento es porque solo se ha encontrado el evento
+  // que queremos borrar, y por tanto la imagen no se usa en otros eventos
+  if (masEventos.length === 1) {
+    deleteImage(`.${cuerpo.image}`)
+  }
+
+  let imagenes = eventoActual.images
+
+  imagenes = imagenes.filter((imagen) => imagen !== cuerpo.image)
+
+  const newEventoInfo = {
+    images: imagenes,
+  }
+
+  try {
+    const result = await Evento.findByIdAndUpdate(id, newEventoInfo, { new: true })
+
+    response.json(result)
+  } catch(err) { next(err)}
+})
+
+eventosRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+  const { id } = request.params
+  const cuerpo = request.body
+
+  const eventoActual = await Evento.findById(id)
+
+  let imagenes = eventoActual.images
+
+  imagenes.push(`/images/eventos/${request.file.originalname.replace(/ /g, "_")}`)
+
+  const newEventoInfo = {
+    images: imagenes
+  }
+
+  try {
+    const result = await Evento.findByIdAndUpdate(id, newEventoInfo, { new: true })
+
+    response.json(result)
+  } catch(err) { next(err)}
+})
+
 eventosRouter.delete('/:id', userExtractor, async (request, response, next) => {
   const { id } = request.params
+
+  let evento = await Evento.findById(id)
+
+  for (let i = 0; i<evento.images.length; i++) {
+    const url = `.${evento.images[i]}`
+
+    let masEventos = await Evento.find({images : { $all: [evento.images[i]] }})
+
+    // Si masEventos solo contiene un evento es porque solo se ha encontrado el evento
+    // que queremos borrar, y por tanto la imagen no se usa en otros eventos
+    if (masEventos.length === 1) {
+      deleteImage(url)
+    }
+  }
 
   try {
     await Evento.findByIdAndDelete(id)

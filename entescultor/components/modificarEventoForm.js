@@ -2,7 +2,7 @@
 
 import styles from '@/styles/gestion.module.css'
 import { useEffect, useState } from 'react'
-import { putTitleEvento, putFechaEvento, putNotaEvento, putUrlEvento } from '@/services/eventos'
+import { putTitleEvento, putFechaEvento, putNotaEvento, putEnlaceEvento, putUrlEvento, deleteImageEvento, uploadImageEvento } from '@/services/eventos'
 
 
 export default function ModificarEventoForm ({ handleModificarEventos, setExito, eventos }) {
@@ -10,7 +10,12 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
   const [title, setTitle] = useState('')
   const [fecha, setFecha] = useState('')
   const [nota, setNota] = useState('')
+  const [enlace, setEnlace] = useState('')
   const [url, setUrl] = useState('')
+  const [imageOriginal, setImageOriginal] = useState([])
+  const [nombreImage, setNombreImage] = useState('')
+  const [nuevaImage, setNuevaImage] = useState([])
+
 
   useEffect (() => {
     const aux = eventos.find((eventos) => eventos.id === idEvento)
@@ -19,7 +24,9 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
       setTitle(aux.title)
       setFecha(aux.fecha)
       setNota(aux.nota)
+      setEnlace(aux.enlace)
       setUrl(aux.url)
+      setImageOriginal(aux.images)
     }
   }, [idEvento])
 
@@ -86,6 +93,27 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     }
   }
 
+  const handleSubmitEnlace = async (event) => {
+    event.preventDefault()
+
+    try {
+        const enlaceModificar = {
+          enlace,
+          id: idEvento
+        }
+
+        putEnlaceEvento(enlaceModificar)
+        setExito('Modificado con éxito')
+        setTimeout(() => {
+          setExito('')
+        }, 4000)
+ 
+    } catch (error) {
+      setExito('Error al realizar la subida')
+      console.error(error)
+    }
+  }
+
   const handleSubmitUrl = async (event) => {
     event.preventDefault()
 
@@ -101,6 +129,48 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
           setExito('')
         }, 4000)
  
+    } catch (error) {
+      setExito('Error al realizar la subida')
+      console.error(error)
+    }
+  }
+
+  const handleSubmitDeleteImage = async (event) => {
+    event.preventDefault()
+
+    try {
+        const eventoModificar = {
+          image: nombreImage,
+          id: idEvento
+        }
+
+        deleteImageEvento(eventoModificar)
+        setExito('Modificado con éxito')
+        setTimeout(() => {
+          setExito('')
+        }, 4000)
+
+    } catch (error) {
+      setExito('Error al realizar la subida')
+      console.error(error)
+    }
+  }
+
+  const handleSubmitUploadImage = async (event) => {
+    event.preventDefault()
+
+    try {
+        const eventoModificar = {
+          image: nuevaImage,
+          id: idEvento
+        }
+
+        uploadImageEvento(eventoModificar)
+        setExito('Modificado con éxito')
+        setTimeout(() => {
+          setExito('')
+        }, 4000)
+
     } catch (error) {
       setExito('Error al realizar la subida')
       console.error(error)
@@ -168,7 +238,7 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
 
           <form className={styles.mini} onSubmit={handleSubmitNota}>
             <div>
-              <label>Aquí tiene la nota del evento seleccionado, puede modificarla: </label>
+              <label>Aquí tiene el texto/nota del evento seleccionado, puede modificarla: </label>
               <textarea
               type='text'
               cols="50" 
@@ -183,9 +253,26 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
             <button type='submit'>CAMBIAR NOTA</button>
           </form>
 
+          <form className={styles.mini} onSubmit={handleSubmitEnlace}>
+            <div>
+              <label>Aquí tiene el enlace al artículo del evento seleccionado, puede modificarla: </label>
+              <textarea
+              type='text'
+              cols="50" 
+              rows="5"
+              name='enlace'
+              value={enlace}
+              required
+              className={styles.textoAutor}
+              onChange={(event) => setEnlace(event.target.value)}
+              />
+            </div>
+            <button type='submit'>CAMBIAR ENLACE</button>
+          </form>
+
           <form className={styles.mini} onSubmit={handleSubmitUrl}>
             <div>
-              <label>Aquí tiene la url del evento seleccionado, puede modificarla: </label>
+              <label>Aquí tiene la url de youtube del evento seleccionado, puede modificarla: </label>
               <textarea
               type='text'
               cols="50" 
@@ -198,6 +285,46 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
               />
             </div>
             <button type='submit'>CAMBIAR URL</button>
+          </form>
+
+          <label>Eliminar una imagen del evento seleccionado.</label>
+          <label>Imagenes actuales:</label>
+            <form>
+              <label className={styles.selector}>
+                { imageOriginal.map(image => (
+                  <label className={styles.serie} key={image}>
+                    <article>
+                      <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                    </article>
+                    <input
+                      type='radio'
+                      name='nombreImage'
+                      value={image}
+                      required
+                      onChange={(event) => setNombreImage(event.target.value)}
+                    />
+                  </label>
+                ))}
+              </label>
+            </form>
+            { nombreImage !== '' ?
+                <form className={styles.mini} onSubmit={handleSubmitDeleteImage} encType="multipart/form-data">
+                  <label className={styles.error}>Para eliminar la imagen seleccionada, pulse eliminar:</label>
+                  <button type='submit' className={styles.error}>ELIMINAR</button>  
+                </form>
+              : ''
+            }
+            <form onSubmit={handleSubmitUploadImage} encType="multipart/form-data">
+            <label>Añadir una imagen nueva del evento:</label>
+            <input
+              type='file'
+              name='image'
+              required
+              accept="image/jpeg"
+              onChange={(event) => setNuevaImage(event.target.files[0])}
+            />
+            <p>Solo se aceptan imagenes con extensión .jpg</p>
+            <button type='submit'>AÑADIR IMAGEN</button>  
           </form>
         </div>
         : ''

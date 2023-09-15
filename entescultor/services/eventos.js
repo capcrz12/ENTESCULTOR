@@ -99,6 +99,61 @@ export const putUrlEvento = ({ url, id }) => {
     })
 }
 
+export const putEnlaceEvento = ({ enlace, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/eventos/enlace/${id}`, { enlace }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export const deleteImageEvento = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/eventos/deleteImage/${id}`, { image }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export const uploadImageEvento = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/eventos/uploadImage/${id}`, { image }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
 export const deleteEvento = ({ id }) => {
 
   token = getToken()
