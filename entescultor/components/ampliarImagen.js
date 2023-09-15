@@ -9,14 +9,6 @@ import styles from '@/styles/obras.module.css'
 
 export default function AmpliarImagen ({ obra }) {
 
-  let urls = []
-
-  useEffect(() => {
-    obra.images.map(imagen => {
-      urls.push (`http://localhost:3001${imagen}`)
-    })
-  }, [])
-
   const settings = {
     dots: true,
     infinite: false,
@@ -42,7 +34,7 @@ export default function AmpliarImagen ({ obra }) {
     <Slider {...settings} className={styles.carrusel}>
       {obra.images.map(image => (
         <div key={image}>
-          <RViewer options={options} imageUrls={urls}>
+          <RViewer options={options} imageUrls={`http://localhost:3001${image}`}>
             <RViewerTrigger >
               <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
             </RViewerTrigger>
