@@ -1,0 +1,116 @@
+.seccion {
+  color: #ffffff;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 50px;
+}
+
+.fecha {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.texto {
+  margin: 20px;
+  padding: 20px;
+  text-align: justify;
+  font-size: 25px;
+}
+
+.completo {
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  
+  height: 65vh;
+}
+
+.completo::-webkit-scrollbar {
+  width: 0;
+}
+
+
+.imagenes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrusel {
+  height: 100%;
+  width: 60%;
+}
+
+.carrusel > div {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.image {
+  border-radius: 28px;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 1);
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 10%;
+
+  max-width: 30vw;
+  max-height: 70vh;
+  image-rendering: auto;
+  aspect-ratio: auto;
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .title {
+    font-size: 3vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .fecha {
+    font-size: 2vh;
+  }
+  
+  .nota {
+    font-size: 2vh;
+  }
+    
+  .video {
+    width: 80vw;
+    height: 30vh;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .title {
+    font-size: 3vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .fecha {
+    font-size: 2svw;
+  }
+  
+  .nota {
+    font-size: 2vw;
+  }
+    
+  .video {
+    width: 50vw;
+    height: 80vh;
+  }
+}

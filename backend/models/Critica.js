@@ -3,7 +3,8 @@ const {model, Schema} = require('mongoose')
 const criticasSchema = new Schema({
   autor: String,
   fecha: String,
-  texto: String
+  texto: String,
+  images: [String]
 })
 
 // Transformamos el toJSON para poder quitar _id y __v

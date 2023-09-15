@@ -1,7 +1,21 @@
 const criticasRouter = require('express').Router()
 const Critica = require('../models/Critica')
 const userExtractor = require('../middlewares/userExtractor')
+const multer = require('multer')
+const deleteImage = require('./deleteImage')
 
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './images/criticas')
+  },
+  filename : (req, file, cb) => {
+    cb(null, file.originalname.replace(/ /g, "_"))
+  }
+})
+
+const upload = multer({ storage })
 
 criticasRouter.get('/', async (request, response, next) => {
   try {
@@ -72,14 +86,23 @@ criticasRouter.delete('/:id', userExtractor, async (request, response, next) => 
   } catch (err) { next(err)}
 })
 
-criticasRouter.post('/', userExtractor, async (request, response, next) => {
+criticasRouter.post('/', userExtractor, upload.array('images[]'), async (request, response, next) => {
   try {
     const critica = request.body
+
+    const numImages = request.files.length
+
+    let urlImages = []
+
+    for (let i = 0; i < numImages; i++) {
+      urlImages.push(`/images/criticas/${request.files[i].originalname.replace(/ /g, "_")}`)
+    }
 
     const newCritica = new Critica({
       autor: critica.autor,
       fecha: critica.fecha,
-      texto: critica.texto
+      texto: critica.texto,
+      images: urlImages
     })
 
     const savedCritica = await newCritica.save()

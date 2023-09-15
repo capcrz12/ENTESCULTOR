@@ -8,18 +8,19 @@ export const getAllCriticas = () => {
     .then(res => res.json())
 }
 
-export const createCritica = ({ autor, fecha, texto }) => {
+export const createCritica = ({ autor, fecha, texto, images }) => {
 
   token = getToken()
   
   const config = {
     headers: {
       Authorization: token,
+      'Content-Type': 'multipart/form-data'
     }
   }
 
   axios
-    .post('http://localhost:3001/api/criticas', { autor, fecha, texto }, config)
+    .post('http://localhost:3001/api/criticas', { autor, fecha, texto, images }, config)
     .then((response) => {
       const { data } = response
       return data
