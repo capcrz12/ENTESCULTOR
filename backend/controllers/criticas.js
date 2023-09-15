@@ -77,8 +77,72 @@ criticasRouter.put('/texto/:id', userExtractor, async (request, response, next) 
   } catch (err) { next(err)}
 })
 
+criticasRouter.put('/deleteImage/:id', userExtractor, async (request, response, next) => {
+  const { id } = request.params
+  const cuerpo = request.body
+
+  const criticaActual = await Critica.findById(id)
+
+  let masCriticas = await Critica.find({images : { $all: [cuerpo.image] }})
+
+  // Si masCriticas solo contiene una critica es porque solo se ha encontrado la critica
+  // que queremos borrar, y por tanto la imagen no se usa en otras critica
+  if (masCriticas.length === 1) {
+    deleteImage(`.${cuerpo.image}`)
+  }
+
+  let imagenes = criticaActual.images
+
+  imagenes = imagenes.filter((imagen) => imagen !== cuerpo.image)
+
+  const newCriticaInfo = {
+    images: imagenes,
+  }
+
+  try {
+    const result = await Critica.findByIdAndUpdate(id, newCriticaInfo, { new: true })
+
+    response.json(result)
+  } catch(err) { next(err)}
+})
+
+criticasRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+  const { id } = request.params
+  const cuerpo = request.body
+
+  const criticaActual = await Critica.findById(id)
+
+  let imagenes = criticaActual.images
+
+  imagenes.push(`/images/criticas/${request.file.originalname.replace(/ /g, "_")}`)
+
+  const newCriticaInfo = {
+    images: imagenes
+  }
+
+  try {
+    const result = await Critica.findByIdAndUpdate(id, newCriticaInfo, { new: true })
+
+    response.json(result)
+  } catch(err) { next(err)}
+})
+
 criticasRouter.delete('/:id', userExtractor, async (request, response, next) => {
   const { id } = request.params
+
+  let critica = await Critica.findById(id)
+
+  for (let i = 0; i < critica.images.length; i++) {
+    const url = `.${critica.images[i]}`
+
+    let masCriticas = await Critica.find({images : { $all: [critica.images[i]] }})
+
+    // Si masCriticas solo contiene una critica es porque solo se ha encontrado la critica
+    // que queremos borrar, y por tanto la imagen no se usa en otras criticas
+    if (masCriticas.length === 1) {
+      deleteImage(url)
+    }
+  }
 
   try {
     await Critica.findByIdAndDelete(id)

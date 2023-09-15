@@ -21,11 +21,24 @@
 }
 
 .child::-webkit-scrollbar {
-  width: 0;
+    -webkit-appearance: none;
 }
 
-.scroll::-webkit-scrollbar {
-  width: 0;
+.child::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.child::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.child::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.child::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
 }
 
 .contenedor {

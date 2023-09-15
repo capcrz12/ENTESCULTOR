@@ -9,6 +9,7 @@ export default function EliminarCriticaForm ({ handleEliminarCritica, setExito, 
   const [autor, setAutor] = useState('')
   const [fecha, setFecha] = useState('')
   const [texto, setTexto] = useState('')
+  const [images, setImages] = useState([])
 
   useEffect (() => {
     const aux = criticas.find((criticas) => criticas.id === idCritica)
@@ -17,6 +18,7 @@ export default function EliminarCriticaForm ({ handleEliminarCritica, setExito, 
       setAutor(aux.autor)
       setFecha(aux.fecha)
       setTexto(aux.texto)
+      setImages(aux.images)
     }
   }, [idCritica])
 
@@ -69,6 +71,15 @@ export default function EliminarCriticaForm ({ handleEliminarCritica, setExito, 
           <label><strong>{autor}</strong></label>
           <label>{fecha}</label>
           <label>{texto}</label>
+          <label className={styles.selector}>
+                { images.map(image => (
+                  <label className={styles.serie} key={image}>
+                    <article>
+                      <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                    </article>
+                  </label>
+                ))}
+              </label>
         <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
       </form>
         :

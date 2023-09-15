@@ -81,6 +81,43 @@ export const putTextoCritica = ({ texto, id }) => {
     })
 }
 
+export const deleteImageCritica = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/criticas/deleteImage/${id}`, { image }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export const uploadImageCritica = ({ image, id }) => {
+
+  token = getToken()
+
+  const config = {
+    headers: {
+      Authorization: token,
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+
+  axios
+    .put(`http://localhost:3001/api/criticas/uploadImage/${id}`, { image }, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
 export const deleteCritica = ({ id }) => {
 
   token = getToken()

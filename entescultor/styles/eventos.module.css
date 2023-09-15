@@ -34,7 +34,24 @@
 }
 
 .completo::-webkit-scrollbar {
-  width: 0;
+  -webkit-appearance: none;
+}
+
+.completo::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.completo::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.completo::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.completo::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
 }
 
 .divVideo {

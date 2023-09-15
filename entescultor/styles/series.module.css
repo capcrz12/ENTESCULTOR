@@ -4,7 +4,7 @@
     justify-content: center;  
 
     width: 50vw;
-    height: 900px;
+    height: 97vh;
 
     position: fixed;
     right: 100px;
@@ -13,26 +13,39 @@
 }
 
 .child {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 1050px;
-    height: 900px;
-    overflow: scroll;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    scroll-behavior: smooth;    
-    scroll-snap-type: y mandatory;
-    gap: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  height: 97vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  scroll-behavior: smooth;    
+  scroll-snap-type: y mandatory;
+  gap: 1000px;
 }
 
 .child::-webkit-scrollbar {
-    width: 0;
-  }
+  -webkit-appearance: none;
+}
 
-.scroll::-webkit-scrollbar {
-    width: 0;
-  }
+.child::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.child::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.child::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.child::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+}
 
 .image {
   max-height: 60vh;
