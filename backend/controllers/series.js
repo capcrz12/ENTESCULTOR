@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     cb(null, './images/series')
   },
   filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, "_"))
+    cb(null, file.originalname.replace(/ /g, '_'))
   }
 })
 
@@ -35,7 +35,7 @@ seriesRouter.post('/', userExtractor, upload.single('image'), async (request, re
 
     const newSerie = new Serie({
       name: serie.name,
-      image: `/images/series/${request.file.originalname.replace(/ /g, "_")}`
+      image: `/images/series/${request.file.originalname.replace(/ /g, '_')}`
     })
 
     const savedSerie = await newSerie.save()

@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { login } from '@/services/login'
 import { setToken } from '@/services/token'
 import LoginForm from '@/components/loginForm'
@@ -66,14 +66,14 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
         {
           usuario
             ? <Gestion 
-                handleLogout={handleLogout} 
-                series={series}
-                obras={obras} 
-                autor={autor} 
-                articulos={articulos} 
-                eventos={eventos} 
-                criticas={criticas} 
-              />
+              handleLogout={handleLogout} 
+              series={series}
+              obras={obras} 
+              autor={autor} 
+              articulos={articulos} 
+              eventos={eventos} 
+              criticas={criticas} 
+            />
 
             : <div>
               <h2>IDENTIFICACIÓN</h2>
@@ -85,7 +85,7 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
                 setPassword={setPassword}
                 error={error}
               />
-              </div>
+            </div>
         }
       </div>
     </div>

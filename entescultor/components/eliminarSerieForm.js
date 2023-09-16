@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { deleteSerie } from '@/services/series'
 
 export default function EliminarSerieForm ({ handleEliminarSerie, setExito, series }) {
@@ -42,8 +42,8 @@ export default function EliminarSerieForm ({ handleEliminarSerie, setExito, seri
       <h1>ELIMINAR SERIE</h1>
       <form>
         <div>
-            <label className={styles.title}>Seleccione la serie a eliminar:</label>
-            <label className={styles.selector}>
+          <label className={styles.title}>Seleccione la serie a eliminar:</label>
+          <label className={styles.selector}>
             {series.map(serie => (
               <label className={styles.serie} key={serie.id}>
                 <article>
@@ -61,24 +61,24 @@ export default function EliminarSerieForm ({ handleEliminarSerie, setExito, seri
                 />
               </label>
             ))}
-              </label>
-          </div>
-        </form>
+          </label>
+        </div>
+      </form>
 
       {
         idSerie !== '' ?
-      <form className={styles.mini} onSubmit={handleSubmit}>
-        <h3 className={styles.error}>SERIE QUE VA A ELIMINAR</h3>
-        <div>
-          <label>{nombreSerie}</label>
-        </div>
-        <div>
-        <label><img alt='No disponible' src={`http://localhost:3001${series.find((series) => series.id === idSerie).image}`} className={styles.image} /></label>
-        </div>
-        <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
-      </form>
-        :
-        ''
+          <form className={styles.mini} onSubmit={handleSubmit}>
+            <h3 className={styles.error}>SERIE QUE VA A ELIMINAR</h3>
+            <div>
+              <label>{nombreSerie}</label>
+            </div>
+            <div>
+              <label><img alt='No disponible' src={`http://localhost:3001${series.find((series) => series.id === idSerie).image}`} className={styles.image} /></label>
+            </div>
+            <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
+          </form>
+          :
+          ''
       }
     </div>
   )

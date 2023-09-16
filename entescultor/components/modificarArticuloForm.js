@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { putTitleArticulo, putFechaArticulo, putTextoArticulo, putUrlArticulo, putImageArticulo } from '@/services/articulos'
 
 
@@ -32,16 +32,16 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
     event.preventDefault()
 
     try {
-        const tituloModificar = {
-          title,
-          id: idArticulo
-        }
+      const tituloModificar = {
+        title,
+        id: idArticulo
+      }
 
-        putTitleArticulo(tituloModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putTitleArticulo(tituloModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -53,16 +53,16 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
     event.preventDefault()
 
     try {
-        const fechaModificar = {
-          fecha,
-          id: idArticulo
-        }
+      const fechaModificar = {
+        fecha,
+        id: idArticulo
+      }
 
-        putFechaArticulo(fechaModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putFechaArticulo(fechaModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -74,16 +74,16 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
     event.preventDefault()
 
     try {
-        const textoModificar = {
-          texto,
-          id: idArticulo
-        }
+      const textoModificar = {
+        texto,
+        id: idArticulo
+      }
 
-        putTextoArticulo(textoModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putTextoArticulo(textoModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -95,16 +95,16 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
     event.preventDefault()
 
     try {
-        const urlModificar = {
-          url,
-          id: idArticulo
-        }
+      const urlModificar = {
+        url,
+        id: idArticulo
+      }
 
-        putUrlArticulo(urlModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putUrlArticulo(urlModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -116,16 +116,16 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
     event.preventDefault()
 
     try {
-        const articuloModificar = {
-          image,
-          id: idArticulo
-        }
+      const articuloModificar = {
+        image,
+        id: idArticulo
+      }
 
-        putImageArticulo(articuloModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putImageArticulo(articuloModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
 
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -138,100 +138,100 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
       <button className={styles.cerrar} onClick={handleModificarArticulo}>Cerrar</button>
       <h1>MODIFICAR ARTÍCULO</h1>
       <form>
-      <div>
-        <label>Seleccione el artículo a modificar:</label>
-        <select
-          name='articulo'
-          value={idArticulo}
-          required
-          onChange={(event) => setIdArticulo(event.target.value)}>
-          <option value='' disabled>Seleccione el artículo</option>
-          {articulos.map(articulo => (
-          <option key={articulo.id} value={articulo.id}>
-            {articulo.title}
-          </option>
-        ))}
-        </select>
-      </div>
+        <div>
+          <label>Seleccione el artículo a modificar:</label>
+          <select
+            name='articulo'
+            value={idArticulo}
+            required
+            onChange={(event) => setIdArticulo(event.target.value)}>
+            <option value='' disabled>Seleccione el artículo</option>
+            {articulos.map(articulo => (
+              <option key={articulo.id} value={articulo.id}>
+                {articulo.title}
+              </option>
+            ))}
+          </select>
+        </div>
       </form>
 
       {
         idArticulo !== '' ?
-        <div>
-          <form className={styles.mini} onSubmit={handleSubmitTitle}>
-            <div>
-              <label>Aquí tiene el título del artículo seleccionado, puede modificarlo: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="4"
-              name='title'
-              value={title}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setTitle(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR TITULO</button>
-          </form>
+          <div>
+            <form className={styles.mini} onSubmit={handleSubmitTitle}>
+              <div>
+                <label>Aquí tiene el título del artículo seleccionado, puede modificarlo: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="4"
+                  name='title'
+                  value={title}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR TITULO</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitFecha}>
-            <div>
-              <label>Aquí tiene la fecha del artículo seleccionado, puede modificarla: </label>
-              <textarea
-              type='text'
-              cols="20" 
-              rows="1"
-              name='fecha'
-              value={fecha}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setFecha(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR FECHA</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitFecha}>
+              <div>
+                <label>Aquí tiene la fecha del artículo seleccionado, puede modificarla: </label>
+                <textarea
+                  type='text'
+                  cols="20" 
+                  rows="1"
+                  name='fecha'
+                  value={fecha}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setFecha(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR FECHA</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitTexto}>
-            <div>
-              <label>Aquí tiene el texto del artículo seleccionado, puede modificarlo: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="30"
-              name='texto'
-              value={texto}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setTexto(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR TEXTO</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitTexto}>
+              <div>
+                <label>Aquí tiene el texto del artículo seleccionado, puede modificarlo: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="30"
+                  name='texto'
+                  value={texto}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setTexto(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR TEXTO</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitUrl}>
-            <div>
-              <label>Aquí tiene la url del artículo seleccionado, puede modificarlo: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="5"
-              name='url'
-              value={url}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setUrl(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR URL</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitUrl}>
+              <div>
+                <label>Aquí tiene la url del artículo seleccionado, puede modificarlo: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="5"
+                  name='url'
+                  value={url}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setUrl(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR URL</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitImage} encType="multipart/form-data">
-            <label>Imagen actual:</label>
-            <div>
-              <img alt='No tiene o no está disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
-            </div>
-            <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva (se borrará la antigua):</label>
+            <form className={styles.mini} onSubmit={handleSubmitImage} encType="multipart/form-data">
+              <label>Imagen actual:</label>
+              <div>
+                <img alt='No tiene o no está disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
+              </div>
+              <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva (se borrará la antigua):</label>
               <input
                 type='file'
                 name='image'
@@ -239,11 +239,11 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
                 accept="image/jpeg"
                 onChange={(event) => setImage(event.target.files[0])}
               />
-            <p>Solo se aceptan imagenes con extensión .jpg</p>
-            <button type='submit'>CAMBIAR</button>  
-          </form>
-        </div>
-        : ''
+              <p>Solo se aceptan imagenes con extensión .jpg</p>
+              <button type='submit'>CAMBIAR</button>  
+            </form>
+          </div>
+          : ''
       }
     </div>
   )

@@ -4,14 +4,13 @@ const Serie = require('../models/Serie')
 const userExtractor = require('../middlewares/userExtractor')
 const multer = require('multer')
 const deleteImage = require('./deleteImage')
-const renameImage = require('./renameImage')
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, './images/obras')
   },
   filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, "_"))
+    cb(null, file.originalname.replace(/ /g, '_'))
   }
 })
 
@@ -188,13 +187,12 @@ obrasRouter.put('/deleteImage/:id', userExtractor, async (request, response, nex
 
 obrasRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
   const { id } = request.params
-  const cuerpo = request.body
 
   const obraActual = await Obra.findById(id)
 
   let imagenes = obraActual.images
 
-  imagenes.push(`/images/obras/${request.file.originalname.replace(/ /g, "_")}`)
+  imagenes.push(`/images/obras/${request.file.originalname.replace(/ /g, '_')}`)
 
   const newObraInfo = {
     images: imagenes
@@ -260,7 +258,7 @@ obrasRouter.post('/', userExtractor, upload.array('images[]'), async (request, r
     let urlImages = []
 
     for (let i = 0; i < numImages; i++) {
-      urlImages.push(`/images/obras/${request.files[i].originalname.replace(/ /g, "_")}`)
+      urlImages.push(`/images/obras/${request.files[i].originalname.replace(/ /g, '_')}`)
     }
 
     // Buscamos la serie a la que pertenece

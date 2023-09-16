@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '@/styles/seccion.module.css'
 
 export function Seccion ({ titulo, info }) {

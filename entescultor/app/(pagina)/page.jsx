@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '@/styles/seccion.module.css'
 import Carrusel from '@/components/carrusel'
 import { getAllObras } from '@/services/obras'

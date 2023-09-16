@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createCritica } from '@/services/criticas'
 
 export default function AnadirCriticaForm ({ handleAnadirCritica, setExito }) {

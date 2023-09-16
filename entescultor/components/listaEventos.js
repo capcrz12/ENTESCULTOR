@@ -1,3 +1,4 @@
+import React from 'react'
 import PlayerEventos from './playerEventos'
 import { getAllEventos } from '@/services/eventos'
 

@@ -1,4 +1,5 @@
 import styles from '@/styles/gestion.module.css'
+import React from 'react'
 
 export default function LoginForm ({ handleLogin, nombreUsuario, setNombreUsuario, password, setPassword, error }) {
   return (

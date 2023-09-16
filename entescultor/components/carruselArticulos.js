@@ -40,13 +40,13 @@ export default function CarruselArticulos ({ articulos }) {
             <div className={styles.texto}>{articulo.texto}</div>
             {
               articulo.image !== ''
-              ?
-              <RViewer options={options} imageUrls={`http://localhost:3001${articulo.image}`}>
-                <RViewerTrigger>
-                <img alt='No disponible' src={`http://localhost:3001${articulo.image}`} className={styles.image} />
-                </RViewerTrigger>
-              </RViewer>
-              : ''
+                ?
+                <RViewer options={options} imageUrls={`http://localhost:3001${articulo.image}`}>
+                  <RViewerTrigger>
+                    <img alt='No disponible' src={`http://localhost:3001${articulo.image}`} className={styles.image} />
+                  </RViewerTrigger>
+                </RViewer>
+                : ''
             }
             <Link className={styles.enlace} href={articulo.url} target='_blank'>- Enlace al artículo -</Link>
           </div>

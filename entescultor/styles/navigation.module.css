@@ -41,9 +41,19 @@
         list-style: none;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         flex-direction: row;
         gap: 5vw;
-        font-size: 25px;
+        font-size: 1.5vw;
+        width: 30vw;
+
+        position: fixed;
+        left: 0;
+        margin-top: 2vh;
+        margin-left: 0;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        overflow-x: auto;
     }
     
     /* Sirve para corregir el menu para laptop debido al useState, debe ser igual a navigationLat*/
@@ -51,40 +61,99 @@
         list-style: none;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         flex-direction: row;
         gap: 5vw;
-        font-size: 25px;
+        font-size: 1.5vw;
+        width: 40vw;
+
+        position: fixed;
+        left: 0;
+        margin-top: 2vh;
+        margin-left: 0;
+        padding-left: 0;
+        overflow-x: auto;
     }
     
     .navigationLatD {
         list-style: none;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         flex-direction: row;
         gap: 5vw;
-        font-size: 25px;
+        font-size: 1.5vw;
+        width: 30vw;
+
+        position: fixed;
+        right: 0;
+        margin-top: 2vh;
+        margin-right: 0;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        overflow-x: auto;
     }
     
     .showD {
         list-style: none;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         flex-direction: row;
         gap: 5vw;
-        font-size: 25px;
+        font-size: 1.5vw;
+        width: 40vw;
+
+        position: fixed;
+        right: 0;
+        margin-top: 2vh;
+        margin-right: 0;
+        overflow-x: auto;
     }
     
     .navigation a:hover {
         color: red;
     }
 
+    .navigationLatI::-webkit-scrollbar,.navigationLatD::-webkit-scrollbar, .showI::-webkit-scrollbar, .showD::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+      
+      .navigationLatI::-webkit-scrollbar:vertical,.navigationLatD::-webkit-scrollbar:vertical, .showI::-webkit-scrollbar:vertical, .showD::-webkit-scrollbar:vertical {
+        width:10px;
+      }
+      
+      .navigationLatI::-webkit-scrollbar-button:increment,.navigationLatI::-webkit-scrollbar-button, .navigationLatD::-webkit-scrollbar-button:increment,.navigationLatD::-webkit-scrollbar-button, .showI::-webkit-scrollbar-button:increment,.showI::-webkit-scrollbar-button, .showD::-webkit-scrollbar-button:increment,.showD::-webkit-scrollbar-button {
+        display: none;
+      } 
+      
+      .navigationLatI::-webkit-scrollbar:horizontal, .navigationLatD::-webkit-scrollbar:horizontal, .showI::-webkit-scrollbar:horizontal, .showD::-webkit-scrollbar:horizontal {
+        height: 10px;
+      }
+      
+      .navigationLatI::-webkit-scrollbar-thumb,.navigationLatD::-webkit-scrollbar-thumb, .showI::-webkit-scrollbar-thumb, .showD::-webkit-scrollbar-thumb {
+        background-color: #797979;
+        border-radius: 20px;
+      }
+
 
     .entescultor {
+        position: fixed;
+        left: 39vw;
+        width: 20vw;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2vh;
+        padding-left: 0;
+        padding-right: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         color: #FFF;
         text-align: center;
         font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
         font-family: Arimo;
-        font-size: 30px;
+        font-size: 1.75vw;
         font-style: normal;
         font-weight: 400;
         line-height: 20px; /* 80% */

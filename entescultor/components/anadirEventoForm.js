@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createEvento } from '@/services/eventos'
 
 export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
@@ -64,7 +64,7 @@ export default function AnadirEventoForm ({ handleAnadirEvento, setExito }) {
         />
       </div>
       <div>
-        <label>Nota/Texto del Evento (ej: En julio de 2021 se inaugura la exposición \"Fragmentos\", le presentamos el vídeo )</label>
+        <label>Nota/Texto del Evento (ej: En julio de 2021 se inaugura la exposición Fragmentos, le presentamos el vídeo )</label>
         <textarea
           type='text'
           cols="50" 

@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '@/styles/obras.module.css'
 import AmpliarImagen from './ampliarImagen'
 import { getObrasBySerie } from '@/services/obras'

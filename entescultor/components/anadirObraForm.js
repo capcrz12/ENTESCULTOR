@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createObra } from '@/services/obras'
 
 export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
@@ -12,7 +12,6 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
   const [alto, setAlto] = useState('')
   const [serie, setSerie] = useState('')
   const [images, setImages] = useState([])
-  const [error, setError] = useState('')
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -105,10 +104,10 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
           onChange={(event) => setSerie(event.target.value)}>
           <option value='' disabled>Seleccione la serie</option>
           {series.map(serie => (
-          <option key={serie.id} value={serie.id}>
-            {serie.name}
-          </option>
-        ))}
+            <option key={serie.id} value={serie.id}>
+              {serie.name}
+            </option>
+          ))}
         </select>
       </div>
       <div>
@@ -124,9 +123,6 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
         <p>Solo se aceptan imagenes con extensión .jpg</p>
       </div>
       <button type='submit'>Añadir</button>
-      <div className={styles.error}>
-        {error || ''}
-      </div>
     </form>
   )
 }

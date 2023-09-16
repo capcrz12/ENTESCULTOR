@@ -21,6 +21,6 @@
     "react-viewerjs": "0.1.9",
     "reactstrap": "9.2.0",
     "slick-carousel": "1.8.1",
-    "viewerjs": "^1.11.5"
+    "viewerjs": "1.11.5"
   }
 }

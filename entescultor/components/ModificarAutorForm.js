@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { putAutor, putImageAutor } from '@/services/autor'
 
 
@@ -24,18 +24,18 @@ export default function ModificarAutorForm ({ handleModificarAutor, setExito, au
     event.preventDefault()
 
     try {
-        const textoModificar = {
-          texto,
-          id: idAutor
-        }
+      const textoModificar = {
+        texto,
+        id: idAutor
+      }
 
-        putAutor(textoModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putAutor(textoModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
 
-        handleModificarAutor()
+      handleModificarAutor()
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -71,38 +71,38 @@ export default function ModificarAutorForm ({ handleModificarAutor, setExito, au
         <div>
           <label>Aquí tiene el texto de Autor, puede modificarlo: </label>
           <textarea
-          type='text'
-          cols="50" 
-          rows="30"
-          name='texto'
-          value={texto}
-          required
-          className={styles.textoAutor}
-          onChange={(event) => setTexto(event.target.value)}
+            type='text'
+            cols="50" 
+            rows="30"
+            name='texto'
+            value={texto}
+            required
+            className={styles.textoAutor}
+            onChange={(event) => setTexto(event.target.value)}
           />
         </div>
         <button type='submit'>CAMBIAR TEXTO</button>
       </form>
 
       <form className={styles.mini} onSubmit={handleSubmitImage} encType="multipart/form-data">
-      <label>Imagen del autor actual:</label>
-      <div>
-      <img alt='No disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
-      </div>
-      <label>Cambiar imagen de autor actual:</label>
-      <input
-        type='file'
-        name='image'
-        required
-        accept="image/jpeg"
-        onChange={(event) => setImage(event.target.files[0])}
-      />
-      <p>Solo se aceptan imagenes con extensión .jpg</p>
-      <div>   
-        <p>¡ATENCION! Recuerde que esto sustituirá la imagen actual de "Autor", si existe</p>
-      </div>
-      <button type='submit'>AÑADIR IMAGEN ( y sustituir la anterior )</button>
-    </form>
+        <label>Imagen del autor actual:</label>
+        <div>
+          <img alt='No disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
+        </div>
+        <label>Cambiar imagen de autor actual:</label>
+        <input
+          type='file'
+          name='image'
+          required
+          accept="image/jpeg"
+          onChange={(event) => setImage(event.target.files[0])}
+        />
+        <p>Solo se aceptan imagenes con extensión .jpg</p>
+        <div>   
+          <p>¡ATENCION! Recuerde que esto sustituirá la imagen actual de Autor, si existe</p>
+        </div>
+        <button type='submit'>AÑADIR IMAGEN ( y sustituir la anterior )</button>
+      </form>
     </div>
   )
 }

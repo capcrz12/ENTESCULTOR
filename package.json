@@ -13,8 +13,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "./node_modules/standard/eslintrc.json",
-      "next/core-web-vitals"
+      "./node_modules/standard/eslintrc.json"
     ],
     "rules": {
       "indent": [
@@ -24,12 +23,14 @@
     }
   },
   "devDependencies": {
+    "eslint": "8.49.0",
+    "eslint-plugin-react": "7.33.2",
     "standard": "17.1.0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-viewer": "^3.2.2"
+    "react-viewer": "3.2.2"
   }
 }

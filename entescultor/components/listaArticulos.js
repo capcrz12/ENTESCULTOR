@@ -1,3 +1,4 @@
+import React from 'react'
 import CarruselArticulos from './carruselArticulos'
 import { getAllArticulos } from '@/services/articulos'
 

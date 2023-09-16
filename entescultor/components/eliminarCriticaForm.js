@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { deleteCritica } from '@/services/criticas'
 
 export default function EliminarCriticaForm ({ handleEliminarCritica, setExito, criticas }) {
@@ -56,34 +56,34 @@ export default function EliminarCriticaForm ({ handleEliminarCritica, setExito, 
             onChange={(event) => setIdCritica(event.target.value)}>
             <option value='' disabled>Seleccione la crítica</option>
             {criticas.map(critica => (
-            <option key={critica.id} value={critica.id}>
-              {critica.autor} {critica.fecha}
-            </option>
-          ))}
+              <option key={critica.id} value={critica.id}>
+                {critica.autor} {critica.fecha}
+              </option>
+            ))}
           </select>
         </div>
       </form>
 
       {
         idCritica !== '' ?
-      <form className={styles.mini} onSubmit={handleSubmit}>
-        <h3 className={styles.error}>CRITICA QUE VA A ELIMINAR</h3>
-          <label><strong>{autor}</strong></label>
-          <label>{fecha}</label>
-          <label>{texto}</label>
-          <label className={styles.selector}>
-                { images.map(image => (
-                  <label className={styles.serie} key={image}>
-                    <article>
-                      <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
-                    </article>
-                  </label>
-                ))}
-              </label>
-        <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
-      </form>
-        :
-        ''
+          <form className={styles.mini} onSubmit={handleSubmit}>
+            <h3 className={styles.error}>CRITICA QUE VA A ELIMINAR</h3>
+            <label><strong>{autor}</strong></label>
+            <label>{fecha}</label>
+            <label>{texto}</label>
+            <label className={styles.selector}>
+              { images.map(image => (
+                <label className={styles.serie} key={image}>
+                  <article>
+                    <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                  </article>
+                </label>
+              ))}
+            </label>
+            <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
+          </form>
+          :
+          ''
       }
     </div>
   )

@@ -4,9 +4,9 @@ import Link from 'next/link'
 import styles from '@/styles/navigation.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-const linksIzda = [
+const links = [
   {
     label: 'Inicio',
     route: '/'
@@ -18,10 +18,7 @@ const linksIzda = [
   {
     label: 'Autor',
     route: '/autor'
-  }
-]
-
-const linksDcha = [
+  },
   {
     label: 'Articulos',
     route: '/articulos'
@@ -43,7 +40,7 @@ export function Navigation () {
       <nav className={styles.navigation}>
         <FontAwesomeIcon className={styles.hamburguesa} icon={faBars} onClick={() => setActive(!active)} />
         <ul className={`${active ? styles.navigationLatI : styles.showI}`}>
-          {linksIzda.map(({ label, route }) => (
+          {links.slice(0,links.length/2).map(({ label, route }) => (
             <li key={route}>
               <Link href={route} onClick={() => setActive(!active)}>
                 {label}
@@ -53,7 +50,7 @@ export function Navigation () {
         </ul>
         <ul className={styles.entescultor}>ENTESCULTOR</ul>
         <ul className={`${active ? styles.navigationLatD : styles.showD}`}>
-          {linksDcha.map(({ label, route }) => (
+          {links.slice(-links.length/2).map(({ label, route }) => (
             <li key={route}>
               <Link href={route} onClick={() => setActive(!active)}>
                 {label}

@@ -1,3 +1,4 @@
+import React from 'react'
 import CarruselCriticas from './carruselCriticas'
 import { getAllCriticas } from '@/services/criticas'
 

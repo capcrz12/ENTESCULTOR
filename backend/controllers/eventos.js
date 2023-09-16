@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     cb(null, './images/eventos')
   },
   filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, "_"))
+    cb(null, file.originalname.replace(/ /g, '_'))
   }
 })
 
@@ -136,13 +136,12 @@ eventosRouter.put('/deleteImage/:id', userExtractor, async (request, response, n
 
 eventosRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
   const { id } = request.params
-  const cuerpo = request.body
 
   const eventoActual = await Evento.findById(id)
 
   let imagenes = eventoActual.images
 
-  imagenes.push(`/images/eventos/${request.file.originalname.replace(/ /g, "_")}`)
+  imagenes.push(`/images/eventos/${request.file.originalname.replace(/ /g, '_')}`)
 
   const newEventoInfo = {
     images: imagenes
@@ -187,7 +186,7 @@ eventosRouter.post('/', userExtractor, upload.array('images[]'), async (request,
     let urlImages = []
 
     for (let i = 0; i < numImages; i++) {
-      urlImages.push(`/images/eventos/${request.files[i].originalname.replace(/ /g, "_")}`)
+      urlImages.push(`/images/eventos/${request.files[i].originalname.replace(/ /g, '_')}`)
     }
 
     const newEvento = new Evento({

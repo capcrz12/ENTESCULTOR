@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createArticulo } from '@/services/articulos'
 
 export default function AnadirArticuloForm ({ handleAnadirArticulo, setExito }) {

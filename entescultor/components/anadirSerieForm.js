@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { createSerie } from '@/services/series'
 
 export default function AnadirSerieForm ({ handleCrearSerie, setExito }) {
@@ -25,7 +25,6 @@ export default function AnadirSerieForm ({ handleCrearSerie, setExito }) {
         }, 4000)
       }
       else {
-        console.error(error)
         setExito('Error al realizar la subida')
       }
 

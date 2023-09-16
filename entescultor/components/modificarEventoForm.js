@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { putTitleEvento, putFechaEvento, putNotaEvento, putEnlaceEvento, putUrlEvento, deleteImageEvento, uploadImageEvento } from '@/services/eventos'
 
 
@@ -34,16 +34,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const tituloModificar = {
-          title,
-          id: idEvento
-        }
+      const tituloModificar = {
+        title,
+        id: idEvento
+      }
 
-        putTitleEvento(tituloModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putTitleEvento(tituloModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -55,16 +55,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const fechaModificar = {
-          fecha,
-          id: idEvento
-        }
+      const fechaModificar = {
+        fecha,
+        id: idEvento
+      }
 
-        putFechaEvento(fechaModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putFechaEvento(fechaModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -76,16 +76,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const notaModificar = {
-          nota,
-          id: idEvento
-        }
+      const notaModificar = {
+        nota,
+        id: idEvento
+      }
 
-        putNotaEvento(notaModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putNotaEvento(notaModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -97,16 +97,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const enlaceModificar = {
-          enlace,
-          id: idEvento
-        }
+      const enlaceModificar = {
+        enlace,
+        id: idEvento
+      }
 
-        putEnlaceEvento(enlaceModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putEnlaceEvento(enlaceModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -118,16 +118,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const urlModificar = {
-          url,
-          id: idEvento
-        }
+      const urlModificar = {
+        url,
+        id: idEvento
+      }
 
-        putUrlEvento(urlModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putUrlEvento(urlModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
  
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -139,16 +139,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const eventoModificar = {
-          image: nombreImage,
-          id: idEvento
-        }
+      const eventoModificar = {
+        image: nombreImage,
+        id: idEvento
+      }
 
-        deleteImageEvento(eventoModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      deleteImageEvento(eventoModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
 
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -160,16 +160,16 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
     event.preventDefault()
 
     try {
-        const eventoModificar = {
-          image: nuevaImage,
-          id: idEvento
-        }
+      const eventoModificar = {
+        image: nuevaImage,
+        id: idEvento
+      }
 
-        uploadImageEvento(eventoModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      uploadImageEvento(eventoModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
 
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -182,113 +182,113 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
       <button className={styles.cerrar} onClick={handleModificarEventos}>Cerrar</button>
       <h1>MODIFICAR EVENTO</h1>
       <form>
-      <div>
-        <label>Seleccione el evento a modificar:</label>
-        <select
-          name='evento'
-          value={idEvento}
-          required
-          onChange={(event) => setIdEvento(event.target.value)}>
-          <option value='' disabled>Seleccione el evento</option>
-          {eventos.map(evento => (
-          <option key={evento.id} value={evento.id}>
-            {evento.title}
-          </option>
-        ))}
-        </select>
-      </div>
+        <div>
+          <label>Seleccione el evento a modificar:</label>
+          <select
+            name='evento'
+            value={idEvento}
+            required
+            onChange={(event) => setIdEvento(event.target.value)}>
+            <option value='' disabled>Seleccione el evento</option>
+            {eventos.map(evento => (
+              <option key={evento.id} value={evento.id}>
+                {evento.title}
+              </option>
+            ))}
+          </select>
+        </div>
       </form>
 
       {
         idEvento !== '' ?
-        <div>
-          <form className={styles.mini} onSubmit={handleSubmitTitle}>
-            <div>
-              <label>Aquí tiene el título del evento seleccionado, puede modificarlo: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="4"
-              name='title'
-              value={title}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setTitle(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR TITULO</button>
-          </form>
+          <div>
+            <form className={styles.mini} onSubmit={handleSubmitTitle}>
+              <div>
+                <label>Aquí tiene el título del evento seleccionado, puede modificarlo: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="4"
+                  name='title'
+                  value={title}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR TITULO</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitFecha}>
-            <div>
-              <label>Aquí tiene la fecha del evento seleccionado, puede modificarla: </label>
-              <textarea
-              type='text'
-              cols="20" 
-              rows="1"
-              name='fecha'
-              value={fecha}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setFecha(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR FECHA</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitFecha}>
+              <div>
+                <label>Aquí tiene la fecha del evento seleccionado, puede modificarla: </label>
+                <textarea
+                  type='text'
+                  cols="20" 
+                  rows="1"
+                  name='fecha'
+                  value={fecha}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setFecha(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR FECHA</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitNota}>
-            <div>
-              <label>Aquí tiene el texto/nota del evento seleccionado, puede modificarla: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="30"
-              name='nota'
-              value={nota}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setNota(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR NOTA</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitNota}>
+              <div>
+                <label>Aquí tiene el texto/nota del evento seleccionado, puede modificarla: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="30"
+                  name='nota'
+                  value={nota}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setNota(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR NOTA</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitEnlace}>
-            <div>
-              <label>Aquí tiene el enlace al artículo del evento seleccionado, puede modificarla: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="5"
-              name='enlace'
-              value={enlace}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setEnlace(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR ENLACE</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitEnlace}>
+              <div>
+                <label>Aquí tiene el enlace al artículo del evento seleccionado, puede modificarla: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="5"
+                  name='enlace'
+                  value={enlace}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setEnlace(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR ENLACE</button>
+            </form>
 
-          <form className={styles.mini} onSubmit={handleSubmitUrl}>
-            <div>
-              <label>Aquí tiene la url de youtube del evento seleccionado, puede modificarla: </label>
-              <textarea
-              type='text'
-              cols="50" 
-              rows="5"
-              name='url'
-              value={url}
-              required
-              className={styles.textoAutor}
-              onChange={(event) => setUrl(event.target.value)}
-              />
-            </div>
-            <button type='submit'>CAMBIAR URL</button>
-          </form>
+            <form className={styles.mini} onSubmit={handleSubmitUrl}>
+              <div>
+                <label>Aquí tiene la url de youtube del evento seleccionado, puede modificarla: </label>
+                <textarea
+                  type='text'
+                  cols="50" 
+                  rows="5"
+                  name='url'
+                  value={url}
+                  required
+                  className={styles.textoAutor}
+                  onChange={(event) => setUrl(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR URL</button>
+            </form>
 
-          <label>Eliminar una imagen del evento seleccionado.</label>
-          <label>Imagenes actuales:</label>
+            <label>Eliminar una imagen del evento seleccionado.</label>
+            <label>Imagenes actuales:</label>
             <form>
               <label className={styles.selector}>
                 { imageOriginal.map(image => (
@@ -308,26 +308,26 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
               </label>
             </form>
             { nombreImage !== '' ?
-                <form className={styles.mini} onSubmit={handleSubmitDeleteImage} encType="multipart/form-data">
-                  <label className={styles.error}>Para eliminar la imagen seleccionada, pulse eliminar:</label>
-                  <button type='submit' className={styles.error}>ELIMINAR</button>  
-                </form>
+              <form className={styles.mini} onSubmit={handleSubmitDeleteImage} encType="multipart/form-data">
+                <label className={styles.error}>Para eliminar la imagen seleccionada, pulse eliminar:</label>
+                <button type='submit' className={styles.error}>ELIMINAR</button>  
+              </form>
               : ''
             }
             <form onSubmit={handleSubmitUploadImage} encType="multipart/form-data">
-            <label>Añadir una imagen nueva del evento:</label>
-            <input
-              type='file'
-              name='image'
-              required
-              accept="image/jpeg"
-              onChange={(event) => setNuevaImage(event.target.files[0])}
-            />
-            <p>Solo se aceptan imagenes con extensión .jpg</p>
-            <button type='submit'>AÑADIR IMAGEN</button>  
-          </form>
-        </div>
-        : ''
+              <label>Añadir una imagen nueva del evento:</label>
+              <input
+                type='file'
+                name='image'
+                required
+                accept="image/jpeg"
+                onChange={(event) => setNuevaImage(event.target.files[0])}
+              />
+              <p>Solo se aceptan imagenes con extensión .jpg</p>
+              <button type='submit'>AÑADIR IMAGEN</button>  
+            </form>
+          </div>
+          : ''
       }
     </div>
   )

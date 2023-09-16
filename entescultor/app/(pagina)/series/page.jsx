@@ -1,3 +1,4 @@
+import React from 'react'
 import ListaSeries from '@/components/listaSeries'
 import { Seccion } from '@/components/seccion'
 import Back from '@/components/back'

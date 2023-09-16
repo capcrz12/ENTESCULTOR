@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { deleteEvento } from '@/services/eventos'
 
 export default function EliminarEventoForm ({ handleEliminarEvento, setExito, eventos }) {
@@ -58,27 +58,27 @@ export default function EliminarEventoForm ({ handleEliminarEvento, setExito, ev
             onChange={(event) => setIdEvento(event.target.value)}>
             <option value='' disabled>Seleccione el evento</option>
             {eventos.map(evento => (
-            <option key={evento.id} value={evento.id}>
-              {evento.title}
-            </option>
-          ))}
+              <option key={evento.id} value={evento.id}>
+                {evento.title}
+              </option>
+            ))}
           </select>
         </div>
       </form>
 
       {
         idEvento !== '' ?
-      <form className={styles.mini} onSubmit={handleSubmit}>
-        <h3 className={styles.error}>EVENTO QUE VA A ELIMINAR</h3>
-          <label><strong>{title}</strong></label>
-          <label>{fecha}</label>
-          <label>{nota}</label>
-          <label><strong>{enlace}</strong></label>
-          <label><strong>{url}</strong></label>
-        <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
-      </form>
-        :
-        ''
+          <form className={styles.mini} onSubmit={handleSubmit}>
+            <h3 className={styles.error}>EVENTO QUE VA A ELIMINAR</h3>
+            <label><strong>{title}</strong></label>
+            <label>{fecha}</label>
+            <label>{nota}</label>
+            <label><strong>{enlace}</strong></label>
+            <label><strong>{url}</strong></label>
+            <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
+          </form>
+          :
+          ''
       }
     </div>
   )

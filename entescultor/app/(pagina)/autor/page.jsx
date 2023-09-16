@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '@/styles/seccion.module.css'
 import stylesMain from '@/styles/main.module.css'
 import Back from '@/components/back'

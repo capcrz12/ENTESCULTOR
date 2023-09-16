@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { RViewer, RViewerTrigger } from 'react-viewerjs'
 import styles from '@/styles/carrusel.module.css'
 

@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     cb(null, './images/articulos')
   },
   filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, "_"))
+    cb(null, file.originalname.replace(/ /g, '_'))
   }
 })
 
@@ -92,18 +92,17 @@ articulosRouter.put('/url/:id', userExtractor, async (request, response, next) =
 
 articulosRouter.put('/image/:id', userExtractor, upload.single('image'), async (request, response, next) => {
   const { id } = request.params
-  const cuerpo = request.body
 
   const articuloActual = await Articulo.findById(id)
 
-  deleteImage(`.${obraActual.url}`)
+  deleteImage(`.${articuloActual.url}`)
 
-  const newObraInfo = {
-    url: `/images/obras/${request.file.originalname.replace(/ /g, "_")}`,
+  const newArticuloInfo = {
+    url: `/images/obras/${request.file.originalname.replace(/ /g, '_')}`,
   }
 
   try {
-    const result = await Obra.findByIdAndUpdate(id, newObraInfo, { new: true })
+    const result = await Articulo.findByIdAndUpdate(id, newArticuloInfo, { new: true })
     response.json(result)
   } catch(err) { next(err)}
 })
@@ -130,7 +129,7 @@ articulosRouter.post('/', userExtractor, upload.single('image'), async (request,
 
     let url = ''
     if (request.file !== null & request.file !== undefined) {
-      url = `/images/articulos/${request.file.originalname.replace(/ /g, "_")}`
+      url = `/images/articulos/${request.file.originalname.replace(/ /g, '_')}`
     }
 
     const newArticulo = new Articulo({

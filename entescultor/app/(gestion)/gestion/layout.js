@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '@/styles/gestion.module.css'
 
 export default function GestionLayout ({ children }) {

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from '@/styles/navigation.module.css'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 

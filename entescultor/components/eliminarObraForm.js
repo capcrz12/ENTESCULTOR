@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { deleteObra } from '@/services/obras'
 
 export default function EliminarObraForm ({ handleEliminarObra, setExito, obras, series }) {
@@ -52,102 +52,102 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
             value={idSerie}
             required
             onChange={(event) => { setIdSerie(event.target.value)
-                                  setObrasFiltro (obras.filter((obras) => {
-                                                  if (obras.serieId !== null) {
-                                                    return obras.serieId.id === event.target.value
-                                                  }
-                                                 })
-                                                )
+              setObrasFiltro (obras.filter((obras) => {
+                if (obras.serieId !== null) {
+                  return obras.serieId.id === event.target.value
+                }
+              })
+              )
             }}>
             <option value='' onChange={(event) => setObrasFiltro (obras.filter((obras) => {
-                                                  if (obras.serieId !== null) {
-                                                    return obras.serieId.id === event.target.value
-                                                  }
-                                                 })
-                                                )
+              if (obras.serieId !== null) {
+                return obras.serieId.id === event.target.value
+              }
+            })
+            )
             }>Mostrar todas las obras</option>
             {series.map(serie => (
-            <option key={serie.id} value={serie.id}>
-              {serie.name}
-            </option>
-          ))}
+              <option key={serie.id} value={serie.id}>
+                {serie.name}
+              </option>
+            ))}
           </select>
         </div>
         { obrasFiltro.length === 0
-        ?
-        <div>
+          ?
+          <div>
             <label className={styles.title}>Seleccione la obra a eliminar:</label>
             <label className={styles.selector}>
-            {obras.map(obra => (
-              <label className={styles.obra} key={obra.id}>
-                <article>
-                  <div className={styles.obra} >
-                    <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
-                    <h2 className={styles.texto}>{obra.title}</h2>
-                  </div>
-                </article>
-                <input
-                  type='radio'
-                  name='idObra'
-                  value={obra.id}
-                  required
-                  onChange={(event) => setIdObra(event.target.value)}
-                />
-              </label>
-            ))}
-              </label>
+              {obras.map(obra => (
+                <label className={styles.obra} key={obra.id}>
+                  <article>
+                    <div className={styles.obra} >
+                      <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
+                      <h2 className={styles.texto}>{obra.title}</h2>
+                    </div>
+                  </article>
+                  <input
+                    type='radio'
+                    name='idObra'
+                    value={obra.id}
+                    required
+                    onChange={(event) => setIdObra(event.target.value)}
+                  />
+                </label>
+              ))}
+            </label>
           </div>
           : 
           <div>
             <label className={styles.title}>Seleccione la obra a modificar:</label>
             <label className={styles.selector}>
-            {obrasFiltro.map(obra => (
-              <label className={styles.serie} key={obra.id}>
-                <article>
-                  <div className={styles.obra} >
-                    <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
-                    <h2 className={styles.texto}>{obra.title}</h2>
-                    <div>
-                      <div>Largo: {obra.largo}</div>
-                      <div>Alto: {obra.alto}</div>
-                      <div>Ancho: {obra.ancho}</div>
-                      <div>Material: {obra.material}</div>
+              {obrasFiltro.map(obra => (
+                <label className={styles.serie} key={obra.id}>
+                  <article>
+                    <div className={styles.obra} >
+                      <img alt='No disponible' src={`http://localhost:3001${obra.images[0]}`} className={styles.image} />
+                      <h2 className={styles.texto}>{obra.title}</h2>
+                      <div>
+                        <div>Largo: {obra.largo}</div>
+                        <div>Alto: {obra.alto}</div>
+                        <div>Ancho: {obra.ancho}</div>
+                        <div>Material: {obra.material}</div>
+                      </div>
                     </div>
-                  </div>
-                </article>
-                <input
-                  type='radio'
-                  name='idObra'
-                  value={obra.id}
-                  required
-                  onChange={(event) => setIdObra(event.target.value)}
-                />
-              </label>
-            ))}
-              </label>
+                  </article>
+                  <input
+                    type='radio'
+                    name='idObra'
+                    value={obra.id}
+                    required
+                    onChange={(event) => setIdObra(event.target.value)}
+                  />
+                </label>
+              ))}
+            </label>
           </div>
         }
-        </form>
+      </form>
 
       {
         idObra !== '' ?
-      <form className={styles.mini} onSubmit={handleSubmit}>
-        <h3 className={styles.error}>OBRA QUE VA A ELIMINAR</h3>
-        <div>
-          <label>{nombreObra}</label>
-        </div>
-        <div>
-          { obraImages.map(image =>  (
-            <label key={image}>
-              <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
-            </label>
-          ))
-          }
-        </div>
-        <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
-      </form>
-        :
-        ''
+          <form className={styles.mini} onSubmit={handleSubmit}>
+            <h3 className={styles.error}>OBRA QUE VA A ELIMINAR</h3>
+            <div>
+              <label>{nombreObra}</label>
+            </div>
+            <div>
+              { obraImages.map(image =>  (
+                <label key={image}>
+                  <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                </label>
+              ))
+              }
+            </div>
+            <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
+          </form>
+          :
+          ''
       }
     </div>
   )

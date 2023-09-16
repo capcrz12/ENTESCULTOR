@@ -1,6 +1,8 @@
+import React from 'react'
 import Link from 'next/link'
 import styles from '@/styles/series.module.css'
 import { getAllSeries } from '@/services/series'
+
 export default async function ListaSeries () {
   const series = await getAllSeries()
 

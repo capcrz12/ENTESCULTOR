@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import AnadirSerieForm from './anadirSerieForm'
 import AnadirObraForm from './anadirObraForm'
 import AnadirAutorForm from './anadirAutorForm'
@@ -96,12 +96,12 @@ export default function Gestion ({ handleLogout, series, obras, autor, articulos
             <div className={styles.obrasSinSerie}>
               { 
                 opcion === 0 ?
-                  <h3 className={styles.error}>¡ATENCIÓN! Existen obras que no están asignadas a ninguna serie y no podrán ser visualizadas. Pulse en "Obras Sin Serie" para solucionarlo</h3>
-                : ''
+                  <h3 className={styles.error}>¡ATENCIÓN! Existen obras que no están asignadas a ninguna serie y no podrán ser visualizadas. Pulse en Obras Sin Serie para solucionarlo</h3>
+                  : ''
               }
               <button onClick={handleObrasSinSerie} className={styles.error}>{opcion === 18 ? 'Cerrar menu Obras Sin Serie' : 'Obras Sin Serie'}</button>
             </div>
-          : ''
+            : ''
         }
 
         <div>

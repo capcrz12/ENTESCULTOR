@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/styles/gestion.module.css'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { putTitleSerie, putImageSerie } from '@/services/series'
 
 export default function ModificarSerieForm ({ handleModificarSerie, setExito, series }) {
@@ -21,16 +21,16 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
     event.preventDefault()
 
     try {
-        const serieModificar = {
-          name: nombreSerie,
-          id: idSerie
-        }
+      const serieModificar = {
+        name: nombreSerie,
+        id: idSerie
+      }
 
-        putTitleSerie(serieModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)  
+      putTitleSerie(serieModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)  
     } catch (error) {
       setExito('Error al realizar la subida')
       console.error(error)
@@ -41,16 +41,16 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
     event.preventDefault()
 
     try {
-        const serieModificar = {
-          image: obraUrl,
-          id: idSerie
-        }
+      const serieModificar = {
+        image: obraUrl,
+        id: idSerie
+      }
 
-        putImageSerie(serieModificar)
-        setExito('Modificado con éxito')
-        setTimeout(() => {
-          setExito('')
-        }, 4000)
+      putImageSerie(serieModificar)
+      setExito('Modificado con éxito')
+      setTimeout(() => {
+        setExito('')
+      }, 4000)
 
     } catch (error) {
       setExito('Error al realizar la subida')
@@ -64,8 +64,8 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
       <h1>MODIFICAR SERIE</h1>
       <form>
         <div>
-            <label className={styles.title}>Seleccione la serie a modificar:</label>
-            <label className={styles.selector}>
+          <label className={styles.title}>Seleccione la serie a modificar:</label>
+          <label className={styles.selector}>
             {series.map(serie => (
               <label className={styles.serie} key={serie.id}>
                 <article>
@@ -83,52 +83,52 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
                 />
               </label>
             ))}
-              </label>
-          </div>
-        </form>
+          </label>
+        </div>
+      </form>
 
       {
-      idSerie !== '' ?
-      <div>
-      <form className={styles.mini} onSubmit={handleSubmitTitle}>
-        <div>
-          <label>Cambiar el nombre de la serie: </label>
-          <input 
-            type='text'
-            name='nombreSerie'
-            value={nombreSerie}
-            onChange={(event) => setNombreSerie(event.target.value)}
-          />
-        </div>
-        <button type='submit'>CAMBIAR</button>
-      </form>
+        idSerie !== '' ?
+          <div>
+            <form className={styles.mini} onSubmit={handleSubmitTitle}>
+              <div>
+                <label>Cambiar el nombre de la serie: </label>
+                <input 
+                  type='text'
+                  name='nombreSerie'
+                  value={nombreSerie}
+                  onChange={(event) => setNombreSerie(event.target.value)}
+                />
+              </div>
+              <button type='submit'>CAMBIAR</button>
+            </form>
 
-      <form className={styles.mini} onSubmit={handleSubmitImage}>
-        <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva miniatura:</label>
-        <label className={styles.selector}>
-          {series.find((series) => series.id === idSerie).obras.map(obra => (
-            obra.images.map(image => (
-            <label className={styles.serie} key={image}>
-              <article>
-                <div className={styles.obra} >
-                  <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
-                </div>
-              </article>
-              <input
-                type='radio'
-                name='obraUrl'
-                value={image}
-                required
-                onChange={(event) => setObraUrl(event.target.value)}
-              />
-            </label>
-            ))
-          ))}
-        </label>
-        <button type='submit'>CAMBIAR</button>  
-      </form>
-      </div>
-      : ''
+            <form className={styles.mini} onSubmit={handleSubmitImage}>
+              <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva miniatura:</label>
+              <label className={styles.selector}>
+                {series.find((series) => series.id === idSerie).obras.map(obra => (
+                  obra.images.map(image => (
+                    <label className={styles.serie} key={image}>
+                      <article>
+                        <div className={styles.obra} >
+                          <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                        </div>
+                      </article>
+                      <input
+                        type='radio'
+                        name='obraUrl'
+                        value={image}
+                        required
+                        onChange={(event) => setObraUrl(event.target.value)}
+                      />
+                    </label>
+                  ))
+                ))}
+              </label>
+              <button type='submit'>CAMBIAR</button>  
+            </form>
+          </div>
+          : ''
       }
     </div>
   )

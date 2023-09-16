@@ -1,3 +1,4 @@
+import React from 'react'
 import '@/styles/globals.css'
 import { Navigation } from '@/components/navigation'
 import { Pie } from '@/components/pie'

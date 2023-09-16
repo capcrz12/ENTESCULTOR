@@ -38,19 +38,19 @@ export default function CarruselCriticas ({ criticas }) {
             <div className={styles.fecha}>{critica.fecha}</div>
             <div className={styles.texto}>{critica.texto}</div>
             { critica.images.length !== 0 ? 
-                <div className={styles.imagenes}>
-                  <Slider {...settings} className={styles.carrusel}>
-                    {critica.images.map (image => (
-                      <div key={image}>
-                        <RViewer options={options} imageUrls={`http://localhost:3001${image}`}>
-                          <RViewerTrigger >
-                            <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
-                          </RViewerTrigger>
-                        </RViewer>
-                      </div>
-                    ))}
-                  </Slider>
-                </div> 
+              <div className={styles.imagenes}>
+                <Slider {...settings} className={styles.carrusel}>
+                  {critica.images.map (image => (
+                    <div key={image}>
+                      <RViewer options={options} imageUrls={`http://localhost:3001${image}`}>
+                        <RViewerTrigger >
+                          <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                        </RViewerTrigger>
+                      </RViewer>
+                    </div>
+                  ))}
+                </Slider>
+              </div> 
               : ''
             }
           </div>

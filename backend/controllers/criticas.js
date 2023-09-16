@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     cb(null, './images/criticas')
   },
   filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, "_"))
+    cb(null, file.originalname.replace(/ /g, '_'))
   }
 })
 
@@ -108,13 +108,12 @@ criticasRouter.put('/deleteImage/:id', userExtractor, async (request, response, 
 
 criticasRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
   const { id } = request.params
-  const cuerpo = request.body
 
   const criticaActual = await Critica.findById(id)
 
   let imagenes = criticaActual.images
 
-  imagenes.push(`/images/criticas/${request.file.originalname.replace(/ /g, "_")}`)
+  imagenes.push(`/images/criticas/${request.file.originalname.replace(/ /g, '_')}`)
 
   const newCriticaInfo = {
     images: imagenes
@@ -159,7 +158,7 @@ criticasRouter.post('/', userExtractor, upload.array('images[]'), async (request
     let urlImages = []
 
     for (let i = 0; i < numImages; i++) {
-      urlImages.push(`/images/criticas/${request.files[i].originalname.replace(/ /g, "_")}`)
+      urlImages.push(`/images/criticas/${request.files[i].originalname.replace(/ /g, '_')}`)
     }
 
     const newCritica = new Critica({

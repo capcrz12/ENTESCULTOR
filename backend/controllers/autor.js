@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     cb(null, './images/autor')
   },
   filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, "_"))
+    cb(null, file.originalname.replace(/ /g, '_'))
   }
 })
 
@@ -33,7 +33,7 @@ autorRouter.put('/image', userExtractor, upload.single('image'), async (request,
     deleteImage(url)
 
     const newAutor = {
-      image: `/images/autor/${request.file.originalname.replace(/ /g, "_")}`
+      image: `/images/autor/${request.file.originalname.replace(/ /g, '_')}`
     }
 
     const result = await Autor.findByIdAndUpdate(id, newAutor)

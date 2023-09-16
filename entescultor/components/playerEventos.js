@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import ReactPlayer from 'react-player'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -45,19 +45,19 @@ export default function PlayerEventos ({ eventos }) {
               {evento.url !== '' ? <ReactPlayer url={evento.url} className={styles.video} width='1280' height='1720' /> : ''}
             </div>
             { evento.images.length !== 0 ? 
-                <div className={styles.imagenes}>
-                  <Slider {...settings} className={styles.carrusel}>
-                    {evento.images.map (image => (
-                      <div key={image}>
-                        <RViewer options={options} imageUrls={`http://localhost:3001${image}`}>
-                          <RViewerTrigger >
-                            <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
-                          </RViewerTrigger>
-                        </RViewer>
-                      </div>
-                    ))}
-                  </Slider>
-                </div> 
+              <div className={styles.imagenes}>
+                <Slider {...settings} className={styles.carrusel}>
+                  {evento.images.map (image => (
+                    <div key={image}>
+                      <RViewer options={options} imageUrls={`http://localhost:3001${image}`}>
+                        <RViewerTrigger >
+                          <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                        </RViewerTrigger>
+                      </RViewer>
+                    </div>
+                  ))}
+                </Slider>
+              </div> 
               : ''
             }
           </div>
