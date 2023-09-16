@@ -43,7 +43,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        gap: 5vw;
+        gap: 6vw;
         font-size: 1.5vw;
         width: 30vw;
 
@@ -63,15 +63,16 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        gap: 5vw;
+        gap: 6vw;
         font-size: 1.5vw;
-        width: 40vw;
+        width: 30vw;
 
         position: fixed;
         left: 0;
         margin-top: 2vh;
         margin-left: 0;
-        padding-left: 0;
+        padding-left: 2vw;
+        padding-right: 2vw;
         overflow-x: auto;
     }
     
@@ -81,7 +82,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        gap: 5vw;
+        gap: 6vw;
         font-size: 1.5vw;
         width: 30vw;
 
@@ -100,14 +101,16 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        gap: 5vw;
+        gap: 6vw;
         font-size: 1.5vw;
-        width: 40vw;
+        width: 30vw;
 
         position: fixed;
         right: 0;
         margin-top: 2vh;
         margin-right: 0;
+        padding-left: 2vw;
+        padding-right: 2vw;
         overflow-x: auto;
     }
     
