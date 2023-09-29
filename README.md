@@ -1,6 +1,8 @@
 # ENTESCULTOR
 Repositorio dedicado al desarrollo de la segunda versión de página web donde se alojan las obras del autor Indalecio Pérez Entrena.
 
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
+
 ## Índice
 * [Finalidad](#Finalidad)
 * [Contenido](#Contenido)
