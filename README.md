@@ -8,7 +8,7 @@ Repositorio dedicado al desarrollo de la segunda versión de página web donde s
 * [Desarrollador](#Desarrollador)
 
 ## Finalidad
-La finalidad de este proyecto es sustituir la primera y original página web de Indalecio. Con ello no se pretende mejorar la anterior,
+La finalidad de este proyecto es sustituir la primera y [original](https://www.entescultor.com/) página web de Indalecio. Con ello no se pretende mejorar la anterior,
 sino desarrollar una nueva con un nuevo software y un estilo diferente. Además, como objetivos secundarios se presenta el aprendizaje
 del desarrollador y autor del proyecto, Carlos Pérez Cruz, en nuevos lenguajes y metodologías de desarrollo web, de forma totalmente
 autodidacta.
@@ -17,7 +17,14 @@ autodidacta.
 En este repositorio podremos encontrar todo el código fuente de la aplicación web, desarrollando cada una de sus partes con esta [estructura](#Estructura).
 
 ## Estructura
+El contenido del código fuente está dividido en dos partes fundamentales: El FrontEnd o "lado del cliente" y el BackEnd o "lado del servidor".
+
 ### FrontEnd
+En este apartado se explican las tecnologías utilizadas para realizar el lado del cliente.
+
+#### Nextjs
+[Nextjs](https://nextjs.org/) es el framework en el que se ha desarrollado el front de la página, el cual utiliza [React](https://es.react.dev/) como librería de javascript.
+####
 
 ### BackEnd
 
