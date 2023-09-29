@@ -83,17 +83,35 @@ Estos paquetes se pueden consultar en el package.json del Front
 ### BackEnd
 #### Nodejs
 [Nodejs](https://nodejs.org/es) es un entorno en tiempo de ejecución multiplataforma utilizado para la capa del servidor basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada a eventos
+  
+Versión: 18.18.0
 
 #### Express
 [Express](https://expressjs.com/) es el framework de nodejs que hemos utilizado para desarrollar la API. 
+  
+Versión: 4.18.2
 
 #### Paquetes instalados y utilidades - Dependencias
 Estos paquetes se pueden consultar en el package.json del Back
 
 * [Cors](https://www.npmjs.com/package/cors) Middleware para utilizar [CORS](https://es.wikipedia.org/wiki/Intercambio_de_recursos_de_origen_cruzado).
+  
+  Versión: 2.8.5
 * [Dotenv](https://www.npmjs.com/package/dotenv) Módulo para poder cargar variables de entorno del fichero .env  
+  
+  Versión: 16.3.1
 * [Mongoose](https://mongoosejs.com/) Biblioteca de JS para conectar MongoDB con Nodejs
+  
+  Versión: 7.5.3
 * [Mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) Plugin de mongoose para realizar una validación previa al guardado de los datos en la base de datos a través de un Schema. 
+  
+  Versión: 4.0.0
 * [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) Estandar para la creación de tokens de acceso. Lo utilizamos para identificarse en la parte de gestión del [Front](#FrontEnd).
+  
+  Versión: 9.0.1
 * [Multer](https://www.npmjs.com/package/multer) Middleware para cargar imagenes en la API. Lo usamos para guardar las imagenes en la carpeta images de la API. 
+  
+  Versión: 1.4.5-lts.1
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) Función de hashing de contraseñas utilizada para encriptar las contraseñas de los usuarios creados.
+  
+  Versión: 5.1.1
