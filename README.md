@@ -35,6 +35,10 @@ Estos paquetes se pueden consultar en el package.json del Front
 * [React](https://es.react.dev/) Librería de JS para crear interfaces de usuario.
 * [React player](https://www.npmjs.com/package/react-player) Componente de react para reporducir vídeos a través de una URL.
 * [React slick](https://www.npmjs.com/package/react-slick) Componente de react para generar carruseles.
+* [React viewerjs](https://www.npmjs.com/package/react-viewerjs) Componente de react para mostrar un carrusel de imágenes.
+* [Reactstrap](https://www.npmjs.com/package/reactstrap) Componente de react para bootstrap.
+* [Slick carousel](https://www.npmjs.com/package/slick-carousel) Componente de react para monstrar un carrusel de componentes.
+* [Viewerjs](https://www.npmjs.com/package/viewerjs) Componente de React para mostrar una herramienta de imagenes.
 
 ### BackEnd
 
