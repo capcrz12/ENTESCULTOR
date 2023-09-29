@@ -39,6 +39,7 @@ export function Navigation () {
     <header className={styles.header}>
       <nav className={styles.navigation}>
         <FontAwesomeIcon className={styles.hamburguesa} icon={faBars} onClick={() => setActive(!active)} />
+        <ul className={styles.entescultor}>ENTESCULTOR</ul>
         <ul className={`${active ? styles.navigationLatI : styles.showI}`}>
           {links.slice(0,links.length/2).map(({ label, route }) => (
             <li key={route}>
@@ -48,7 +49,6 @@ export function Navigation () {
             </li>
           ))}
         </ul>
-        <ul className={styles.entescultor}>ENTESCULTOR</ul>
         <ul className={`${active ? styles.navigationLatD : styles.showD}`}>
           {links.slice(-links.length/2).map(({ label, route }) => (
             <li key={route}>

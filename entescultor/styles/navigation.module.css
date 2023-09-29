@@ -233,7 +233,7 @@
         width: 100%;
 
         position: absolute;
-        top: 53vw;
+        top: 60.3vw;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -401,6 +401,7 @@
 @media (max-width: 1024px) and (orientation: landscape) {
     .header {
         width: 100vw;
+        height: 15vh;
     }
 
     .entescultor {
@@ -431,8 +432,10 @@
         font-size: 20px;
         width: 100%;
 
+        font-size: 4vh;     
+
         position: absolute;
-        top: 52px;
+        top: 10vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
@@ -451,7 +454,7 @@
         width: 100%;
 
         position: absolute;
-        top: 181px;
+        top: 60.3vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -460,15 +463,15 @@
         transition: 0.5s;
     }
 
-    .navigationLatI > li:first-child {
-        padding-top: 20px;
+    .showI > li:first-child {
+        margin-top: 6vw;
     }    
 
-    .navigationLatD > li:first-child {
-        padding-top: 20px;
+    .showD > li:first-child {
+        padding-top: 6vw;
     }
     
-    .navigationLatD > li:last-child {
+    .showD > li:last-child {
         padding-bottom: 100vh;
         z-index: 10;
     }
@@ -497,12 +500,13 @@
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-        gap: 20px;
-        font-size: 20px;
+        gap: 5vh;
         width: 100%;
 
+        font-size: 5vh;
+
         position: absolute;
-        top: 52px;
+        top: 10vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
@@ -516,12 +520,13 @@
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-        gap: 20px;
-        font-size: 20px;
+        gap: 5vh;
         width: 100%;
 
+        font-size: 5vh;
+
         position: absolute;
-        top: 181px;
+        top: 42vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9); 
         z-index: 10;
@@ -531,11 +536,11 @@
     }
 
     .showI > li:first-child {
-        margin-top: 20px;
+        margin-top: 5vh;
     }    
 
     .showD > li:first-child {
-        padding-top: 20px;
+        padding-top: 5vh;
     }
     
     .showD > li:last-child {
@@ -566,6 +571,10 @@
         bottom: 0;
         right: 2rem;
     }
+
+    .barra > div {
+        font-size: 5vh;
+    }
     
     .div {
         text-align: center;
@@ -585,7 +594,7 @@
     .facebook {
         line-height: 50px;
         max-height: 100%;
-        font-size: 30px;
+        font-size: 8vh;
         color: #3b5998;
     }
 
