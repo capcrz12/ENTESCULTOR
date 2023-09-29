@@ -46,7 +46,7 @@ Estos paquetes se pueden consultar en el package.json del Front
 #### Nodejs
 [Nodejs](https://nodejs.org/es) es un entorno en tiempo de ejecución multiplataforma utilizado para la capa del servidor basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada a eventos
 
-#### Espressjs
+#### Express
 [Express](https://expressjs.com/) es el framework de nodejs que hemos utilizado para desarrollar la API. 
 
 #### Paquetes instalados y utilidades - Dependencias
