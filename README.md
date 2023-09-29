@@ -17,14 +17,24 @@ autodidacta.
 En este repositorio podremos encontrar todo el código fuente de la aplicación web, desarrollando cada una de sus partes con esta [estructura](#Estructura).
 
 ## Estructura
+El lenguaje de programación principal del desarrollo de la aplicación es JavaScript.
 El contenido del código fuente está dividido en dos partes fundamentales: El FrontEnd o "lado del cliente" y el BackEnd o "lado del servidor".
 
-### FrontEnd
-En este apartado se explican las tecnologías utilizadas para realizar el lado del cliente.
+Para gestionar la aplicación, se ha usado el gestor de paquetes npm.
+En este apartado se explican las tecnologías utilizadas para realizar tanto el lado del cliente como el lado del servidor: frameworks utilizados, paquetes instalados etc.
 
+### FrontEnd
 #### Nextjs
 [Nextjs](https://nextjs.org/) es el framework en el que se ha desarrollado el front de la página, el cual utiliza [React](https://es.react.dev/) como librería de javascript.
-####
+
+#### Paquetes instalados y utilidades - Dependencias
+Estos paquetes se pueden consultar en el package.json del Front
+
+* [Axios](https://axios-http.com/). Cliente HTTP basado en promesas para conectar el navegador y nodejs.
+* [fortawesome](https://fortawesome.com/) Conjunto de herramientas de fuentes e íconos basado en CSS.
+* [React](https://es.react.dev/) Librería de JS para crear interfaces de usuario.
+* [React player](https://www.npmjs.com/package/react-player) Componente de react para reporducir vídeos a través de una URL.
+* [React slick](https://www.npmjs.com/package/react-slick) Componente de react para generar carruseles.
 
 ### BackEnd
 
