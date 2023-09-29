@@ -68,7 +68,6 @@ export function Navigation () {
           </Link>
         </div>
       </div>
-
     </header>
   )
 }
