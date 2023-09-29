@@ -5,6 +5,8 @@ Repositorio dedicado al desarrollo de la segunda versión de página web donde s
 * [Finalidad](#Finalidad)
 * [Contenido](#Contenido)
 * [Estructura](#Estructura)
+  * [FrontEnd](#FrontEnd)
+  * [BackEnd](#BackEnd)
 * [Desarrollador](#Desarrollador)
 
 ## Finalidad
