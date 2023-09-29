@@ -154,6 +154,15 @@
   box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.60);
 }
 
+@media (min-width: 1024) and (max-height: 620) {
+  .presentacion {
+    position: absolute;
+    top: 5rem;
+    width: 90vw;
+    border: solid;
+  }
+}
+
 
 @media (max-width: 1024px) and (orientation: portrait) {
 
@@ -235,12 +244,12 @@
 @media (max-width: 1024px) and (orientation: landscape) {
 
   .indalecio {
-    font-size: 6vw;
-    line-height: 7vw;
+    font-size: 15vh;
+    line-height: 15vh;
   }
 
   .info {
-    font-size: 2.5w;
+    font-size: 5vh;
   }
 
   .info_titulo {
