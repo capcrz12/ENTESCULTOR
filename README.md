@@ -20,7 +20,7 @@ Carlos Pérez Cruz, estudiante de la Universidad de Granada, finalizando el grad
 El estudio previo y formación en las tecnologías principales utilizadas ha sido autodidáctico (React, Nextjs, Nodejs, Express etc), aunque ciertos conocimientos de la informática han sido desarrollados en sus estudios (Diseño de Requisitos y funcionalidades, prototipado, API Rest etc).
 
 ## Contenido
-En este repositorio podremos encontrar todo el código fuente de la aplicación web, desarrollando cada una de sus partes con esta [estructura](#Estructura), asi como los [bocetos]() de la aplicación desarrollados en [Figma](https://www.figma.com/).
+En este repositorio podremos encontrar todo el código fuente de la aplicación web, desarrollando cada una de sus partes con esta [estructura](#Estructura), asi como los [bocetos](/documentos/bocetos.pdf) de la aplicación desarrollados en [Figma](https://www.figma.com/).
 
 ## Estructura
 El lenguaje de programación principal del desarrollo de la aplicación es JavaScript.
