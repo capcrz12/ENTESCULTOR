@@ -154,7 +154,7 @@
   box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.60);
 }
 
-@media (min-width: 1024) and (max-height: 620) {
+@media (min-width: 1023px) and (max-height: 620px) {
   .presentacion {
     position: absolute;
     top: 5rem;
