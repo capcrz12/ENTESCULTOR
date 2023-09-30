@@ -159,13 +159,18 @@
     position: absolute;
     top: 5rem;
     width: 90vw;
-    border: solid;
   }
 }
 
 
 @media (max-width: 1024px) and (orientation: portrait) {
 
+  .presentacion {
+    position: absolute;
+    top: 12vh;
+    width: 90vw;
+  }
+  
   .indalecio {
     font-size: 6vh;
     line-height: 7vh;
@@ -185,12 +190,6 @@
   
     user-select: none;
   }
-
-  .presentacion {
-    position: absolute;
-    top: 5rem;
-    width: 90vw;
-  }
   
   .separador {
     width: 40%;
@@ -201,11 +200,11 @@
   }
 
   .marco {
-    width: 90vw;
+    width: 85vw;
     height: 70vh;
 
     position: absolute;
-    left: 1.25rem;
+    left: 5vw;
     top: auto;
     bottom: 1rem;
 
@@ -283,7 +282,7 @@
 
   .marco {
     width: 60vw;
-    height: 75vh;
+    height: 70vh;
 
     position: absolute;
     right: 1.25rem;

@@ -439,7 +439,7 @@
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
 
-        transform: translateX(0);
+        transform: translateX(300%);
         transition: 0.5s;
     }
 
@@ -459,7 +459,7 @@
         background: rgba(24, 24, 24, 0.9); 
         z-index: 10;
 
-        transform: translateX(0);
+        transform: translateX(300%);
         transition: 0.5s;
     }
 
@@ -511,7 +511,7 @@
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
 
-        transform: translateX(0);
+        transform: translateX(0%);
         transition: 0.5s;
     }
 
@@ -569,7 +569,7 @@
 
         position: absolute;
         bottom: 0;
-        right: 2rem;
+        right: 10vh;
     }
 
     .barra > div {
