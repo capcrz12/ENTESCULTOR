@@ -2,3 +2,4 @@
 2. Crear fichero .env en backend y añadir:
     2.1 PORT=3001
     2.2 MONGO_DB_URI=<<Connection String de la base de datos de mongodb>>
+    2.3 SECRET=<<Palabra secreta para token (jsonWebToken)>>

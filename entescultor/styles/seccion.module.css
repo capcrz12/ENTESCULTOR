@@ -242,8 +242,15 @@
 
 @media (max-width: 1024px) and (orientation: landscape) {
 
+  .presentacion {
+    position: absolute;
+    top: 20vh;
+    left: 10vh;
+    width: 90vw;
+  }
+
   .indalecio {
-    font-size: 15vh;
+    font-size: 14vh;
     line-height: 15vh;
   }
 
@@ -253,17 +260,11 @@
 
   .info_titulo {
     font-size: 2vw;
-    width: 30%;
+    width: 50vh;
   }
 
   .info_autor {
     font-size: 2vw;
-  }
-
-  .presentacion {
-    position: absolute;
-    top: 5rem;
-    width: 90vw;
   }
 
   .play {
@@ -281,7 +282,7 @@
   }
 
   .marco {
-    width: 60vw;
+    width: 55vw;
     height: 70vh;
 
     position: absolute;

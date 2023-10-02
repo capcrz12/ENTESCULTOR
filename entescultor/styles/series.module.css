@@ -125,10 +125,11 @@
   
 
 @media (max-width: 1024px ) and (orientation: portrait) {
+
   .scroll {
     position: absolute;
     left: 3rem;
-    top: 14rem;
+    top: 30vh;
     width: 90vw;
     height: 80vh;
     margin-top: 0;
@@ -136,7 +137,8 @@
   }
 
   .child {
-    gap: 10rem;
+    gap: 3vh;
+    scroll-snap-type: unset;
   }
 
   .serie {
@@ -145,8 +147,8 @@
   }
 
   .image {
-    max-height: 90vh;
-    max-width: 70vw;
+    max-height: 50vh;
+    max-width: 50vw;
   }
 
   .image:hover {
@@ -154,8 +156,39 @@
   }
 
   .texto {
-    font-size: 8vw;
+    font-size: 6vw;
   }
+
+  /* Animacion que hace aparecer la imagen 
+  desde abajo translucida*/  
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .contenedor {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem;
+      transform-origin: 0% 0%;
+
+      view-timeline-name: --contenedor;
+      view-timeline-axis: block;
+  
+      animation-timeline: --contenedor;
+      animation-name: show;
+
+      animation-range: entry 25% cover 70%;
+      animation-fill-mode: both;
+    }
 }
 
 @media (max-width: 1024px ) and (orientation: landscape) {
@@ -170,7 +203,8 @@
   }
 
   .child {
-    gap: 80px;
+    gap: 3vh;
+    scroll-snap-type: unset;
   }
 
   .serie {
@@ -180,7 +214,7 @@
 
   .image {
     max-height: 60vh;
-    max-width: 35vw;
+    max-width: 30vw;
   }
 
   .image:hover {
@@ -190,4 +224,33 @@
   .texto {
     font-size: 6vh;
   }
+
+  /* Animacion que hace aparecer la imagen 
+  desde abajo translucida*/  
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .contenedor {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 3rem 1rem 2rem;
+      transform-origin: 0% 0%;
+
+      view-timeline-name: --contenedor;
+      view-timeline-axis: block;
+  
+      animation-timeline: --contenedor;
+      animation-name: show;
+
+      animation-range: entry 25% cover 70%;
+      animation-fill-mode: both;
+    }
 }

@@ -95,10 +95,10 @@ articulosRouter.put('/image/:id', userExtractor, upload.single('image'), async (
 
   const articuloActual = await Articulo.findById(id)
 
-  deleteImage(`.${articuloActual.url}`)
+  deleteImage(`.${articuloActual.image}`)
 
   const newArticuloInfo = {
-    url: `/images/obras/${request.file.originalname.replace(/ /g, '_')}`,
+    image: `/images/articulos/${request.file.originalname.replace(/ /g, '_')}`,
   }
 
   try {
