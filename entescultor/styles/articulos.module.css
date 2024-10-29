@@ -23,12 +23,9 @@
 .completo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   max-height: 55vh;
   gap: 30px;
-  margin-top: 20px;
 
   overflow-y: scroll;
 }
@@ -82,18 +79,26 @@
 
   .title {
     font-size: 3vh;
+    margin: 5vh 5vw;
   }
   
   .fecha {
     font-size: 2vh;
+    margin: 0vh 5vw;
+  }
+
+  .completo {
+    height: 60%;
   }
   
   .texto {
     font-size: 2vh;
+    margin: 0vh 5vw;
   }
   
   .enlace {
     font-size: 2vh;
+    margin-bottom: 10vh;
   }
 }
 

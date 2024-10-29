@@ -317,7 +317,11 @@
 
     .showI > li:first-child {
         margin-top: 6vw;
-    }    
+    }  
+    
+    .navigationLatI > li:last-child, .showI > li:last-child {
+        padding-bottom: 2vh;
+    }
 
     .showD > li:first-child {
         padding-top: 6vw;

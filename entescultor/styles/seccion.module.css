@@ -173,11 +173,12 @@
 
   .info {
     font-size: 2.5vh;
+    width: 80vw;
   }
 
   .info_titulo {
     font-size: 2vh;
-    width: 60%;
+    width: 90vw;
   }
 
   .info_autor {
@@ -205,8 +206,8 @@
     height: 70vh;
 
     position: absolute;
-    left: 1.25rem;
     top: auto;
+    left: 3vw;
     bottom: 1rem;
 
     overflow: auto;

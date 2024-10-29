@@ -127,26 +127,35 @@
 @media (max-width: 1024px ) and (orientation: portrait) {
   .scroll {
     position: absolute;
-    left: 3rem;
+    left: 0;
     top: 14rem;
-    width: 90vw;
-    height: 80vh;
+    width: 99vw;
+    height: 70vh;
     margin-top: 0;
     overflow: hidden;
   }
 
   .child {
     gap: 10rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .contenedor {
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
   }
 
   .serie {
     flex-direction: column;
     gap: 0;
+    max-height: 60vh;
   }
 
   .image {
-    max-height: 90vh;
-    max-width: 70vw;
+    height: 50vh;
+    max-width: 80vw;
   }
 
   .image:hover {
@@ -154,7 +163,9 @@
   }
 
   .texto {
-    font-size: 8vw;
+    margin: 0;
+    padding: 0;
+    font-size: 5vw;
   }
 }
 
