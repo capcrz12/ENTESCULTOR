@@ -23,7 +23,6 @@
 .completo {
   display: flex;
   flex-direction: column;
-
   max-height: 55vh;
   gap: 30px;
 
@@ -52,10 +51,31 @@
 }
 
 .texto {
-  margin: 20px;
-  padding: 20px;
+  margin: 0 20px;
+  padding: 0 20px;
   text-align: justify;
   font-size: 25px;
+}
+
+.texto::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.texto::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.texto::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.texto::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.texto::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
 }
 
 .enlace {
@@ -66,12 +86,16 @@
   color: rgb(163, 22, 22);
 }
 
-.image {
-  max-width: 60vw;
-  max-height: 60vh;
+.div_image {
   display: flex;
-  justify-self: center;
-  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  max-width: 50vw;
+  max-height: 50vh;
+  margin: 5vh;
   cursor: pointer;
 }
 
