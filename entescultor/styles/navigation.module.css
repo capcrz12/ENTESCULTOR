@@ -1,4 +1,4 @@
-    .header {
+.header {
 
     width: 100vw;
     height: 72px;
@@ -317,11 +317,7 @@
 
     .showI > li:first-child {
         margin-top: 6vw;
-    }  
-    
-    .navigationLatI > li:last-child, .showI > li:last-child {
-        padding-bottom: 2vh;
-    }
+    }    
 
     .showD > li:first-child {
         padding-top: 6vw;
@@ -656,6 +652,7 @@
 
         position: absolute;
         top: 10vh;
+        margin-top: 0;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
@@ -674,7 +671,7 @@
         width: 100%;
 
         position: absolute;
-        top: 32vh;
+        top: 39vw;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -746,7 +743,7 @@
         width: 100%;
 
         position: absolute;
-        top: 36.3vh;
+        top: 39vw;
         right: 0px;
         margin-top: 0;
         background: rgba(24, 24, 24, 0.9); 

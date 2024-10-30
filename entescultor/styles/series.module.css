@@ -128,35 +128,27 @@
 
   .scroll {
     position: absolute;
-    left: 0;
-    top: 14rem;
-    width: 99vw;
-    height: 70vh;
+    left: 3rem;
+    top: 30vh;
+    width: 90vw;
+    height: 80vh;
     margin-top: 0;
     overflow: hidden;
   }
 
   .child {
-    gap: 10rem;
-    align-items: center;
-    justify-items: center;
-  }
-
-  .contenedor {
-    height: 50vh;
-    align-items: center;
-    justify-content: center;
+    gap: 3vh;
+    scroll-snap-type: unset;
   }
 
   .serie {
     flex-direction: column;
     gap: 0;
-    max-height: 60vh;
   }
 
   .image {
-    height: 50vh;
-    max-width: 80vw;
+    max-height: 50vh;
+    max-width: 50vw;
   }
 
   .image:hover {
@@ -164,9 +156,7 @@
   }
 
   .texto {
-    margin: 0;
-    padding: 0;
-    font-size: 5vw;
+    font-size: 6vw;
   }
 
   /* Animacion que hace aparecer la imagen 
@@ -233,7 +223,6 @@
 
   .texto {
     font-size: 6vh;
-    line-height: normal;
   }
 
   /* Animacion que hace aparecer la imagen 
