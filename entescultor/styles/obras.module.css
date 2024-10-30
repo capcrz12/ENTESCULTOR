@@ -152,13 +152,18 @@
 
   .child {
     gap: 4rem;
+    width: 99vw;
+  }
+
+  .contenedor {
+    height: 70vh;
   }
 
   .serie {
     flex-direction: column;
     width: 100vw;
-    height: 80vh;
-    gap: 15rem;
+    height: 100%;
+    gap: 0;
   }
 
   .serie > div {
@@ -168,7 +173,7 @@
 
   .info {
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     align-self: center;
     font-size: 2vh;
     gap: 1rem;
@@ -179,11 +184,20 @@
 
   .imagen {
     margin-bottom: 0px;
+    width: 80vw;
+    height: 50vh;
+  }
+
+  .carrusel {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
   .image {
-    max-height: 50vh;
-    max-width: 70vw;
+    max-height: 45vh;
+    max-width: 90%;
   }
   
   .image:hover {
@@ -240,14 +254,18 @@
 
   .imagen {
     margin-bottom: 0px;
+    position: absolute;
+    top: 2.5rem;
+    right: 1vh;
+  }
+
+  .carrusel {
+    width: 35vw;
   }
 
   .image {
-    position: absolute;
-    bottom: 1rem;
-    right: 4rem;
     max-height: 70vh;
-    max-width: 70vw;
+    max-width: 90%;
   }
   
   .image:hover {

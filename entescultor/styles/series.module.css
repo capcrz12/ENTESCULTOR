@@ -1,83 +1,107 @@
 .scroll {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
 
-    width: 50vw;
-    height: 97vh;
+  width: 50vw;
+  height: 97vh;
 
-    position: fixed;
-    right: 100px;
-    top: 30px;
-    margin-top: 100px;
+  position: fixed;
+  right: 100px;
+  top: 30px;
+  margin-top: 100px;
 }
 
 .child {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 99%;
-  height: 97vh;
-  overflow: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  scroll-behavior: smooth;    
-  scroll-snap-type: y mandatory;
-  gap: 1000px;
+position: relative;
+display: flex;
+flex-direction: column;
+width: 99%;
+height: 97vh;
+overflow: scroll;
+overflow-x: hidden;
+scrollbar-width: none;
+scroll-behavior: smooth;    
+scroll-snap-type: y mandatory;
+gap: 1000px;
 }
 
 .child::-webkit-scrollbar {
-  -webkit-appearance: none;
+-webkit-appearance: none;
 }
 
 .child::-webkit-scrollbar:vertical {
-  width:10px;
+width:10px;
 }
 
 .child::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
-  display: none;
+display: none;
 } 
 
 .child::-webkit-scrollbar:horizontal {
-  height: 10px;
+height: 10px;
 }
 
 .child::-webkit-scrollbar-thumb {
-  background-color: #797979;
-  border-radius: 20px;
+background-color: #797979;
+border-radius: 20px;
 }
 
 .image {
-  max-height: 60vh;
-  max-width: 30vw;
-  image-rendering: auto;
-  aspect-ratio: auto;    
+max-height: 60vh;
+max-width: 30vw;
+image-rendering: auto;
+aspect-ratio: auto;    
 
-    border-radius: 28px;
-    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 1);
-    transition: 0.5s;
+  border-radius: 28px;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 1);
+  transition: 0.5s;
 }
 
 .image:hover {
-    transform: scale(1.02);
-  }
+  transform: scale(1.02);
+}
 
 .serie {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 100px;   
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;   
 }
 
 .texto {
-    color: #FFF;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 98px; /* 326.667% */
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-shadow: black 0.1em 0.1em 0.2em;
+  color: #FFF;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 98px; /* 326.667% */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.contenedor {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  transform-origin: 0% 0%;
+  scroll-snap-align: start;
+}
+
+/* 
+// Animacion que hace aparecer la imagen 
+// desde abajo translucida
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .contenedor {
@@ -85,182 +109,97 @@
     display: flex;
     flex-direction: row;
     text-align: center;
+    justify-content: center;
     padding: 3rem 1rem 2rem;
     transform-origin: 0% 0%;
-    scroll-snap-align: start;
-}
 
-  /* 
-  // Animacion que hace aparecer la imagen 
-  // desde abajo translucida
-  
-  @keyframes show {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .contenedor {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      justify-content: center;
-      padding: 3rem 1rem 2rem;
-      transform-origin: 0% 0%;
+    view-timeline-name: --contenedor;
+    view-timeline-axis: block;
 
-      view-timeline-name: --contenedor;
-      view-timeline-axis: block;
-  
-      animation-timeline: --contenedor;
-      animation-name: show;
+    animation-timeline: --contenedor;
+    animation-name: show;
 
-      animation-range: entry 25% cover 70%;
-      animation-fill-mode: both;
-    } */
-  
+    animation-range: entry 25% cover 70%;
+    animation-fill-mode: both;
+  } */
+
 
 @media (max-width: 1024px ) and (orientation: portrait) {
+.scroll {
+  position: absolute;
+  left: 0;
+  top: 14rem;
+  width: 99vw;
+  height: 70vh;
+  margin-top: 0;
+  overflow: hidden;
+}
 
-  .scroll {
-    position: absolute;
-    left: 0;
-    top: 14rem;
-    width: 99vw;
-    height: 70vh;
+.child {
+  gap: 10rem;
+  align-items: center;
+  justify-items: center;
+}
 
-    margin-top: 0;
-    overflow: hidden;
-  }
+.contenedor {
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+}
 
-  .child {
-    gap: 10rem;
-    align-items: center;
-    justify-items: center;
-  }
+.serie {
+  flex-direction: column;
+  gap: 0;
+  max-height: 60vh;
+}
 
-  .contenedor {
-    height: 50vh;
-    align-items: center;
-    justify-content: center;
-  }
+.image {
+  height: 50vh;
+  max-width: 80vw;
+}
 
-  .serie {
-    flex-direction: column;
-    gap: 0;
-  }
+.image:hover {
+  transform: scale(1);
+}
 
-  .image {
-    height: 50vh;
-    max-width: 80vw;
-  }
-
-  .image:hover {
-    transform: scale(1);
-  }
-
-  .texto {
-    margin: 0;
-    padding: 0;
-    font-size: 5vw;
-  }
-
-  /* Animacion que hace aparecer la imagen 
-  desde abajo translucida*/  
-  @keyframes show {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .contenedor {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      justify-content: center;
-      padding: 3rem 1rem 2rem;
-      transform-origin: 0% 0%;
-
-      view-timeline-name: --contenedor;
-      view-timeline-axis: block;
-  
-      animation-timeline: --contenedor;
-      animation-name: show;
-
-      animation-range: entry 25% cover 70%;
-      animation-fill-mode: both;
-    }
+.texto {
+  margin: 0;
+  padding: 0;
+  font-size: 5vw;
+}
 }
 
 @media (max-width: 1024px ) and (orientation: landscape) {
-  .scroll {
-    position: absolute;
-    right: 0;
-    top: 4rem;
-    width: 60vw;
-    height: 80vh;
-    margin-top: 0;
-    overflow: hidden;
-  }
+.scroll {
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  width: 60vw;
+  height: 80vh;
+  margin-top: 0;
+  overflow: hidden;
+}
 
-  .child {
-    gap: 3vh;
-    scroll-snap-type: unset;
-  }
+.child {
+  gap: 80px;
+}
 
-  .serie {
-    flex-direction: row;
-    gap: 1rem;
-  }
+.serie {
+  flex-direction: row;
+  gap: 1rem;
+}
 
-  .image {
-    max-height: 60vh;
-    max-width: 30vw;
-  }
+.image {
+  max-height: 60vh;
+  max-width: 35vw;
+}
 
-  .image:hover {
-    transform: scale(1);
-  }
+.image:hover {
+  transform: scale(1);
+}
 
-  .texto {
-    font-size: 6vh;
-  }
-
-  /* Animacion que hace aparecer la imagen 
-  desde abajo translucida*/  
-  @keyframes show {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .contenedor {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      padding: 3rem 1rem 2rem;
-      transform-origin: 0% 0%;
-
-      view-timeline-name: --contenedor;
-      view-timeline-axis: block;
-  
-      animation-timeline: --contenedor;
-      animation-name: show;
-
-      animation-range: entry 25% cover 70%;
-      animation-fill-mode: both;
-    }
+.texto {
+  font-size: 6vh;
+  line-height: normal;
+}
 }

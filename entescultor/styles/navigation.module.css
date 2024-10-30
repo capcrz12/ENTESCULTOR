@@ -233,7 +233,7 @@
         width: 100%;
 
         position: absolute;
-        top: 60.3vw;
+        top: 53vw;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -243,11 +243,11 @@
     }
 
     .navigationLatI > li:first-child {
-        margin-top: 6vw;
+        padding-top: 20px;
     }    
 
     .navigationLatD > li:first-child {
-        padding-top: 6vw;
+        padding-top: 20px;
     }
     
     .navigationLatD > li:last-child {
@@ -317,7 +317,11 @@
 
     .showI > li:first-child {
         margin-top: 6vw;
-    }    
+    }  
+    
+    .navigationLatI > li:last-child, .showI > li:last-child {
+        padding-bottom: 2vh;
+    }
 
     .showD > li:first-child {
         padding-top: 6vw;
@@ -401,7 +405,6 @@
 @media (max-width: 1023px) and (orientation: landscape) {
     .header {
         width: 100vw;
-        height: 15vh;
     }
 
     .entescultor {
@@ -428,17 +431,16 @@
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-        gap: 5vh;
+        gap: 20px;
+        font-size: 20px;
         width: 100%;
 
-        font-size: 5vh;
-
         position: absolute;
-        top: 10vh;
+        top: 52px;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
-
+        
         transform: translateX(300%);
         transition: 0.5s;
     }
@@ -448,15 +450,14 @@
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-        gap: 5vh;
+        gap: 20px;
+        font-size: 20px;
         width: 100%;
 
-        font-size: 5vh;
-
         position: absolute;
-        top: 42vh;
+        top: 181px;
         right: 0px;
-        background: rgba(24, 24, 24, 0.9); 
+        background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
 
         transform: translateX(300%);
@@ -464,11 +465,11 @@
     }
 
     .navigationLatI > li:first-child {
-        margin-top: 6vw;
+        padding-top: 20px;
     }    
 
     .navigationLatD > li:first-child {
-        padding-top: 6vw;
+        padding-top: 20px;
     }
     
     .navigationLatD > li:last-child {
@@ -500,18 +501,17 @@
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-        gap: 5vh;
+        gap: 20px;
+        font-size: 20px;
         width: 100%;
 
-        font-size: 5vh;
-
         position: absolute;
-        top: 10vh;
+        top: 52px;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
 
-        transform: translateX(0%);
+        transform: translateX(0);
         transition: 0.5s;
     }
 
@@ -520,13 +520,12 @@
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-        gap: 5vh;
+        gap: 20px;
+        font-size: 20px;
         width: 100%;
 
-        font-size: 5vh;
-
         position: absolute;
-        top: 42vh;
+        top: 181px;
         right: 0px;
         background: rgba(24, 24, 24, 0.9); 
         z-index: 10;
@@ -536,11 +535,11 @@
     }
 
     .showI > li:first-child {
-        margin-top: 5vh;
+        margin-top: 20px;
     }    
 
     .showD > li:first-child {
-        padding-top: 5vh;
+        padding-top: 20px;
     }
     
     .showD > li:last-child {
@@ -551,7 +550,7 @@
 
     .back {
         position: fixed;
-        top: 3vh;
+        top: 1.5rem;
         left: 1rem;
         z-index: 10;
         width: 8%;
@@ -569,11 +568,7 @@
 
         position: absolute;
         bottom: 0;
-        right: 10vh;
-    }
-
-    .barra > div {
-        font-size: 5vh;
+        right: 2rem;
     }
     
     .div {
@@ -594,7 +589,7 @@
     .facebook {
         line-height: 50px;
         max-height: 100%;
-        font-size: 8vh;
+        font-size: 30px;
         color: #3b5998;
     }
 
@@ -652,7 +647,6 @@
 
         position: absolute;
         top: 10vh;
-        margin-top: 0;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
@@ -660,7 +654,6 @@
         transform: translateX(300%);
         transition: 0.5s;
     }
-
     .navigationLatD {
         list-style: none;
         display: inline-flex;
@@ -672,7 +665,6 @@
 
         position: absolute;
         top: 32vh;
-
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -682,11 +674,11 @@
     }
 
     .navigationLatI > li:first-child {
-        margin-top: 4vw;
+        padding-top: 20px;
     }    
 
     .navigationLatD > li:first-child {
-        padding-top: 4vw;
+        padding-top: 20px;
     }
     
     .navigationLatD > li:last-child {
@@ -695,11 +687,11 @@
     }
 
     .hamburguesa {
-        width: 5%;
+        width: 4%;
         height: 100%;
         position: absolute;
         top: 0px;
-        right: 5vh;
+        right: 1rem;
         z-index: 11;
 
         cursor: pointer;
@@ -725,8 +717,6 @@
         position: absolute;
         top: 10vh;
         right: 0px;
-        margin-top: 0;
-
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
 
@@ -746,9 +736,7 @@
 
         position: absolute;
         top: 36.3vh;
-
         right: 0px;
-        margin-top: 0;
         background: rgba(24, 24, 24, 0.9); 
         z-index: 10;
 
@@ -757,11 +745,11 @@
     }
 
     .showI > li:first-child {
-        margin-top: 4vw;
+        margin-top: 20px;
     }    
 
     .showD > li:first-child {
-        padding-top: 4vw;
+        padding-top: 20px;
     }
     
     .showD > li:last-child {
@@ -772,10 +760,10 @@
 
     .back {
         position: fixed;
-        top: 3vh;
-        left: 5vw;
+        top: 1rem;
+        left: 1rem;
         z-index: 10;
-        font-size: 2vh;
+        width: 8%;
     
         transition: 0.5s;
     }
@@ -787,7 +775,7 @@
     .barra {
         position: absolute;
         bottom: 10px;
-        left: 30%;
+        left: 20%;
         display: flex;
         flex-direction: row;
         gap: 40px;
@@ -799,10 +787,6 @@
         
         text-align: center;
         margin: 0 auto;
-    }
-
-    .barra > div {
-        font-size: 3vw;
     }
     
     .div {
