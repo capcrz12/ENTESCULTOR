@@ -282,8 +282,12 @@
   }
 
   .marco {
-    width: 55vw;
+
+    width: 50vw;
     height: 70vh;
+
+    align-items: center;
+    justify-content: center;
 
     position: absolute;
     right: 1.25rem;

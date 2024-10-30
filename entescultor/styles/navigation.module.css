@@ -671,7 +671,8 @@
         width: 100%;
 
         position: absolute;
-        top: 39vw;
+        top: 32vh;
+
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -743,7 +744,8 @@
         width: 100%;
 
         position: absolute;
-        top: 39vw;
+        top: 36.3vh;
+
         right: 0px;
         margin-top: 0;
         background: rgba(24, 24, 24, 0.9); 
