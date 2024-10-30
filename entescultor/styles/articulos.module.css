@@ -23,17 +23,10 @@
 .completo {
   display: flex;
   flex-direction: column;
+  max-height: 55vh;
+  gap: 30px;
 
-  position: relative;
-  overflow: auto;
-  height: auto;
-
-  align-items: center;
-  justify-content: center;
-  max-height: 70vh;
-  max-width: 55vw;
-  gap: 5vh;
-  margin-top: 20px;
+  overflow-y: scroll;
 }
 
 .completo::-webkit-scrollbar {
@@ -108,24 +101,44 @@
 
 @media (max-width: 1024px) and (orientation: portrait) {
 
+  .seccion {
+    width: 80%;
+    margin: 0 10vw;
+  }
+
   .title {
     font-size: 3vh;
+    margin: 5vh 5vw;
   }
   
   .fecha {
     font-size: 2vh;
+    margin: 0vh 5vw;
+  }
+
+  .completo {
+    height: 60%;
+    align-items: center;
   }
   
   .texto {
     font-size: 2vh;
+    width: 90%;
   }
   
   .enlace {
     font-size: 2vh;
+    margin-bottom: 10vh;
   }
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
+
+  .seccion {
+    width: 80%;
+    height: auto;
+    margin: 0 5vw;
+  }
 
   .title {
     font-size: 3vw;
@@ -134,9 +147,21 @@
   .fecha {
     font-size: 2vw;
   }
+
+  .completo {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    align-items: center;
+  }
   
   .texto {
     font-size: 2vw;
+    width: 90%;
+    margin: 0;
+    padding: 0;
   }
   
   .enlace {

@@ -103,6 +103,9 @@
   right: 100px;
   top: 75px;
 
+  align-items: center;
+  justify-content: center;
+
   padding: 1% 2%;
 
   border-radius: 59px;
@@ -163,7 +166,7 @@
 }
 
 
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (max-width: 468px) and (orientation: portrait) {
 
   .presentacion {
     position: absolute;
@@ -178,11 +181,12 @@
 
   .info {
     font-size: 2.5vh;
+    width: 80vw;
   }
 
   .info_titulo {
     font-size: 2vh;
-    width: 60%;
+    width: 90vw;
   }
 
   .info_autor {
@@ -203,9 +207,12 @@
     width: 85vw;
     height: 70vh;
 
+    align-items: center;
+    justify-content: center;
+
     position: absolute;
-    left: 5vw;
     top: auto;
+    left: 3vw;
     bottom: 1rem;
 
     overflow: auto;
@@ -282,8 +289,11 @@
   }
 
   .marco {
-    width: 55vw;
+    width: 50vw;
     height: 70vh;
+
+    align-items: center;
+    justify-content: center;
 
     position: absolute;
     right: 1.25rem;
