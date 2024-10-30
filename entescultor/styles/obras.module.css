@@ -254,14 +254,18 @@
 
   .imagen {
     margin-bottom: 0px;
+    position: absolute;
+    top: 2.5rem;
+    right: 1vh;
+  }
+
+  .carrusel {
+    width: 35vw;
   }
 
   .image {
-    position: absolute;
-    bottom: 1rem;
-    right: 4rem;
     max-height: 70vh;
-    max-width: 70vw;
+    max-width: 90%;
   }
   
   .image:hover {

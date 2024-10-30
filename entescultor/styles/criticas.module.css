@@ -128,6 +128,12 @@
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
+  .seccion {
+    width: 80%;
+    height: 100%;
+    margin: 0 5vw;
+  }
+
   .title {
     font-size: 3vw;
     margin-left: 1rem;
@@ -135,15 +141,20 @@
   }
   
   .fecha {
-    font-size: 2svw;
+    font-size: 2vw;
   }
   
-  .nota {
+  .texto {
     font-size: 2vw;
   }
     
-  .video {
-    width: 50vw;
-    height: 80vh;
+  .carrusel {
+    width: 80%;
+    height: auto;
+  }
+
+  .image {
+    max-height: 40vh;
+    max-width: 90%;
   }
 }

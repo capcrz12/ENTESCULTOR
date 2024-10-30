@@ -167,7 +167,7 @@
 }
 
 
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (max-width: 468px) and (orientation: portrait) {
 
   .indalecio {
     font-size: 6vh;
@@ -207,6 +207,9 @@
   .marco {
     width: 90vw;
     height: 70vh;
+
+    align-items: center;
+    justify-content: center;
 
     position: absolute;
     top: auto;
@@ -286,8 +289,11 @@
   }
 
   .marco {
-    width: 60vw;
-    height: 75vh;
+    width: 50vw;
+    height: 70vh;
+
+    align-items: center;
+    justify-content: center;
 
     position: absolute;
     right: 1.25rem;

@@ -200,5 +200,6 @@
 
   .texto {
     font-size: 6vh;
+    line-height: normal;
   }
 }

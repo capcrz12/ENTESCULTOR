@@ -1,4 +1,4 @@
-.header {
+    .header {
 
     width: 100vw;
     height: 72px;
@@ -402,7 +402,7 @@
     }
 }
 
-@media (max-width: 1024px) and (orientation: landscape) {
+@media (max-width: 1023px) and (orientation: landscape) {
     .header {
         width: 100vw;
     }
@@ -610,10 +610,11 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
 
     .header {
         width: 100vw;
+        height: 10vh;
     }
 
     .entescultor {
@@ -645,7 +646,7 @@
         width: 100%;
 
         position: absolute;
-        top: 4.5vw;
+        top: 10vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
@@ -663,7 +664,7 @@
         width: 100%;
 
         position: absolute;
-        top: 8vw;
+        top: 32vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);  
         z-index: 10;
@@ -714,7 +715,7 @@
         width: 100%;
 
         position: absolute;
-        top: 4.5vw;
+        top: 10vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9);
         z-index: 10;
@@ -733,7 +734,7 @@
         width: 100%;
 
         position: absolute;
-        top: 28.5vw;
+        top: 36.3vh;
         right: 0px;
         background: rgba(24, 24, 24, 0.9); 
         z-index: 10;
