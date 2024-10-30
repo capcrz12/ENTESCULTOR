@@ -103,6 +103,9 @@
   right: 100px;
   top: 75px;
 
+  align-items: center;
+  justify-content: center;
+
   padding: 1% 2%;
 
   border-radius: 59px;
