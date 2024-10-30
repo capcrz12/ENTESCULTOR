@@ -33,11 +33,11 @@ export default function CarruselArticulos ({ articulos }) {
   return (
     <Slider {...settings} className={styles.seccion}>
       {articulos.map(articulo => (
-        <article key={articulo.id}>
+        <article key={articulo.id} className={styles.completo}>
           <h3 className={styles.title}>{articulo.title}</h3>
           <div className={styles.fecha}>{articulo.fecha}</div>
-          <div className={styles.completo}>
-            <div className={styles.texto}>{articulo.texto}</div>
+          <div className={styles.texto}>{articulo.texto}</div>
+          <div className={styles.div_image}>
             {
               articulo.image !== ''
                 ?
@@ -48,8 +48,8 @@ export default function CarruselArticulos ({ articulos }) {
                 </RViewer>
                 : ''
             }
-            <Link className={styles.enlace} href={articulo.url} target='_blank'>- Enlace al artículo -</Link>
           </div>
+          <Link className={styles.enlace} href={articulo.url} target='_blank'>- Enlace al artículo -</Link>
         </article>
       ))}
     </Slider>

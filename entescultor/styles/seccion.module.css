@@ -157,18 +157,23 @@
   box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.60);
 }
 
-@media (min-width: 1024) and (max-height: 620) {
+@media (min-width: 1023px) and (max-height: 620px) {
   .presentacion {
     position: absolute;
     top: 5rem;
     width: 90vw;
-    border: solid;
   }
 }
 
 
 @media (max-width: 468px) and (orientation: portrait) {
 
+  .presentacion {
+    position: absolute;
+    top: 12vh;
+    width: 90vw;
+  }
+  
   .indalecio {
     font-size: 6vh;
     line-height: 7vh;
@@ -189,12 +194,6 @@
   
     user-select: none;
   }
-
-  .presentacion {
-    position: absolute;
-    top: 5rem;
-    width: 90vw;
-  }
   
   .separador {
     width: 40%;
@@ -205,13 +204,15 @@
   }
 
   .marco {
-    width: 90vw;
+    width: 85vw;
     height: 70vh;
 
     align-items: center;
     justify-content: center;
 
     position: absolute;
+
+    left: 5vw;
     top: auto;
     left: 3vw;
     bottom: 1rem;
@@ -250,8 +251,15 @@
 
 @media (max-width: 1024px) and (orientation: landscape) {
 
+  .presentacion {
+    position: absolute;
+    top: 20vh;
+    left: 10vh;
+    width: 90vw;
+  }
+
   .indalecio {
-    font-size: 15vh;
+    font-size: 14vh;
     line-height: 15vh;
   }
 
@@ -261,17 +269,11 @@
 
   .info_titulo {
     font-size: 2vw;
-    width: 30%;
+    width: 50vh;
   }
 
   .info_autor {
     font-size: 2vw;
-  }
-
-  .presentacion {
-    position: absolute;
-    top: 5rem;
-    width: 90vw;
   }
 
   .play {
