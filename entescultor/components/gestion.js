@@ -108,7 +108,7 @@ export default function Gestion ({ handleLogout, series, obras, autor, articulos
           <h2>AÑADIR ELEMENTOS</h2>
           <button onClick={handleCrearSerie}>{opcion === 1 ? 'Cerrar menu Crear Serie' : 'Crear serie'}</button>
           <button onClick={handleCrearObra}>{opcion === 2 ? 'Cerrar menu Crear Obra' : 'Crear obra'}</button>
-          <button onClick={handleAnadirAutor}>{opcion === 3 ? 'Cerrar menu Añadir Autor' : 'Añadir autor'}</button>
+          {/* <button onClick={handleAnadirAutor}>{opcion === 3 ? 'Cerrar menu Añadir Autor' : 'Añadir autor'}</button> */}
           <button onClick={handleAnadirArticulo}>{opcion === 4 ? 'Cerrar menu Añadir Artículo' : 'Añadir artículo'}</button>
           <button onClick={handleAnadirEvento}>{opcion === 5 ? 'Cerrar menu Añadir Evento' : 'Añadir evento'}</button>
           <button onClick={handleAnadirCritica}>{opcion === 6 ? 'Cerrar menu Añadir Crítica' : 'Añadir crítica'}</button>

@@ -234,7 +234,7 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
         </div>
         { obrasFiltro.length === 0
           ?
-          <div>
+          <div className={styles.listaSeries}>
             <label className={styles.title}>Seleccione la obra a modificar:</label>
             <label className={styles.selector}>
               {obras.map(obra => (
@@ -263,7 +263,7 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
             </label>
           </div>
           : 
-          <div>
+          <div className={styles.listaSeries}>
             <label className={styles.title}>Seleccione la obra a modificar:</label>
             <label className={styles.selector}>
               {obrasFiltro.map(obra => (

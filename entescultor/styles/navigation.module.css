@@ -1,12 +1,13 @@
 .header {
 
-    width: 100vw;
+    width: 98vw;
     height: 72px;
 
     display: flex;
     text-align: center;
     justify-content: center;
     position: fixed;
+    margin-top: 1vh;
     margin-bottom: 200px;
 
     z-index: 10;
@@ -17,8 +18,8 @@
     
     gap: 6vw;
     text-align: center;
-    justify-content: center;
-    width: 100vw;
+    justify-content: space-evenly;
+    width: 100%;
 }
   
 .back {
@@ -37,27 +38,8 @@
 /* Eliminamos los elementos que se usan en responsive mas pequeños */    
 @media (min-width: 1024px) {
 
-    .navigationLatI {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        gap: 6vw;
-        font-size: 1.5vw;
-        width: 30vw;
-
-        position: fixed;
-        left: 0;
-        margin-top: 2vh;
-        margin-left: 0;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        overflow-x: auto;
-    }
-    
     /* Sirve para corregir el menu para laptop debido al useState, debe ser igual a navigationLat*/
-    .showI {
+    .navigationLatI, .showI {
         list-style: none;
         display: inline-flex;
         align-items: center;
@@ -65,18 +47,19 @@
         flex-direction: row;
         gap: 6vw;
         font-size: 1.5vw;
-        width: 30vw;
+        width: 33%;
 
         position: fixed;
         left: 0;
         margin-top: 2vh;
         margin-left: 0;
-        padding-left: 2vw;
+        padding-left: 0;
         padding-right: 2vw;
         overflow-x: auto;
     }
     
-    .navigationLatD {
+    
+    .navigationLatD, .showD {
         list-style: none;
         display: inline-flex;
         align-items: center;
@@ -84,26 +67,7 @@
         flex-direction: row;
         gap: 6vw;
         font-size: 1.5vw;
-        width: 30vw;
-
-        position: fixed;
-        right: 0;
-        margin-top: 2vh;
-        margin-right: 0;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        overflow-x: auto;
-    }
-    
-    .showD {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        gap: 6vw;
-        font-size: 1.5vw;
-        width: 30vw;
+        width: 33%;
 
         position: fixed;
         right: 0;
@@ -142,8 +106,9 @@
 
     .entescultor {
         position: fixed;
-        left: 39vw;
-        width: 20vw;
+        align-self: center;
+        justify-self: center;
+        width: 34%;
         margin-left: 0;
         margin-right: 0;
         margin-top: 2vh;
@@ -183,6 +148,8 @@
     .header {
         width: 100vw;
         height: 10vh;
+        margin-top: 0;
+
     }
 
     .entescultor {
@@ -405,6 +372,7 @@
 @media (max-width: 1023px) and (orientation: landscape) {
     .header {
         width: 100vw;
+        margin-top: 0;
     }
 
     .entescultor {
@@ -615,6 +583,7 @@
     .header {
         width: 100vw;
         height: 10vh;
+        margin-top: 0;
     }
 
     .entescultor {
