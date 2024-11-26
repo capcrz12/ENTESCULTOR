@@ -75,7 +75,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
         </div>
         { obrasFiltro.length === 0
           ?
-          <div>
+          <div className={styles.listaSeries}>
             <label className={styles.title}>Seleccione la obra a eliminar:</label>
             <label className={styles.selector}>
               {obras.map(obra => (
@@ -98,7 +98,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
             </label>
           </div>
           : 
-          <div>
+          <div className={styles.listaSeries}>
             <label className={styles.title}>Seleccione la obra a modificar:</label>
             <label className={styles.selector}>
               {obrasFiltro.map(obra => (

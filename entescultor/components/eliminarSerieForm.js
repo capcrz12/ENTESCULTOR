@@ -41,7 +41,7 @@ export default function EliminarSerieForm ({ handleEliminarSerie, setExito, seri
       <button className={styles.cerrar} onClick={handleEliminarSerie}>Cerrar</button>
       <h1>ELIMINAR SERIE</h1>
       <form>
-        <div>
+        <div className={styles.listaSeries}>
           <label className={styles.title}>Seleccione la serie a eliminar:</label>
           <label className={styles.selector}>
             {series.map(serie => (
