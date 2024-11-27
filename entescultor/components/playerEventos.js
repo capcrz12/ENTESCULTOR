@@ -49,9 +49,9 @@ export default function PlayerEventos ({ eventos }) {
                 <Slider {...settings} className={styles.carrusel}>
                   {evento.images.map (image => (
                     <div key={image}>
-                      <RViewer options={options} imageUrls={`http://localhost:3001${image}`}>
+                      <RViewer options={options} imageUrls={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${image}`}>
                         <RViewerTrigger >
-                          <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                          <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${image}`} className={styles.image} />
                         </RViewerTrigger>
                       </RViewer>
                     </div>

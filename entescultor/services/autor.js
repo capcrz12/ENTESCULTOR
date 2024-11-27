@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAutor = () => {
-  return fetch('http://localhost:3001/api/autor')
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/autor`)
     .then(res => res.json())
 }
 
@@ -19,7 +19,7 @@ export const createTextoAutor = ({ texto }) => {
   }
 
   axios
-    .post('http://localhost:3001/api/autor', { texto }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/autor`, { texto }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -38,7 +38,7 @@ export const putImageAutor = ({ image }) => {
   }
 
   axios
-    .put('http://localhost:3001/api/autor/image', { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/autor/image`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -56,7 +56,7 @@ export const putAutor = ({ texto, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/autor/${id}`, { texto }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/autor/${id}`, { texto }, config)
     .then((response) => {
       const { data } = response
       return data

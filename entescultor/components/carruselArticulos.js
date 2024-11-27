@@ -41,9 +41,9 @@ export default function CarruselArticulos ({ articulos }) {
             {
               articulo.image !== ''
                 ?
-                <RViewer options={options} imageUrls={`http://localhost:3001${articulo.image}`}>
+                <RViewer options={options} imageUrls={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${articulo.image}`}>
                   <RViewerTrigger>
-                    <img alt='No disponible' src={`http://localhost:3001${articulo.image}`} className={styles.image} />
+                    <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${articulo.image}`} className={styles.image} />
                   </RViewerTrigger>
                 </RViewer>
                 : ''

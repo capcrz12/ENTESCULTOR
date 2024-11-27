@@ -43,7 +43,7 @@ export default function ObrasSinSerieForm ({ handleObrasSinSerie, setExito, obra
                   <label className={styles.serie} key={obra.id}>
                     <article>
                       <div className={styles.obra} >
-                        <img alt='No disponible' src={`http://localhost:3001${obra.url}`} className={styles.image} />
+                        <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${obra.url}`} className={styles.image} />
                         <h2 className={styles.texto}>{obra.title}</h2>
                       </div>
                     </article>

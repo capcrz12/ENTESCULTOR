@@ -70,7 +70,7 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
               <label className={styles.serie} key={serie.id}>
                 <article>
                   <div className={styles.serie} >
-                    <img alt='No disponible' src={`http://localhost:3001${serie.image}`} className={styles.image} />
+                    <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${serie.image}`} className={styles.image} />
                     <h2 className={styles.texto}>{serie.name}</h2>
                   </div>
                 </article>
@@ -111,7 +111,7 @@ export default function ModificarSerieForm ({ handleModificarSerie, setExito, se
                     <label className={styles.serie} key={image}>
                       <article>
                         <div className={styles.obra} >
-                          <img alt='No disponible' src={`http://localhost:3001${image}`} className={styles.image} />
+                          <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${image}`} className={styles.image} />
                         </div>
                       </article>
                       <input

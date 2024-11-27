@@ -13,7 +13,7 @@ export default async function ListaSeries () {
           <article key={serie.id}>
             <div className={styles.contenedor}>
               <Link href={`/series/${serie.name}`} className={styles.serie}>
-                <img alt='No disponible' src={`http://localhost:3001${serie.image}`} className={styles.image} />
+                <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${serie.image}`} className={styles.image} />
                 <h2 className={styles.texto}>{serie.name}</h2>
               </Link>
             </div>

@@ -229,7 +229,7 @@ export default function ModificarArticuloForm ({ handleModificarArticulo, setExi
             <form className={styles.mini} onSubmit={handleSubmitImage} encType="multipart/form-data">
               <label>Imagen actual:</label>
               <div>
-                <img alt='No tiene o no está disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
+                <img alt='No tiene o no está disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${imageOriginal}`} className={styles.image} />
               </div>
               <label className={styles.title}>Para cambiar la foto de la serie, seleccione una nueva (se borrará la antigua):</label>
               <input

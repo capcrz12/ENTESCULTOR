@@ -87,7 +87,7 @@ export default function ModificarAutorForm ({ handleModificarAutor, setExito, au
       <form className={styles.mini} onSubmit={handleSubmitImage} encType="multipart/form-data">
         <label>Imagen del autor actual:</label>
         <div>
-          <img alt='No disponible' src={`http://localhost:3001${imageOriginal}`} className={styles.image} />
+          <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${imageOriginal}`} className={styles.image} />
         </div>
         <label>Cambiar imagen de autor actual:</label>
         <input

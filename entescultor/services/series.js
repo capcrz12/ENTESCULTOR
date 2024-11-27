@@ -20,7 +20,7 @@ export const createSerie = ({ name, image }) => {
   }
 
   axios
-    .post('http://localhost:3001/api/series', { name, image }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series`, { name, image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -38,7 +38,7 @@ export const putTitleSerie = ({ name, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/series/title/${id}`, { name }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series/title/${id}`, { name }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -56,7 +56,7 @@ export const putImageSerie = ({ image, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/series/image/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series/image/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -64,7 +64,7 @@ export const putImageSerie = ({ image, id }) => {
 }
 
 export const getAllSeries = () => {
-  return fetch('http://localhost:3001/api/series')
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series`)
     .then(res => res.json())
 }
 
@@ -80,7 +80,7 @@ export const deleteSerie = ({ id }) => {
   }
 
   axios
-    .delete(`http://localhost:3001/api/series/${id}`, config)
+    .delete(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series/${id}`, config)
     .then((response) => {
       const { data } = response
       return data

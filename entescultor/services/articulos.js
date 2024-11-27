@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAllArticulos = () => {
-  return fetch('http://localhost:3001/api/articulos')
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos`)
     .then(res => res.json())
 }
 
@@ -20,7 +20,7 @@ export const createArticulo = ({ titulo, fecha, texto, image, url }) => {
   }
 
   axios
-    .post('http://localhost:3001/api/articulos', { titulo, fecha, texto, image, url }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos`, { titulo, fecha, texto, image, url }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -38,7 +38,7 @@ export const putTitleArticulo = ({ title, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/articulos/title/${id}`, { title }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos/title/${id}`, { title }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -56,7 +56,7 @@ export const putFechaArticulo = ({ fecha, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/articulos/fecha/${id}`, { fecha }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos/fecha/${id}`, { fecha }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -74,7 +74,7 @@ export const putTextoArticulo = ({ texto, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/articulos/texto/${id}`, { texto }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos/texto/${id}`, { texto }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -92,7 +92,7 @@ export const putUrlArticulo = ({ url, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/articulos/url/${id}`, { url }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos/url/${id}`, { url }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -111,7 +111,7 @@ export const putImageArticulo = ({ image, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/articulos/image/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos/image/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -130,7 +130,7 @@ export const deleteArticulo = ({ id }) => {
   }
 
   axios
-    .delete(`http://localhost:3001/api/articulos/${id}`, config)
+    .delete(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/articulos/${id}`, config)
     .then((response) => {
       const { data } = response
       return data

@@ -4,12 +4,12 @@ import { getToken } from './token'
 let token = null
 
 export const getAllObras = () => {
-  return fetch('http://localhost:3001/api/obras')
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras`)
     .then(res => res.json())
 }
 
 export const getObrasBySerie = (name) => {
-  return fetch(`http://localhost:3001/api/obras/${name}`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/${name}`)
     .then(res => res.json())
 }
 
@@ -25,7 +25,7 @@ export const createObra = ({ title, images, material, largo, ancho, alto, serieI
   }
 
   axios
-    .post('http://localhost:3001/api/obras', { title, images, material, largo, ancho, alto, serieId }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras`, { title, images, material, largo, ancho, alto, serieId }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -43,7 +43,7 @@ export const putTitleObra = ({ title, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/title/${id}`, { title }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/title/${id}`, { title }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -61,7 +61,7 @@ export const putAltoObra = ({ alto, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/alto/${id}`, { alto }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/alto/${id}`, { alto }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -79,7 +79,7 @@ export const putAnchoObra = ({ ancho, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/ancho/${id}`, { ancho }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/ancho/${id}`, { ancho }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -97,7 +97,7 @@ export const putLargoObra = ({ largo, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/largo/${id}`, { largo }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/largo/${id}`, { largo }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -115,7 +115,7 @@ export const putMaterialObra = ({ material, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/material/${id}`, { material }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/material/${id}`, { material }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -133,7 +133,7 @@ export const putSerieObra = ({ serieId, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/serieId/${id}`, { serieId }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/serieId/${id}`, { serieId }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -151,7 +151,7 @@ export const deleteImageObra = ({ image, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/deleteImage/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/deleteImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -170,7 +170,7 @@ export const uploadImageObra = ({ image, id }) => {
   }
 
   axios
-    .put(`http://localhost:3001/api/obras/uploadImage/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/uploadImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -188,7 +188,7 @@ export const deleteObra = ({ id }) => {
   }
 
   axios
-    .delete(`http://localhost:3001/api/obras/${id}`, config)
+    .delete(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/obras/${id}`, config)
     .then((response) => {
       const { data } = response
       return data
