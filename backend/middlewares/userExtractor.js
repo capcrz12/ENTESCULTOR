@@ -6,7 +6,7 @@ module.exports = (request, response, next) => {
   const authorization = request.get('authorization')
   let token = ''
 
-  // La cabecera sería: "Bearer 4aifhaofhafoshfohwr1r"
+  // La cabecera sería: "Bearer ..."
   if (authorization && authorization.toLowerCase().startsWith('bearer')) {
     // Nos quedamos con el token, que empieza a partir del séptimo caracter (eliminamos "Bearer ")
     token = authorization.substring(7)
