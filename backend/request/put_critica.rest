@@ -1,6 +1,0 @@
-PUT http://localhost:3001/api/criticas/64e4d1edd2d4a002d7ffdfd5
-Content-Type: application/json
-
-{
-  "fecha": "27/02/2015"
-}

@@ -1,2 +1,0 @@
-DELETE http://localhost:3001/api/obras/64eddd0358afaf323141fe82
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWRjNWVhMjI2MWY1MjgyMDBjOWRjNyIsIm5vbWJyZVVzdWFyaW8iOiJjYXAxMiIsImlhdCI6MTY5MzMwNzQyOH0.ZS08GfywecofsjZC7_kh5PfDb3rxfILelEMHro94vgw

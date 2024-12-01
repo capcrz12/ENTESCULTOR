@@ -1,7 +1,0 @@
-PUT http://localhost:3001/api/series/64d248967aa0c74d1278d9a4
-Content-Type: application/json
-
-{
-  "name": "Gótico",
-  "image": "https://www.entescultor.com/fotos/gotico/zoom/cate2_zoom.jpg"
-}

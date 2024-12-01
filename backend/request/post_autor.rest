@@ -1,9 +1,0 @@
-POST http://localhost:3001/api/autor
-Content-Type: application/json
-// Añadimos la palabra "Bearer" al inicio de la cabecera
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWRjNWVhMjI2MWY1MjgyMDBjOWRjNyIsIm5vbWJyZVVzdWFyaW8iOiJjYXAxMiIsImlhdCI6MTY5MzMwNzQyOH0.ZS08GfywecofsjZC7_kh5PfDb3rxfILelEMHro94vgw
-
-{
-  "texto": "hola pepe",
-  "image": ""
-}
