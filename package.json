@@ -32,6 +32,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "react-viewer": "3.2.2"
+    "react-viewer": "3.2.2",
+    "workspaces": "^0.1.0"
   }
 }

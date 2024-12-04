@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const connectionString = process.env.MONGO_DB_URI
 
-mongoose.connect(connectionString)
+mongoose.connect(connectionString, {dbName: 'entescultor'})
   .then(() => {
     console.log('Database connected')
   }).catch(err => {
