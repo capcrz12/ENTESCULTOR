@@ -6,22 +6,27 @@
 .title {
   text-align: center;
   
-  font-style: normal;
-  font-weight: 600;
-  font-size: 40px;
-  margin-top: 50px;
+  font-size: 35px;
+  font-style: thin;
+  font-weight: 300;
+  line-height: normal;
+  margin: 50px;
 }
 
 .fecha {
   text-align: center;
   
-  font-style: normal;
-  font-weight: 600;
   font-size: 22px;
+  font-style: thin;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .nota {
-  font-size: 18px;
+  font-size: 22px;
+  font-style: thin;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .completo {
