@@ -10,6 +10,9 @@
     margin-top: 1vh;
     margin-bottom: 200px;
 
+    font-style: thin;
+    font-weight: 200;
+
     z-index: 10;
   }
 
@@ -27,12 +30,10 @@
     top: 100px;
     left: 100px;
     z-index: 10;
-
-    transition: 0.5s;
 }
 
 .back:hover {
-    transform: scale(1.25);
+    color: red;
 }
 
 /* Eliminamos los elementos que se usan en responsive mas pequeños */    
@@ -111,19 +112,18 @@
         width: 34%;
         margin-left: 0;
         margin-right: 0;
-        margin-top: 2vh;
+        margin-top: 5.25vh;
         padding-left: 0;
         padding-right: 0;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+
         color: #FFF;
         text-align: center;
         font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
-        font-family: Arimo;
-        font-size: 1.75vw;
-        font-style: normal;
-        font-weight: 400;
+        
+        font-size: 2.5vw;
         line-height: 20px; /* 80% */
         letter-spacing: 8px;
     
@@ -156,7 +156,7 @@
         color: #FFF;
         text-align: center;
         font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
-        font-family: Arimo;
+        
         letter-spacing: 6px;
         font-size: 6vw;      
 
@@ -311,7 +311,7 @@
     }
     
     .back:hover {
-        transform: scale(1);
+        color: red;
     }
 
     .barra {
@@ -379,7 +379,7 @@
         color: #FFF;
         text-align: center;
         font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
-        font-family: Arimo;
+        
         letter-spacing: 6px;
         font-size: 6vh;      
 
@@ -590,7 +590,7 @@
         color: #FFF;
         text-align: center;
         font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
-        font-family: Arimo;
+        
         letter-spacing: 6px;
         font-size: 6vw;      
 
@@ -738,7 +738,7 @@
     }
     
     .back:hover {
-        transform: scale(1);
+        color: red;
     }
 
     .barra {

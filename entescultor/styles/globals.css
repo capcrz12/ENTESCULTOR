@@ -3,6 +3,10 @@ body {
   margin: 0 auto;
   text-align: center;
 
+  font-family: 'Roboto', sans-serif;
+  font-style: thin;
+  font-weight: 300;
+
   overflow: hidden;
 }
 
@@ -18,8 +22,8 @@ body {
     position: fixed;
     right: px;
     bottom: 10px;
-    width: 900px;
-    height: 900px;
+    width: 850px;
+    height: 850px;
     z-index: -1;
   }
 }
