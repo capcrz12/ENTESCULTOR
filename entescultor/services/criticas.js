@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAllCriticas = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas`)
     .then(res => res.json())
 }
 
@@ -20,7 +20,7 @@ export const createCritica = ({ autor, fecha, texto, images }) => {
   }
 
   axios
-    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas`, { autor, fecha, texto, images }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas`, { autor, fecha, texto, images }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -38,7 +38,7 @@ export const putAutorCritica = ({ autor, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas/autor/${id}`, { autor }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas/autor/${id}`, { autor }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -56,7 +56,7 @@ export const putFechaCritica = ({ fecha, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas/fecha/${id}`, { fecha }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas/fecha/${id}`, { fecha }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -74,7 +74,7 @@ export const putTextoCritica = ({ texto, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas/texto/${id}`, { texto }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas/texto/${id}`, { texto }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -92,7 +92,7 @@ export const deleteImageCritica = ({ image, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas/deleteImage/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas/deleteImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -111,7 +111,7 @@ export const uploadImageCritica = ({ image, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas/uploadImage/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas/uploadImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -130,7 +130,7 @@ export const deleteCritica = ({ id }) => {
   }
 
   axios
-    .delete(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/criticas/${id}`, config)
+    .delete(`${process.env.NEXT_PUBLIC_API_URL}/api/criticas/${id}`, config)
     .then((response) => {
       const { data } = response
       return data

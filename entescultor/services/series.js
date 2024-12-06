@@ -20,7 +20,7 @@ export const createSerie = ({ name, image }) => {
   }
 
   axios
-    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series`, { name, image }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/series`, { name, image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -38,7 +38,7 @@ export const putTitleSerie = ({ name, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series/title/${id}`, { name }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/series/title/${id}`, { name }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -56,17 +56,28 @@ export const putImageSerie = ({ image, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series/image/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/series/image/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
     })
 }
-
-export const getAllSeries = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series`)
-    .then(res => res.json())
+export const getAllSeries = async () => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/series`)
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    return await response.json()
+  } catch (error) {
+    console.error('Fetch error:', error)
+    return []
+  }
 }
+// export const getAllSeries = () => {
+//   return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/series`)
+//     .then(res => res.json())
+// }
 
 export const deleteSerie = ({ id }) => {
 
@@ -80,7 +91,7 @@ export const deleteSerie = ({ id }) => {
   }
 
   axios
-    .delete(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/series/${id}`, config)
+    .delete(`${process.env.NEXT_PUBLIC_API_URL}/api/series/${id}`, config)
     .then((response) => {
       const { data } = response
       return data

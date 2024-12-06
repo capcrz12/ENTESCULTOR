@@ -2,11 +2,8 @@ require('dotenv').config()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true
-  },
   images: {
-    domains: ['via.placeholder.com', 'www.entescultor.com', 'localhost']
+    domains: ['via.placeholder.com', 'www.entescultor.com', 'localhost', 'entback.vercel.app']
   },
   reactStrictMode: true
 }

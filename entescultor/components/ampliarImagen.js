@@ -34,9 +34,9 @@ export default function AmpliarImagen ({ obra }) {
     <Slider {...settings} className={styles.carrusel}>
       {obra.images.map(image => (
         <div key={image}>
-          <RViewer options={options} imageUrls={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${image}`}>
+          <RViewer options={options} imageUrls={`${process.env.NEXT_PUBLIC_API_URL}${image}`}>
             <RViewerTrigger >
-              <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}${image}`} className={styles.image} />
+              <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${image}`} className={styles.image} />
             </RViewerTrigger>
           </RViewer>
         </div>

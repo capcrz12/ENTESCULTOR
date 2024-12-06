@@ -2,7 +2,7 @@
 require('dotenv').config()
 
 // Conectarse a la base de datos
-require('./mongo')
+require('../mongo')
 
 const express = require('express')
 
@@ -10,23 +10,23 @@ const app = express()
 const cors = require('cors')
 
 // Obtenemos los middlewares
-const notFound = require('./middlewares/notFound')
-const handlerErrors = require('./middlewares/handlerErrors')
+const notFound = require('../middlewares/notFound')
+const handlerErrors = require('../middlewares/handlerErrors')
 
 // Obtenemos los controladores
-const seriesRouter = require('./controllers/series')
-const obrasRouter = require('./controllers/obras')
-const autorRouter = require('./controllers/autor')
-const articulosRouter = require('./controllers/articulos')
-const eventosRouter = require('./controllers/eventos')
-const criticasRouter = require('./controllers/criticas')
-const usuariosRouter = require('./controllers/usuarios')
-const loginRouter = require('./controllers/login')
+const seriesRouter = require('../controllers/series')
+const obrasRouter = require('../controllers/obras')
+const autorRouter = require('../controllers/autor')
+const articulosRouter = require('../controllers/articulos')
+const eventosRouter = require('../controllers/eventos')
+const criticasRouter = require('../controllers/criticas')
+const usuariosRouter = require('../controllers/usuarios')
+const loginRouter = require('../controllers/login')
 
 
 app.use(express.json())
 app.use(cors())
-app.use('/images', express.static('images'))
+app.use(express.static('./images'))
 // Despues del build, sustituir la linea anterior por : app.use(express.static('//La ruta de la carpeta build'))
 
 
@@ -83,3 +83,5 @@ const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
+module.exports = app

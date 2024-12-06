@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAllEventos = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos`)
     .then(res => res.json())
 }
 
@@ -20,7 +20,7 @@ export const createEvento = ({ title, fecha, nota, url, images, enlace }) => {
   }
 
   axios
-    .post(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos`, { title, fecha, nota, url, images, enlace }, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos`, { title, fecha, nota, url, images, enlace }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -38,7 +38,7 @@ export const putTitleEvento = ({ title, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/title/${id}`, { title }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/title/${id}`, { title }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -56,7 +56,7 @@ export const putFechaEvento = ({ fecha, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/fecha/${id}`, { fecha }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/fecha/${id}`, { fecha }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -74,7 +74,7 @@ export const putNotaEvento = ({ nota, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/nota/${id}`, { nota }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/nota/${id}`, { nota }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -92,7 +92,7 @@ export const putUrlEvento = ({ url, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/url/${id}`, { url }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/url/${id}`, { url }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -110,7 +110,7 @@ export const putEnlaceEvento = ({ enlace, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/enlace/${id}`, { enlace }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/enlace/${id}`, { enlace }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -128,7 +128,7 @@ export const deleteImageEvento = ({ image, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/deleteImage/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/deleteImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -147,7 +147,7 @@ export const uploadImageEvento = ({ image, id }) => {
   }
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/uploadImage/${id}`, { image }, config)
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/uploadImage/${id}`, { image }, config)
     .then((response) => {
       const { data } = response
       return data
@@ -166,7 +166,7 @@ export const deleteEvento = ({ id }) => {
   }
 
   axios
-    .delete(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/api/eventos/${id}`, config)
+    .delete(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos/${id}`, config)
     .then((response) => {
       const { data } = response
       return data
