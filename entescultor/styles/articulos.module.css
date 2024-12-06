@@ -1,23 +1,28 @@
 .seccion {
   color: #ffffff;
   height: 95%;
+
+  font-weight: 200;
+  font-style: thin;
 }
 
 .title {
   text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 40px;
+  
+  font-size: 35px;
+  font-style: thin;
+  font-weight: 300;
+  line-height: normal;
   margin: 50px;
 }
 
 .fecha {
   text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
+  
   font-size: 22px;
+  font-style: thin;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .completo {
@@ -55,7 +60,10 @@
   margin: 20px;
   padding: 20px;
   text-align: justify;
-  font-size: 25px;
+  font-size: 22px;
+  font-style: thin;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .enlace {

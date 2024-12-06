@@ -17,11 +17,11 @@ export default async function ListaObras ({ name }) {
                   <h2 className={styles.texto}>{obra.title}</h2>
                   <div className={styles.info}>
                     <div>
-                      <strong>MATERIAL</strong>
+                      <p>MATERIAL</p>
                       <div>{obra.material}</div>
                     </div>
                     <div>
-                      <strong>DIMENSIONES</strong>
+                      <p>DIMENSIONES</p>
                       <div>{obra.largo} x {obra.ancho} x {obra.alto}</div>
                     </div>
                   </div>

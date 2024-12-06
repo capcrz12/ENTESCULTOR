@@ -65,15 +65,17 @@
 .serie > div:first-child {
   display: flex;
   flex-direction: column;
-  margin-top: 250px;
-  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 300px;
+  gap: 25px;
 }
 
 .texto {
   color: #FFF;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 800;
+  font-size: 40px;
+  font-style: thin;
+  font-weight: 200;
   line-height: 98px; /* 326.667% */
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -85,7 +87,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 30px;
 
   align-items: center;
   justify-content: center;
@@ -93,16 +95,23 @@
   margin-bottom: 100px;
   margin-left: 100px;
 
-  font-size: 25px;
+  font-size: 22px;
+  font-style: thin;
+  font-weight: 200;
 
   border-radius: 28px;
-  padding: 25px;
+  padding: 25px 50px;
   
   background: rgba(217, 217, 217, 0.35);
 
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.7);
 
   user-select: none;
+}
+
+.info p {
+  font-style: thin;
+  font-weight: 300;
 }
 
 .carrusel {
