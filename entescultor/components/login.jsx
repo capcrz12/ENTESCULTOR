@@ -64,9 +64,7 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
         email
       })
 
-      console.log(verifyEmail)
-
-      if (verifyEmail.status == 200) {
+      if (verifyEmail != '') {
         setMensaje('Correo enviado con éxito')
         setTimeout(() => {
           setMensaje('')
