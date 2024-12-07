@@ -1,24 +1,21 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
-const bodyParser = require('body-parser')
 const loginRouter = require('express').Router()
 const Usuario = require('../models/Usuario')
 
-loginRouter.use(bodyParser.json())
-
 // Configuración de nodemailer
-const transporter = nodemailer.createTransport({
-  host: 'smtp.ethereal.email',
-  port: 587,
-  secure: false, // true for port 465, false for other ports  
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-})
+// const transporter = nodemailer.createTransport({
+//   host: 'smtp.ethereal.email',
+//   port: 587,
+//   secure: false, // true for port 465, false for other ports  
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS
+//   }
+// })
 
-console.log('Transporter configurado:', transporter)
+// console.log('Transporter configurado:', transporter)
 
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
@@ -86,7 +83,7 @@ loginRouter.post('/email', async (request, response, next) => {
     console.log('Contenido del correo:', mailOptions)
 
     try {
-      await transporter.sendMail(mailOptions)
+      // await transporter.sendMail(mailOptions)
       response.status(200).send('Correo de recuperación enviado')
     } catch (error) {
       console.error('Error enviando el correo de recuperación:', error)
