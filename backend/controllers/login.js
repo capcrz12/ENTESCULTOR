@@ -76,6 +76,7 @@ loginRouter.post('/email', async (request, response, next) => {
     }
   
     console.log('Enviando correo de recuperación a:', email)
+    console.log('Contenido del correo:', mailOptions)
 
     try {
       await transporter.sendMail(mailOptions)
