@@ -8,6 +8,10 @@ const usuariosSchema = new Schema({
     unique: true
   },
   passwordHash: String,
+  email: {
+    type: String,
+    unique: true
+  },
   admin: Boolean
 })
 

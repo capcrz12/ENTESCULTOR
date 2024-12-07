@@ -43,4 +43,22 @@ loginRouter.post('/', async (request, response, next) => {
   } catch (err) { next(err)} 
 })
 
+loginRouter.post('/email', async (request, response, next) => {
+  try {
+    const { email } = request.body
+    const usuario = await Usuario.findOne({email})
+
+    if(!usuario) {
+      response.status(401).json({
+        error: 'Este correo electrónico no está registrado'
+      })
+    }
+
+    response.send({
+      email: usuario.email
+    })
+
+  } catch (err) { next(err) }
+})
+
 module.exports = loginRouter
