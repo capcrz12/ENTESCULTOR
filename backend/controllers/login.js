@@ -4,18 +4,18 @@ const nodemailer = require('nodemailer')
 const loginRouter = require('express').Router()
 const Usuario = require('../models/Usuario')
 
-// Configuración de nodemailer
-// const transporter = nodemailer.createTransport({
-//   host: 'smtp.ethereal.email',
-//   port: 587,
-//   secure: false, // true for port 465, false for other ports  
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS
-//   }
-// })
+//Configuración de nodemailer
+const transporter = nodemailer.createTransport({
+  host: 'smtp.ethereal.email',
+  port: 587,
+  secure: false, // true for port 465, false for other ports  
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+})
 
-// console.log('Transporter configurado:', transporter)
+console.log('Transporter configurado:', transporter)
 
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
