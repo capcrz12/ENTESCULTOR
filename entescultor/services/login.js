@@ -6,3 +6,8 @@ export const login = async credentials => {
   const { data } = await axios.post(baseUrl, credentials)
   return data
 }
+
+export const emailRecovery = async email => {
+  const { data } = await axios.post(`${baseUrl}/email`, email)
+  return data
+}
