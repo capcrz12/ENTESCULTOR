@@ -2,7 +2,7 @@
 
 import styles from '@/styles/gestion.module.css'
 import React, { useState, useEffect } from 'react'
-import { login } from '@/services/login'
+import { login, emailRecovery } from '@/services/login'
 import { setToken } from '@/services/token'
 import LoginForm from '@/components/loginForm'
 import Gestion from '@/components/gestion'
@@ -11,7 +11,9 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
   const [nombreUsuario, setNombreUsuario] = useState('')
   const [password, setPassword] = useState('')
   const [usuario, setUsuario] = useState(null)
+  const [email, setEmail] = useState('')
   const [error, setError] = useState('')
+  const [mensaje, setMensaje] = useState('')
 
   // Para recuperar del localStorage el token y asi tener la sesion abierta al recargar
   useEffect(() => {
@@ -52,6 +54,32 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
     }
   }
 
+  const handleEmail = async (event) => {
+    event.preventDefault()
+
+    setError('')
+
+    try {
+      const verifyEmail = await emailRecovery({
+        email
+      })
+
+      console.log(verifyEmail)
+
+      if (verifyEmail.status == 200) {
+        setMensaje('Correo enviado con éxito')
+        setTimeout(() => {
+          setMensaje('')
+        }, 4000)
+      }
+
+    }
+    catch (error) {
+      console.error(error)
+      setError('Este correo electrónico no está registrado o ha ocurrido un error')
+    }
+  }
+
   const handleLogout = () => {
     setUsuario(null)
     setToken(usuario.token)
@@ -79,11 +107,15 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
               <h2>IDENTIFICACIÓN</h2>
               <LoginForm
                 handleLogin={handleLogin}
+                handleEmail={handleEmail}
                 nombreUsuario={nombreUsuario}
                 setNombreUsuario={setNombreUsuario}
                 password={password}
                 setPassword={setPassword}
+                email={email}
+                setEmail={setEmail}
                 error={error}
+                mensaje={mensaje}
               />
             </div>
         }
