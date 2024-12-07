@@ -5,17 +5,17 @@ const loginRouter = require('express').Router()
 const Usuario = require('../models/Usuario')
 
 //Configuración de nodemailer
-// const transporter = nodemailer.createTransport({
-//   host: 'smtp.ethereal.email',
-//   port: 587,
-//   secure: false, // true for port 465, false for other ports  
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS
-//   }
-// })
+const transporter = nodemailer.createTransport({
+  host: 'smtp.ethereal.email',
+  port: 587,
+  secure: false, // true for port 465, false for other ports  
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+})
 
-//console.log('Transporter configurado:', transporter)
+console.log('Transporter configurado:', transporter)
 
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
@@ -66,9 +66,6 @@ loginRouter.post('/email', async (request, response, next) => {
 
     const usuario = await Usuario.findOne({ email })
 
-    console.log('usuario', process.env.EMAIL_USER)
-    console.log('pass', process.env.EMAIL_PASS)
-
     if (!usuario) {
       return response.status(401).json({
         error: 'Este correo electrónico no está registrado'
@@ -86,7 +83,7 @@ loginRouter.post('/email', async (request, response, next) => {
     console.log('Contenido del correo:', mailOptions)
 
     try {
-      //await transporter.sendMail(mailOptions)
+      await transporter.sendMail(mailOptions)
       response.status(200).send('Correo de recuperación enviado')
     } catch (error) {
       console.error('Error enviando el correo de recuperación:', error)
