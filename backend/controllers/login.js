@@ -7,6 +7,8 @@ const Usuario = require('../models/Usuario')
 
 loginRouter.use(bodyParser.json())
 
+console.log(process.env.EMAIL_USER,process.env.EMAIL_PASS)
+
 // Configuración de nodemailer
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Puedes usar otros servicios como Outlook, Yahoo, etc.
@@ -15,6 +17,8 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS
   }
 })
+
+console.log(transporter)
 
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
@@ -76,6 +80,7 @@ loginRouter.post('/email', async (request, response, next) => {
     }
   
     console.log('Enviando correo de recuperación a:', email)
+    console.log('Contenido del correo:', mailOptions)
 
     try {
       await transporter.sendMail(mailOptions)
