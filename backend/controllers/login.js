@@ -7,6 +7,8 @@ const Usuario = require('../models/Usuario')
 
 loginRouter.use(bodyParser.json())
 
+console.log(process.env.EMAIL_USER,process.env.EMAIL_PASS)
+
 // Configuración de nodemailer
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Puedes usar otros servicios como Outlook, Yahoo, etc.
