@@ -75,6 +75,8 @@ loginRouter.post('/email', async (request, response, next) => {
       text: 'Haz clic en el siguiente enlace para recuperar tu contraseña: [enlace de recuperación]'
     }
   
+    console.log('Enviando correo de recuperación a:', email)
+
     try {
       await transporter.sendMail(mailOptions)
       response.status(200).send('Correo de recuperación enviado')
