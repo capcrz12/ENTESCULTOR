@@ -7,18 +7,18 @@ const Usuario = require('../models/Usuario')
 
 loginRouter.use(bodyParser.json())
 
-console.log(process.env.EMAIL_USER,process.env.EMAIL_PASS)
-
 // Configuración de nodemailer
-// const transporter = nodemailer.createTransport({
-//   service: 'gmail', // Puedes usar otros servicios como Outlook, Yahoo, etc.
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS
-//   }
-// })
+const transporter = nodemailer.createTransport({
+  host: 'smtp.ethereal.email',
+  port: 587,
+  secure: false, // true for port 465, false for other ports  
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+})
 
-// console.log(transporter)
+console.log('Transporter configurado:', transporter)
 
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
@@ -26,14 +26,14 @@ loginRouter.post('/', async (request, response, next) => {
     const { body } = request
     const { nombreUsuario, password } = body
 
-    const usuario = await Usuario.findOne({nombreUsuario})
+    const usuario = await Usuario.findOne({ nombreUsuario })
 
     const passwordCorrecto = usuario === null
       ? false
       : await bcrypt.compare(password, usuario.passwordHash)
 
     if (!(usuario && passwordCorrecto)) {
-      response.status(401).json({
+      return response.status(401).json({
         error: 'Usuario o contraseña inválido'
       })
     }
@@ -44,30 +44,33 @@ loginRouter.post('/', async (request, response, next) => {
     }
 
     const token = jwt.sign(
-      userForToken, 
+      userForToken,
       process.env.SECRET,
       {
         expiresIn: 60 * 60 * 24   // El token expira en 1 día
       }
     )
 
-
     response.send({
       nombre: usuario.nombre,
       nombreUsuario: usuario.nombreUsuario,
       token
     })
-  } catch (err) { next(err)} 
+  } catch (err) {
+    console.error('Error en la ruta de login:', err)
+    next(err)
+  }
 })
-
 
 loginRouter.post('/email', async (request, response, next) => {
   try {
     const { email } = request.body
-    const usuario = await Usuario.findOne({email})
+    console.log('Recuperación de contraseña solicitada para:', email)
 
-    if(!usuario) {
-      response.status(401).json({
+    const usuario = await Usuario.findOne({ email })
+
+    if (!usuario) {
+      return response.status(401).json({
         error: 'Este correo electrónico no está registrado'
       })
     }
@@ -78,7 +81,7 @@ loginRouter.post('/email', async (request, response, next) => {
       subject: 'Recuperación de contraseña gestion entescultor',
       text: 'Haz clic en el siguiente enlace para recuperar tu contraseña: [enlace de recuperación]'
     }
-  
+
     console.log('Enviando correo de recuperación a:', email)
     console.log('Contenido del correo:', mailOptions)
 
@@ -88,9 +91,12 @@ loginRouter.post('/email', async (request, response, next) => {
     } catch (error) {
       console.error('Error enviando el correo de recuperación:', error)
       response.status(500).send('Error enviando el correo de recuperación')
-    }    
+    }
 
-  } catch (err) { next(err) }
+  } catch (err) {
+    console.error('Error en la ruta de recuperación de contraseña:', err)
+    next(err)
+  }
 })
 
 module.exports = loginRouter
