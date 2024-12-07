@@ -10,15 +10,15 @@ loginRouter.use(bodyParser.json())
 console.log(process.env.EMAIL_USER,process.env.EMAIL_PASS)
 
 // Configuración de nodemailer
-const transporter = nodemailer.createTransport({
-  service: 'gmail', // Puedes usar otros servicios como Outlook, Yahoo, etc.
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-})
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail', // Puedes usar otros servicios como Outlook, Yahoo, etc.
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS
+//   }
+// })
 
-console.log(transporter)
+// console.log(transporter)
 
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
