@@ -15,8 +15,6 @@ const transporter = nodemailer.createTransport({
   }
 })
 
-console.log('Transporter configurado:', transporter)
-
 // Comprobamos si el usuario y la contraseña existen y son correctos
 loginRouter.post('/', async (request, response, next) => {
   try {

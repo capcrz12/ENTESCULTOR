@@ -274,6 +274,9 @@ obrasRouter.post('/', userExtractor, upload.array('images[]'), async (request, r
       serieId: serie._id
     })
 
+    console.log(newObra)
+    console.log(urlImages)
+
     const savedObra = await newObra.save()
 
     // Actualizamos el array de obras de la serie
