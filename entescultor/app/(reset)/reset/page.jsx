@@ -15,8 +15,11 @@ const ResetPasswordPage = async ({ searchParams }) => {
 
   let isValid = false
   try {
-    checkToken(token)
-    isValid = true
+    const res = checkToken(token)
+    
+    if (res.status == 200) {
+      isValid = true
+    }
   } catch (error) {
     isValid = false
     console.log(error)
