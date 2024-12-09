@@ -1,28 +1,36 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import ResetPasswordForm from '@/components/resetPasswordForm'
 import { checkToken } from '@/services/login'
 
-const ResetPasswordPage = async ({ searchParams }) => {
+const ResetPasswordPage = ({ searchParams }) => {
   const { token } = searchParams
+  const [isValid, setIsValid] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-  if (!token) {
-    return (
-      <div>
-        <h1>Usted no tiene acceso a esta página</h1>
-      </div>
-    )
-  }
-
-  let isValid = false
-  try {
-    const res = checkToken(token)
-    
-    if (res.status == 200) {
-      isValid = true
+  useEffect(() => {
+    const verifyToken = async () => {
+      try {
+        await checkToken(token)
+        setIsValid(true)
+      } catch (error) {
+        setIsValid(false)
+        console.log(error)
+      } finally {
+        setLoading(false)
+      }
     }
-  } catch (error) {
-    isValid = false
-    console.log(error)
+
+    if (token) {
+      verifyToken()
+    } else {
+      setLoading(false)
+    }
+  }, [token])
+
+  if (loading) {
+    return <div>Cargando...</div>
   }
 
   if (!isValid) {
