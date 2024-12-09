@@ -1,6 +1,6 @@
 import React from 'react'
 import ResetPasswordForm from '@/components/resetPasswordForm'
-import jwt from 'jsonwebtoken'
+import { checkToken } from '@/services/login'
 
 const ResetPasswordPage = async ({ searchParams }) => {
   const { token } = searchParams
@@ -15,7 +15,7 @@ const ResetPasswordPage = async ({ searchParams }) => {
 
   let isValid = false
   try {
-    jwt.verify(token, process.env.SECRET)
+    checkToken(token)
     isValid = true
   } catch (error) {
     isValid = false

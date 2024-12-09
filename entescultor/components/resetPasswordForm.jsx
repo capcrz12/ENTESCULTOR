@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import axios from 'axios'
+import { resetPassword } from '@/services/login'
 
 const ResetPasswordForm = ({ token }) => {
   const [newPassword, setNewPassword] = useState('')
@@ -12,7 +12,7 @@ const ResetPasswordForm = ({ token }) => {
     event.preventDefault()
 
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/login/reset-password`, { token, newPassword })
+      resetPassword(token, newPassword)
       setMessage('Contraseña actualizada con éxito')
       setError('')
     } catch (error) {
