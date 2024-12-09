@@ -79,7 +79,7 @@ loginRouter.post('/email', async (request, response, next) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Recuperación de contraseña gestion entescultor',
-      text: `Haz clic en el siguiente enlace para recuperar tu contraseña: ${process.env.FRONTEND_URL}reset-password?token=${token}`
+      text: `Haz clic en el siguiente enlace para recuperar tu contraseña: ${process.env.FRONTEND_URL}reset?token=${token}`
     }
 
     console.log('Enviando correo de recuperación a:', email)
