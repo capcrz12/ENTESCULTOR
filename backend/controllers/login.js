@@ -72,11 +72,14 @@ loginRouter.post('/email', async (request, response, next) => {
       })
     }
 
+    const token = jwt.sign({ id: usuario._id }, process.env.SECRET, { expiresIn: '1h' })
+
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Recuperación de contraseña gestion entescultor',
-      text: 'Haz clic en el siguiente enlace para recuperar tu contraseña: [enlace de recuperación]'
+      text: `Haz clic en el siguiente enlace para recuperar tu contraseña: ${process.env.FRONTEND_URL}reset-password?token=${token}`
     }
 
     console.log('Enviando correo de recuperación a:', email)
@@ -92,6 +95,32 @@ loginRouter.post('/email', async (request, response, next) => {
 
   } catch (err) {
     console.error('Error en la ruta de recuperación de contraseña:', err)
+    next(err)
+  }
+})
+
+loginRouter.post('/reset-password', async (request, response, next) => {
+  try {
+    const { token, newPassword } = request.body
+
+    const decoded = jwt.verify(token, process.env.SECRET)
+    const usuario = await Usuario.findById(decoded.id)
+
+    if (!usuario) {
+      return response.status(401).json({
+        error: 'Token inválido o expirado'
+      })
+    }
+
+    const saltRounds = 10
+    const passwordHash = await bcrypt.hash(newPassword, saltRounds)
+
+    usuario.passwordHash = passwordHash
+    await usuario.save()
+
+    response.status(200).send('Contraseña actualizada correctamente')
+  } catch (err) {
+    console.error('Error en la ruta de cambio de contraseña:', err)
     next(err)
   }
 })

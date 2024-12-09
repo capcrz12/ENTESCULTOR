@@ -11,3 +11,8 @@ export const emailRecovery = async email => {
   const { data } = await axios.post(`${baseUrl}/email`, email)
   return data
 }
+
+export const resetPassword = async (token, newPassword) => {
+  const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/reset-password`, { token, newPassword })
+  return response.data
+}
