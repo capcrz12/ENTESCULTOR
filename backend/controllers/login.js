@@ -125,4 +125,15 @@ loginRouter.post('/reset-password', async (request, response, next) => {
   }
 })
 
+loginRouter.post('/check-token', async (request, response, next) => {
+  try {
+    const { token } = request.body
+    jwt.verify(token, process.env.SECRET)
+    response.status(200).send('Token válido')
+  } catch (err) {
+    console.error('Error en la ruta de verificación de token:', err)
+    next(err)
+  }
+}) 
+
 module.exports = loginRouter
