@@ -12,7 +12,7 @@ const ResetPasswordForm = ({ token }) => {
     event.preventDefault()
 
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/reset-password`, { token, newPassword })
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/login/reset-password`, { token, newPassword })
       setMessage('Contraseña actualizada con éxito')
       setError('')
     } catch (error) {

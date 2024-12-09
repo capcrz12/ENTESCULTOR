@@ -14,6 +14,7 @@ export default function LoginForm ({ handleLogin, handleEmail, nombreUsuario, se
               type='text'
               name='nombreUsuario'
               value={nombreUsuario}
+              className={styles.input}
               onChange={(event) => setNombreUsuario(event.target.value)} // Para poner en el estado el nombre del usuario
             />
           </div>
@@ -23,6 +24,7 @@ export default function LoginForm ({ handleLogin, handleEmail, nombreUsuario, se
               type='password'
               name='password'
               value={password}
+              className={styles.input}
               onChange={(event) => setPassword(event.target.value)} // Para poner en el estado el password
             />
           </div>
@@ -40,6 +42,7 @@ export default function LoginForm ({ handleLogin, handleEmail, nombreUsuario, se
               type='email'
               name='email'
               value={email}
+              className={styles.input}
               onChange={(event) => setEmail(event.target.value)} // Para poner en el estado el correo electrónico
             />
           </div>

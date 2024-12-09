@@ -169,8 +169,20 @@
 .fotgot {
   color: red;
   cursor: pointer;
+
+  margin: 0 auto;
+
+  align-self: center;
+  justify-self: center;
 }
 
 .mensaje {
   color: rgb(45, 98, 49);
+}
+
+.input {
+  width: 6vw;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
 }

@@ -19,6 +19,7 @@ const ResetPasswordPage = async ({ searchParams }) => {
     isValid = true
   } catch (error) {
     isValid = false
+    console.log(error)
   }
 
   if (!isValid) {
