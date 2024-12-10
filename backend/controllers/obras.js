@@ -2,19 +2,20 @@ const obrasRouter = require('express').Router()
 const Obra = require('../models/Obra')
 const Serie = require('../models/Serie')
 const userExtractor = require('../middlewares/userExtractor')
-const multer = require('multer')
+// const multer = require('multer')
+const { uploadObras } = require('../cloudinaryConfig')
 const deleteImage = require('./deleteImage')
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './images/obras')
-  },
-  filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, '_'))
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './images/obras')
+//   },
+//   filename : (req, file, cb) => {
+//     cb(null, file.originalname.replace(/ /g, '_'))
+//   }
+// })
 
-const upload = multer({ storage })
+// const upload = multer({ storage })
 
 obrasRouter.get('/', async (request, response, next) => {
   try {
@@ -185,7 +186,7 @@ obrasRouter.put('/deleteImage/:id', userExtractor, async (request, response, nex
   } catch(err) { next(err)}
 })
 
-obrasRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+obrasRouter.put('/uploadImage/:id', userExtractor, uploadObras.single('image'), async (request, response, next) => {
   const { id } = request.params
 
   const obraActual = await Obra.findById(id)
@@ -242,7 +243,7 @@ obrasRouter.delete('/:id', userExtractor, async (request, response, next) => {
   } catch(err) { next(err)}
 })
 
-obrasRouter.post('/', userExtractor, upload.array('images[]'), async (request, response, next) => {
+obrasRouter.post('/', userExtractor, uploadObras.array('images[]'), async (request, response, next) => {
   try {
     const {
       title, 
@@ -273,9 +274,6 @@ obrasRouter.post('/', userExtractor, upload.array('images[]'), async (request, r
       alto,
       serieId: serie._id
     })
-
-    console.log(newObra)
-    console.log(urlImages)
 
     const savedObra = await newObra.save()
 
