@@ -210,31 +210,33 @@ obrasRouter.delete('/:id', userExtractor, async (request, response, next) => {
   const { id } = request.params
   
   let obra = await Obra.findById(id)
+  console.log(obra)
+  if (obra) {
+    for (let i = 0; i<obra.images.length; i++) {
+      const serie = await Serie.findOne({image: obra.images[i]})
 
-  for (let i = 0; i<obra.images.length; i++) {
-    const serie = await Serie.findOne({image: obra.images[i]})
+      const url = `.${obra.images[i]}`
 
-    const url = `.${obra.images[i]}`
+      let masObras = await Obra.find({images : { $all: [obra.images[i]] }})
 
-    let masObras = await Obra.find({images : { $all: [obra.images[i]] }})
-
-    // Si masObras solo contiene una obra es porque solo se ha encontrado la obra
-    // que queremos borrar, y por tanto la imagen no se usa en otras obras
-    if (masObras.length === 1) {
-      deleteImage(url)
-    }
-
-    try {
-      // Si la miniatura de la serie es la de la obra borrada, 
-      // se sustituye por la primera encontrada en la coleccion de obras
-      // de esa serie 
-      if (serie !== null) {
-        obra = await Obra.findOne({serieId: serie.id})
-        serie.image = obra.images[0]
-        await serie.save()
+      // Si masObras solo contiene una obra es porque solo se ha encontrado la obra
+      // que queremos borrar, y por tanto la imagen no se usa en otras obras
+      if (masObras.length === 1) {
+        deleteImage(url)
       }
-    } catch(err) { next(err)}
-  }  
+
+      try {
+        // Si la miniatura de la serie es la de la obra borrada, 
+        // se sustituye por la primera encontrada en la coleccion de obras
+        // de esa serie 
+        if (serie !== null) {
+          obra = await Obra.findOne({serieId: serie.id})
+          serie.image = obra.images[0]
+          await serie.save()
+        }
+      } catch(err) { next(err)}
+    }  
+  }
 
   try {
     await Obra.findByIdAndDelete(id)
