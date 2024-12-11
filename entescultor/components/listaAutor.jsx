@@ -11,7 +11,7 @@ export default async function ListaAutor () {
         {autor[0].texto}
       </div>
       <div className={styles.pie}>
-        <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${autor[0].image}`} className={styles.imagenAutor} />
+        <img alt='No disponible' src={`${autor[0].image}`} className={styles.imagenAutor} />
       </div>
     </div>
   )

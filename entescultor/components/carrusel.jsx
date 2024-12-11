@@ -10,7 +10,7 @@ export default function Carrusel ({ obras }) {
   useEffect(() => {
     obras.map(obra => {
       obra.images.map(image => {
-        urls.push (`${process.env.NEXT_PUBLIC_API_URL}${image}`)
+        urls.push (`${image}`)
       })
     })
   }, [])

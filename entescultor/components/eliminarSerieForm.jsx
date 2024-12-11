@@ -48,7 +48,7 @@ export default function EliminarSerieForm ({ handleEliminarSerie, setExito, seri
               <label className={styles.serie} key={serie.id}>
                 <article>
                   <div className={styles.serie} >
-                    <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${serie.image}`} className={styles.image} />
+                    <img alt='No disponible' src={`${serie.image}`} className={styles.image} />
                     <h2 className={styles.texto}>{serie.name}</h2>
                   </div>
                 </article>
@@ -73,7 +73,7 @@ export default function EliminarSerieForm ({ handleEliminarSerie, setExito, seri
               <label>{nombreSerie}</label>
             </div>
             <div>
-              <label><img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}:${process.env.API_PORT}${series.find((series) => series.id === idSerie).image}`} className={styles.image} /></label>
+              <label><img alt='No disponible' src={`${series.find((series) => series.id === idSerie).image}`} className={styles.image} /></label>
             </div>
             <button type='submit' className={styles.error}>ELIMINAR DEFINITIVAMENTE</button>
           </form>

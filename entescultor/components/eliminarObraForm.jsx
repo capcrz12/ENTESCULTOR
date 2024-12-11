@@ -82,7 +82,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
                 <label className={styles.obra} key={obra.id}>
                   <article>
                     <div className={styles.obra} >
-                      <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${obra.images[0]}`} className={styles.image} />
+                      <img alt='No disponible' src={`${obra.images[0]}`} className={styles.image} />
                       <h2 className={styles.texto}>{obra.title}</h2>
                     </div>
                   </article>
@@ -105,7 +105,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
                 <label className={styles.serie} key={obra.id}>
                   <article>
                     <div className={styles.obra} >
-                      <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${obra.images[0]}`} className={styles.image} />
+                      <img alt='No disponible' src={`${obra.images[0]}`} className={styles.image} />
                       <h2 className={styles.texto}>{obra.title}</h2>
                       <div>
                         <div>Largo: {obra.largo}</div>
@@ -139,7 +139,7 @@ export default function EliminarObraForm ({ handleEliminarObra, setExito, obras,
             <div>
               { obraImages.map(image =>  (
                 <label key={image}>
-                  <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${image}`} className={styles.image} />
+                  <img alt='No disponible' src={`${image}`} className={styles.image} />
                 </label>
               ))
               }

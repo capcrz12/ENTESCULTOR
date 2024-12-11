@@ -294,7 +294,7 @@ export default function ModificarEventoForm ({ handleModificarEventos, setExito,
                 { imageOriginal.map(image => (
                   <label className={styles.serie} key={image}>
                     <article>
-                      <img alt='No disponible' src={`${process.env.NEXT_PUBLIC_API_URL}${image}`} className={styles.image} />
+                      <img alt='No disponible' src={`${image}`} className={styles.image} />
                     </article>
                     <input
                       type='radio'
