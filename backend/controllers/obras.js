@@ -193,7 +193,7 @@ obrasRouter.put('/uploadImage/:id', userExtractor, uploadObras.single('image'), 
 
   let imagenes = obraActual.images
 
-  imagenes.push(`/images/obras/${request.file.originalname.replace(/ /g, '_')}`)
+  imagenes.push(`${request.file.path}`)
 
   const newObraInfo = {
     images: imagenes
@@ -259,7 +259,7 @@ obrasRouter.post('/', userExtractor, uploadObras.array('images[]'), async (reque
     let urlImages = []
 
     for (let i = 0; i < numImages; i++) {
-      urlImages.push(`/images/obras/${request.files[i].originalname.replace(/ /g, '_')}`)
+      urlImages.push(`${request.files[i].path}`)
     }
 
     // Buscamos la serie a la que pertenece
