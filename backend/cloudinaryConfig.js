@@ -9,13 +9,18 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
+const removeFileExtension = (filename) => {
+  return filename.replace(/\.[^/.]+$/, '')
+}
+
+
 const storageObras = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: async (req, file) => {
     return {
       folder: 'obras',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -26,7 +31,7 @@ const storageSeries = new CloudinaryStorage({
     return {
       folder: 'series',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -37,7 +42,7 @@ const storageArticulos = new CloudinaryStorage({
     return {
       folder: 'articulos',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -48,7 +53,7 @@ const storageEventos = new CloudinaryStorage({
     return {
       folder: 'eventos',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -59,7 +64,7 @@ const storageAutor = new CloudinaryStorage({
     return {
       folder: 'autor',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -70,7 +75,7 @@ const storageFondos = new CloudinaryStorage({
     return {
       folder: 'fondos',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -81,7 +86,7 @@ const storageCriticas = new CloudinaryStorage({
     return {
       folder: 'criticas',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })
@@ -92,7 +97,7 @@ const storageIcon = new CloudinaryStorage({
     return {
       folder: 'icon',
       format: 'jpg', // Puedes cambiar el formato si es necesario
-      public_id: file.originalname.replace(/ /g, '_')
+      public_id: removeFileExtension(file.originalname.replace(/ /g, '_'))
     }
   }
 })

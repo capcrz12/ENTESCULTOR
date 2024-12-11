@@ -1,18 +1,19 @@
 const seriesRouter = require('express').Router()
 const Serie = require('../models/Serie')
 const userExtractor = require('../middlewares/userExtractor')
-const multer = require('multer')
+const { uploadSeries } = require('../cloudinaryConfig')
+// const multer = require('multer')
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './images/series')
-  },
-  filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, '_'))
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './images/series')
+//   },
+//   filename : (req, file, cb) => {
+//     cb(null, file.originalname.replace(/ /g, '_'))
+//   }
+// })
 
-const upload = multer({ storage })
+// const upload = multer({ storage })
 
 seriesRouter.get('/', async (request, response, next) => {
   try {
@@ -29,13 +30,13 @@ seriesRouter.get('/', async (request, response, next) => {
   } catch(err) { next(err)}
 })
 
-seriesRouter.post('/', userExtractor, upload.single('image'), async (request, response, next) => {
+seriesRouter.post('/', userExtractor, uploadSeries.single('image'), async (request, response, next) => {
   try {
     const serie = request.body
 
     const newSerie = new Serie({
       name: serie.name,
-      image: `/images/series/${request.file.originalname.replace(/ /g, '_')}`
+      image: `${request.file.path}`
     })
 
     const savedSerie = await newSerie.save()

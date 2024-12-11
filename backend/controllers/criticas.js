@@ -1,21 +1,22 @@
 const criticasRouter = require('express').Router()
 const Critica = require('../models/Critica')
 const userExtractor = require('../middlewares/userExtractor')
-const multer = require('multer')
+// const multer = require('multer')
 const deleteImage = require('./deleteImage')
+const { uploadCriticas } = require('../cloudinaryConfig')
 
 
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './images/criticas')
-  },
-  filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, '_'))
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './images/criticas')
+//   },
+//   filename : (req, file, cb) => {
+//     cb(null, file.originalname.replace(/ /g, '_'))
+//   }
+// })
 
-const upload = multer({ storage })
+// const upload = multer({ storage })
 
 criticasRouter.get('/', async (request, response, next) => {
   try {
@@ -106,14 +107,14 @@ criticasRouter.put('/deleteImage/:id', userExtractor, async (request, response, 
   } catch(err) { next(err)}
 })
 
-criticasRouter.put('/uploadImage/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+criticasRouter.put('/uploadImage/:id', userExtractor, uploadCriticas.single('image'), async (request, response, next) => {
   const { id } = request.params
 
   const criticaActual = await Critica.findById(id)
 
   let imagenes = criticaActual.images
 
-  imagenes.push(`/images/criticas/${request.file.originalname.replace(/ /g, '_')}`)
+  imagenes.push(`${request.file.path}`)
 
   const newCriticaInfo = {
     images: imagenes
@@ -149,7 +150,7 @@ criticasRouter.delete('/:id', userExtractor, async (request, response, next) => 
   } catch (err) { next(err)}
 })
 
-criticasRouter.post('/', userExtractor, upload.array('images[]'), async (request, response, next) => {
+criticasRouter.post('/', userExtractor, uploadCriticas.array('images[]'), async (request, response, next) => {
   try {
     const critica = request.body
 
@@ -158,7 +159,7 @@ criticasRouter.post('/', userExtractor, upload.array('images[]'), async (request
     let urlImages = []
 
     for (let i = 0; i < numImages; i++) {
-      urlImages.push(`/images/criticas/${request.files[i].originalname.replace(/ /g, '_')}`)
+      urlImages.push(`${request.files[i].path}`)
     }
 
     const newCritica = new Critica({

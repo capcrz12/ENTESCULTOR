@@ -1,20 +1,21 @@
 const articulosRouter = require('express').Router()
 const Articulo = require('../models/Articulo')
 const userExtractor = require('../middlewares/userExtractor')
-const multer = require('multer')
+// const multer = require('multer')
 const deleteImage = require('./deleteImage')
+const { uploadArticulos } = require('../cloudinaryConfig')
 
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './images/articulos')
-  },
-  filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, '_'))
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './images/articulos')
+//   },
+//   filename : (req, file, cb) => {
+//     cb(null, file.originalname.replace(/ /g, '_'))
+//   }
+// })
 
-const upload = multer({ storage })
+// const upload = multer({ storage })
 
 articulosRouter.get('/', async (request, response, next) => {
   try {
@@ -90,7 +91,7 @@ articulosRouter.put('/url/:id', userExtractor, async (request, response, next) =
   } catch(err) { next(err)}
 })
 
-articulosRouter.put('/image/:id', userExtractor, upload.single('image'), async (request, response, next) => {
+articulosRouter.put('/image/:id', userExtractor, uploadArticulos.single('image'), async (request, response, next) => {
   const { id } = request.params
 
   const articuloActual = await Articulo.findById(id)
@@ -98,7 +99,7 @@ articulosRouter.put('/image/:id', userExtractor, upload.single('image'), async (
   deleteImage(`.${articuloActual.image}`)
 
   const newArticuloInfo = {
-    image: `/images/articulos/${request.file.originalname.replace(/ /g, '_')}`,
+    image: `${request.file.path}`,
   }
 
   try {
@@ -123,13 +124,13 @@ articulosRouter.delete('/:id', userExtractor, async (request, response, next) =>
   } catch(err) { next(err)}
 })
 
-articulosRouter.post('/', userExtractor, upload.single('image'), async (request, response, next) => {
+articulosRouter.post('/', userExtractor, uploadArticulos.single('image'), async (request, response, next) => {
   try {
     const articulo = request.body
 
     let url = ''
     if (request.file !== null & request.file !== undefined) {
-      url = `/images/articulos/${request.file.originalname.replace(/ /g, '_')}`
+      url = `${request.file.path}`
     }
 
     const newArticulo = new Articulo({

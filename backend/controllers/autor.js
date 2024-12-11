@@ -1,20 +1,21 @@
 const autorRouter = require('express').Router()
 const Autor = require('../models/Autor')
 const userExtractor = require('../middlewares/userExtractor')
-const multer = require('multer')
+// const multer = require('multer')
 const deleteImage = require('./deleteImage')
+const { uploadAutor } = require('../cloudinaryConfig')
 
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './images/autor')
-  },
-  filename : (req, file, cb) => {
-    cb(null, file.originalname.replace(/ /g, '_'))
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './images/autor')
+//   },
+//   filename : (req, file, cb) => {
+//     cb(null, file.originalname.replace(/ /g, '_'))
+//   }
+// })
 
-const upload = multer({ storage })
+// const upload = multer({ storage })
 
 autorRouter.get('/', async (request, response, next) => {
   try {
@@ -23,7 +24,7 @@ autorRouter.get('/', async (request, response, next) => {
   } catch(err) { next(err)}
 })
 
-autorRouter.put('/image', userExtractor, upload.single('image'), async (request, response, next) => {
+autorRouter.put('/image', userExtractor, uploadAutor.single('image'), async (request, response, next) => {
   try {
     const autor = await Autor.find({})
     const id = autor[0].id
@@ -33,7 +34,7 @@ autorRouter.put('/image', userExtractor, upload.single('image'), async (request,
     deleteImage(url)
 
     const newAutor = {
-      image: `/images/autor/${request.file.originalname.replace(/ /g, '_')}`
+      image: `${request.file.path}`
     }
 
     const result = await Autor.findByIdAndUpdate(id, newAutor)
