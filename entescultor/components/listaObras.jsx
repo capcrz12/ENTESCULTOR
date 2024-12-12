@@ -6,6 +6,8 @@ import { getObrasBySerie } from '@/services/obras'
 export default async function ListaObras ({ name }) {
   const obras = await getObrasBySerie(name)
 
+  console.log(obras)
+
   return (
     <section className={styles.scroll}>
       <div className={styles.child}>
