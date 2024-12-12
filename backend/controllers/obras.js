@@ -32,14 +32,20 @@ obrasRouter.get('/:serie', async (request, response, next) => {
   
   const serieId = await Serie.find({name: serie})
 
+  console.log('serieId: ', serieId)
+
   const obra = await Obra.find({serieId: serieId}).populate('serieId', {   // Populate == JOIN en SQL 
     name: 1,                                                //(muestra la informacion del array obras)
     image: 1                                                // Con : 1 decimos que queremos que se muestre
   })  
 
-  obra 
-    ? response.json(obra)
-    : response.status(404).end()
+  console.log('obra: ', obra)
+
+  try {
+    obra
+      ? response.json(obra)
+      : response.status(404).end()
+  } catch(err) { next(err)}
 })
 
 obrasRouter.get('/:id', async (request, response, next) => {
