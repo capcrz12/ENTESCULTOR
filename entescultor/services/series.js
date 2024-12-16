@@ -68,7 +68,7 @@ export const getAllSeries = async () => {
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    console.log(response.json())
+    console.log('SERIES: ', response.json())
     return await response.json()
   } catch (error) {
     console.error('Fetch error:', error)
