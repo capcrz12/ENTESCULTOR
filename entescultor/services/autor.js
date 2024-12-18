@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAutor = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/autor`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/autor`, { cache: 'no-store' })
     .then(res => res.json())
 }
 

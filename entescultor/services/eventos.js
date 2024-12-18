@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAllEventos = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos`, { cache: 'no-store' })
     .then(res => res.json())
 }
 

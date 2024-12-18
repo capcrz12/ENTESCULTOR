@@ -4,7 +4,7 @@ import { getToken } from './token'
 let token = null
 
 export const getAllArticulos = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articulos`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articulos`, { cache: 'no-store' })
     .then(res => res.json())
 }
 

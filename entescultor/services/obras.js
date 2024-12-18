@@ -4,12 +4,12 @@ import { getToken } from './token'
 let token = null
 
 export const getAllObras = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, { cache: 'no-store' })
     .then(res => res.json())
 }
 
 export const getObrasBySerie = (name) => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/${name}`)
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/${name}`, { cache: 'no-store' })
     .then(res => res.json())
 }
 

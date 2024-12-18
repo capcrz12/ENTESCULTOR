@@ -64,7 +64,7 @@ export const putImageSerie = ({ image, id }) => {
 }
 export const getAllSeries = async () => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/series`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/series`, { cache: 'no-store' })
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
