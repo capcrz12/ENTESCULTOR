@@ -111,6 +111,7 @@ export default function Gestion ({ handleLogout, initialSeries, initialObras, in
         getAllCriticas()
       ])
 
+      setObrasSinSerie (obras.filter((obra) => { return obra.serieId === null }))
       setSeries(newSeries)
       setObras(newObras)
       setAutor(newAutor)
