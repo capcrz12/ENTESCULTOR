@@ -111,12 +111,6 @@
   font-size: 15px;
 }
 
-.cerrar {
-  position: absolute;
-  top: 5%;
-  right: 10%;
-}
-
 .title {
   margin-left: 300px;
 }
@@ -185,4 +179,22 @@
   padding: 10px;
   border-radius: 10px;
   border: 1px solid black;
+}
+
+.botones {
+  display: flex;
+  width: 15vw;
+  height: 5vh;
+  flex-direction: row;
+  gap: 20px;
+
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
+
+.cerrar {
+  cursor: pointer;
+  width: 6vw;
+  height: 3vh;
 }

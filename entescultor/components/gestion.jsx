@@ -20,11 +20,24 @@ import EliminarArticuloForm from './eliminarArticuloForm'
 import EliminarEventoForm from './eliminarEventoForm'
 import EliminarCriticaForm from './eliminarCriticaForm'
 import ObrasSinSerieForm from './obrasSinSerieForm'
+import { getAllSeries } from '@/services/series'
+import { getAllObras } from '@/services/obras'
+import { getAutor } from '@/services/autor'
+import { getAllArticulos } from '@/services/articulos'
+import { getAllEventos } from '@/services/eventos'
+import { getAllCriticas } from '@/services/criticas'
 
-export default function Gestion ({ handleLogout, series, obras, autor, articulos, eventos, criticas }) {
+export default function Gestion ({ handleLogout, initialSeries, initialObras, initialAutor, initialArticulos, initialEventos, initialCriticas }) {
   const [opcion, setOpcion] = useState(0)
   const [exito, setExito] = useState('')
   const [obrasSinSerie, setObrasSinSerie] = useState([])
+  const [series, setSeries] = useState(initialSeries)
+  const [obras, setObras] = useState(initialObras)
+  const [autor, setAutor] = useState(initialAutor)
+  const [articulos, setArticulos] = useState(initialArticulos)
+  const [eventos, setEventos] = useState(initialEventos)
+  const [criticas, setCriticas] = useState(initialCriticas)
+
 
   const handleCrearSerie = () => {
     setOpcion(opcion != 1 ? 1 : 0)
@@ -87,9 +100,39 @@ export default function Gestion ({ handleLogout, series, obras, autor, articulos
     setOpcion(opcion != 18 ? 18 : 0)
   }
 
+  const handleRecargarDatos = async () => {
+    try {
+      const [newSeries, newObras, newAutor, newArticulos, newEventos, newCriticas] = await Promise.all([
+        getAllSeries(),
+        getAllObras(),
+        getAutor(),
+        getAllArticulos(),
+        getAllEventos(),
+        getAllCriticas()
+      ])
+
+      setSeries(newSeries)
+      setObras(newObras)
+      setAutor(newAutor)
+      setArticulos(newArticulos)
+      setEventos(newEventos)
+      setCriticas(newCriticas)
+
+      console.log(series)
+
+      setExito('Datos recargados con éxito')
+      setTimeout(() => setExito(''), 3000)
+    } catch (error) {
+      console.error('Error recargando los datos:', error)
+    }
+  }
+
   return (
     <div>
-      <button className={styles.cerrar} onClick={handleLogout}>Cerrar Sesión</button>
+      <div className={styles.botones}>
+        <button className={styles.cerrar} onClick={handleRecargarDatos}>Actualizar datos</button>
+        <button className={styles.cerrar} onClick={handleLogout}>Cerrar Sesión</button>
+      </div>
       <div className={styles.opciones}>
         {
           obrasSinSerie.length !== 0 ?

@@ -93,12 +93,12 @@ export default function Login ({series, obras, autor, articulos, eventos, critic
           usuario
             ? <Gestion 
               handleLogout={handleLogout} 
-              series={series}
-              obras={obras} 
-              autor={autor} 
-              articulos={articulos} 
-              eventos={eventos} 
-              criticas={criticas} 
+              initialSeries={series}
+              initialObras={obras} 
+              initialAutor={autor} 
+              initialArticulos={articulos} 
+              initialEventos={eventos} 
+              initialCriticas={criticas} 
             />
 
             : <div>
