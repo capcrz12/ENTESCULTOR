@@ -24,7 +24,7 @@ export default async function ListaObras ({ name }) {
                     </div>
                     <div>
                       <p>DIMENSIONES</p>
-                      <div>{obra.largo} x {obra.ancho} x {obra.alto}</div>
+                      <div>{obra.alto} x {obra.ancho} x {obra.largo}</div>
                     </div>
                   </div>
                 </div>

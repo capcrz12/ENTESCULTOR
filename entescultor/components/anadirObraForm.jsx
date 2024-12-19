@@ -66,13 +66,13 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
         />
       </div>
       <div>
-        <label>Largo de la obra (número en cm, ejemplo: 45):</label>
+        <label>Alto de la obra (número en cm, ejemplo: 45):</label>
         <input
           type='text'
-          name='largo'
-          value={largo}
+          name='alto'
+          value={alto}
           required
-          onChange={(event) => setLargo(event.target.value)}
+          onChange={(event) => setAlto(event.target.value)}
         />
       </div>
       <div>
@@ -86,13 +86,13 @@ export default function AnadirObraForm ({ handleCrearObra, setExito, series }) {
         />
       </div>
       <div>
-        <label>Alto de la obra (número en cm, ejemplo: 45):</label>
+        <label>Largo de la obra (número en cm, ejemplo: 45):</label>
         <input
           type='text'
-          name='alto'
-          value={alto}
+          name='largo'
+          value={largo}
           required
-          onChange={(event) => setAlto(event.target.value)}
+          onChange={(event) => setLargo(event.target.value)}
         />
       </div>
       <div>
