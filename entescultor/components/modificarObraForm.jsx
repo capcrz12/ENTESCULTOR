@@ -244,9 +244,9 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
                       <img alt='No disponible' src={`${obra.images[0]}`} className={styles.image} />
                       <h2 className={styles.texto}>{obra.title}</h2>
                       <div>
-                        <div>Largo: {obra.largo}</div>
                         <div>Alto: {obra.alto}</div>
                         <div>Ancho: {obra.ancho}</div>
+                        <div>Largo: {obra.largo}</div>
                         <div>Material: {obra.material}</div>
                       </div>
                     </div>
@@ -273,9 +273,9 @@ export default function ModificarObraForm ({ handleModificarObra, setExito, obra
                       <img alt='No disponible' src={`${obra.images[0]}`} className={styles.image} />
                       <h2 className={styles.texto}>{obra.title}</h2>
                       <div>
-                        <div>Largo: {obra.largo}</div>
                         <div>Alto: {obra.alto}</div>
                         <div>Ancho: {obra.ancho}</div>
+                        <div>Largo: {obra.largo}</div>
                         <div>Material: {obra.material}</div>
                       </div>
                     </div>
