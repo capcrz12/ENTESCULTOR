@@ -62,7 +62,10 @@ export function Navigation () {
 
       <div className={`${active ? styles.div : styles.showFooter}`}>
         <div className={styles.barra}>
-          <div>entescultor@hotmail.com</div>
+          <div>
+            <p>indalecio@entescultor.com</p>
+            <p>parainda@hotmail.com</p>
+          </div>
           <Link href='https://www.facebook.com/entescultor/' target='_blank' className={styles.facebook}>
             <i className='fab fa-facebook' />
           </Link>

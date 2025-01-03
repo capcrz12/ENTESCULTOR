@@ -169,7 +169,7 @@
   }
 
   .contenedor {
-    height: 70vh;
+    height: 80vh;
   }
 
   .serie {
@@ -187,12 +187,15 @@
   .info {
     position: absolute;
     top: 3rem;
+    left: 5vw;
     align-self: center;
     font-size: 2vh;
     gap: 1rem;
-    width: 80vw;
+    width: 63vw;
+    max-height: 20vh;
     margin-bottom: 0px;
     margin-left: 0px;
+    overflow-y: auto;
   }
 
   .imagen {
@@ -209,7 +212,7 @@
   }
 
   .image {
-    max-height: 45vh;
+    max-height: 40vh;
     max-width: 90%;
   }
   
@@ -221,6 +224,7 @@
     font-size: 3vh;
     position: absolute;
     top: 0;
+    left: 0;
     align-self: center;
     width: 100%;
     line-height: 1rem;
