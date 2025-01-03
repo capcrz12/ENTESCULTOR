@@ -15,8 +15,8 @@ export default async function ListaObras ({ name }) {
           <article key={obra.id}>
             <div className={styles.contenedor}>
               <div className={styles.serie}>
-                <div>
-                  <h2 className={styles.texto}>{obra.title}</h2>
+                <h2 className={styles.texto}>{obra.title}</h2>
+                <div className={styles.infoObra}>
                   <div className={styles.info}>
                     <div>
                       <p>MATERIAL</p>

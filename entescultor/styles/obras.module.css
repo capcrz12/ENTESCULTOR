@@ -56,19 +56,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100vw;
+  justify-content: space-between;
+  width: 90vw;
   height: 100vh;
-  gap: 500px;
+  margin-left: 5vw;
 }
 
-.serie > div:first-child {
+.infoObra {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 300px;
-  gap: 25px;
+  margin-top: 40vh;
+  max-width: 40vw;
 }
 
 .texto {
@@ -82,6 +82,10 @@
   text-shadow: black 0.1em 0.1em 0.2em;
   
   user-select: none;
+
+  position: absolute;
+  top: 35vh;
+  left: 12vw;
 }
 
 .info {
@@ -128,7 +132,7 @@
 
 .imagen {
   width: 40vw;
-  height: 90vh;
+  height: 80vh;
 }
 
 .image {

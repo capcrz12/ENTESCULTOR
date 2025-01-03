@@ -4,7 +4,22 @@
     list-style: none;
     gap: 50vw;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
+}
+
+.correos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+    gap: 1vh;
+}
+
+.correos p {
+    margin: 0;
 }
 
 .div {
