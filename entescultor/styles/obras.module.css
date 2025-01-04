@@ -262,7 +262,7 @@
     position: absolute;
     display: flex;
     flex-direction: row;
-    bottom: 10vh;
+    bottom: 5vh;
     left: 5vw;
 
     max-width: 35vw;
