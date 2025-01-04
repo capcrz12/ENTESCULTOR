@@ -149,7 +149,54 @@
         width: 100vw;
         height: 10vh;
         margin-top: 0;
+    }
 
+    .navigation {
+        background: rgba(24, 24, 24, 0.9);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+
+    .navigationLinks, .noNavigationLinks {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        position: absolute;
+        top: 10vh;
+        gap: 0;
+        background: rgba(24, 24, 24, 0.9);
+
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .noNavigationLinks {
+        transform: translateX(300%);
+        transition: 0.5s;
+    }
+
+    .navigationLinks {
+        transform: translateX(0%);
+        transition: 0.5s;
+    }
+
+    .navigationLinks ul, .noNavigationLinks ul {
+        list-style: none;
+        width: 80%;
+        display: flex;
+        gap: 6vh;
+        margin-left: 0;
+        padding: 0;
+        margin-right: 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .entescultor {
@@ -171,55 +218,14 @@
         user-select: none;
     }
 
-    .navigationLatI {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
+    .navigationLatI, .navigationLatD {
+        display: flex;
         flex-direction: column;
-        gap: 6vw;
         font-size: 6vw;
-        width: 100%;
-
-        position: absolute;
-        top: 10vh;
-        margin-top: 0;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9);
-        z-index: 10;
-        
-        transform: translateX(300%);
-        transition: 0.5s;
-    }
-    .navigationLatD {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 6vw;
-        font-size: 6vw;
-        width: 100%;
-
-        position: absolute;
-        top: 53vw;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9);  
-        z-index: 10;
-
-        transform: translateX(300%);
-        transition: 0.5s;
     }
 
-    .navigationLatI > li:first-child {
-        padding-top: 20px;
-    }    
-
-    .navigationLatD > li:first-child {
-        padding-top: 20px;
-    }
-    
-    .navigationLatD > li:last-child {
+    .navigationLatD:last-child {
         padding-bottom: 100vh;
-        z-index: 10;
     }
 
     .hamburguesa {
@@ -232,73 +238,6 @@
 
         cursor: pointer;
     }
-
-    .navigation {
-        background: rgba(24, 24, 24, 0.9);
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-items: center;
-    }
-
-    .showI {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 6vw;
-        font-size: 6vw;
-        width: 100%;
-
-        position: absolute;
-        top: 10vh;
-        right: 0px;
-        margin-top: 0;
-
-        background: rgba(24, 24, 24, 0.9);
-        z-index: 10;
-
-        transform: translateX(0);
-        transition: 0.5s;
-    }
-
-    .showD {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 6vw;
-        font-size: 6vw;
-        width: 100%;
-
-        position: absolute;
-        top: 65vw;
-        right: 0px;
-        margin-top: 0;
-        background: rgba(24, 24, 24, 0.9); 
-        z-index: 10;
-
-        transform: translateX(0);
-        transition: 0.5s;
-    }
-
-    .showI > li:first-child {
-        margin-top: 6vw;
-    }  
-    
-    .navigationLatI > li:last-child, .showI > li:last-child {
-        padding-bottom: 2vh;
-    }
-
-    .showD > li:first-child {
-        padding-top: 6vw;
-    }
-    
-    .showD > li:last-child {
-        padding-bottom: 100vh;
-        z-index: 10;
-    }
-
 
     .back {
         position: fixed;
@@ -322,7 +261,6 @@
         flex-direction: row;
         gap: 40px;
         align-items: center;
-        width: 100%;
         z-index: 10;
 
         list-style: none;
@@ -372,7 +310,9 @@
 @media (max-width: 1023px) and (orientation: landscape) {
     .header {
         width: 100vw;
+        height: 18vh;
         margin-top: 0;
+        margin-left: 0;
     }
 
     .entescultor {
@@ -394,55 +334,53 @@
         user-select: none;
     }
 
-    .navigationLatI {
+    .navigationLinks, .noNavigationLinks {
         list-style: none;
-        display: inline-flex;
+        display: flex;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
-        gap: 20px;
-        font-size: 20px;
-        width: 100%;
-
+        width: 100vw;
         position: absolute;
-        top: 52px;
-        right: 0px;
+        top: 18vh;
+        gap: 0;
         background: rgba(24, 24, 24, 0.9);
-        z-index: 10;
-        
+
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .noNavigationLinks {
         transform: translateX(300%);
         transition: 0.5s;
     }
 
-    .navigationLatD {
+    .navigationLinks {
+        transform: translateX(0%);
+        transition: 0.5s;
+    }
+
+    .navigationLinks ul, .noNavigationLinks ul {
         list-style: none;
-        display: inline-flex;
+        width: 80%;
+        display: flex;
+        gap: 6vh;
+        margin-left: 0;
+        padding: 0;
+        margin-right: 0;
         align-items: center;
+        justify-content: center;
+    }
+
+    .navigationLatI, .navigationLatD {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-        font-size: 20px;
-        width: 100%;
-
-        position: absolute;
-        top: 181px;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9);  
-        z-index: 10;
-
-        transform: translateX(300%);
-        transition: 0.5s;
+        font-size: 5vh;
     }
 
-    .navigationLatI > li:first-child {
-        padding-top: 20px;
-    }    
-
-    .navigationLatD > li:first-child {
-        padding-top: 20px;
-    }
-    
-    .navigationLatD > li:last-child {
+    .navigationLatD:last-child {
         padding-bottom: 100vh;
-        z-index: 10;
     }
 
     .hamburguesa {

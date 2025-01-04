@@ -40,24 +40,26 @@ export function Navigation () {
       <nav className={styles.navigation}>
         <FontAwesomeIcon className={styles.hamburguesa} icon={faBars} onClick={() => setActive(!active)} />
         <ul className={styles.entescultor}>ENTESCULTOR</ul>
-        <ul className={`${active ? styles.navigationLatI : styles.showI}`}>
-          {links.slice(0,links.length/2).map(({ label, route }) => (
-            <li key={route}>
-              <Link href={route} onClick={() => setActive(!active)}>
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ul className={`${active ? styles.navigationLatD : styles.showD}`}>
-          {links.slice(-links.length/2).map(({ label, route }) => (
-            <li key={route}>
-              <Link href={route} onClick={() => setActive(!active)}>
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className={`${active ? styles.noNavigationLinks : styles.navigationLinks}`}>
+          <ul className={styles.navigationLatI}>
+            {links.slice(0,links.length/2).map(({ label, route }) => (
+              <li key={route}>
+                <Link href={route} onClick={() => setActive(!active)}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className={styles.navigationLatD}>
+            {links.slice(-links.length/2).map(({ label, route }) => (
+              <li key={route}>
+                <Link href={route} onClick={() => setActive(!active)}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
 
       <div className={`${active ? styles.div : styles.showFooter}`}>
