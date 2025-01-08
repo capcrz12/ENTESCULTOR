@@ -25,8 +25,17 @@ seriesRouter.get('/', async (request, response, next) => {
       ancho: 1,                                          // (ya lo tenemos en serieId)
       alto: 1
     })   
+
+    // Ordenamos alfabéticamente según el atributo 'title'
+    const sortedSeries = series.sort((a, b) => {
+      const nameA = a.name?.toLowerCase() || '' // Convertimos a minúsculas para comparar
+      const nameB = b.name?.toLowerCase() || ''
+      return nameA.localeCompare(nameB) // Comparación alfabética
+    })
+
+    console.log(sortedSeries)
     
-    response.json(series)
+    response.json(sortedSeries)
   } catch(err) { next(err)}
 })
 
