@@ -27,6 +27,8 @@
   font-style: thin;
   font-weight: 300;
   line-height: normal;
+  text-align: justify;
+  margin: 2vh 2vw;
 }
 
 .completo {
