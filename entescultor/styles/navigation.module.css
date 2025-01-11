@@ -524,13 +524,61 @@
         margin-top: 0;
     }
 
+    .navigation {
+        background: rgba(24, 24, 24, 0.9);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+
+    .navigationLinks, .noNavigationLinks {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        position: absolute;
+        top: 10vh;
+        gap: 0;
+        background: rgba(24, 24, 24, 0.9);
+
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .noNavigationLinks {
+        transform: translateX(300%);
+        transition: 0.5s;
+    }
+
+    .navigationLinks {
+        transform: translateX(0%);
+        transition: 0.5s;
+    }
+
+    .navigationLinks ul, .noNavigationLinks ul {
+        list-style: none;
+        width: 80%;
+        display: flex;
+        gap: 6vh;
+        margin-left: 0;
+        padding: 0;
+        margin-right: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
     .entescultor {
         color: #FFF;
         text-align: center;
         font-feature-settings: 'salt' on, 'clig' off, 'liga' off;
         
         letter-spacing: 6px;
-        font-size: 6vw;      
+        font-size: 5vw;      
 
         position: fixed;
         width: 60vw;
@@ -543,54 +591,14 @@
         user-select: none;
     }
 
-    .navigationLatI {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
+    .navigationLatI, .navigationLatD {
+        display: flex;
         flex-direction: column;
-        gap: 4vw;
         font-size: 4vw;
-        width: 100%;
-
-        position: absolute;
-        top: 10vh;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9);
-        z-index: 10;
-        
-        transform: translateX(300%);
-        transition: 0.5s;
-    }
-    .navigationLatD {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 4vw;
-        font-size: 4vw;
-        width: 100%;
-
-        position: absolute;
-        top: 32vh;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9);  
-        z-index: 10;
-
-        transform: translateX(300%);
-        transition: 0.5s;
     }
 
-    .navigationLatI > li:first-child {
-        padding-top: 20px;
-    }    
-
-    .navigationLatD > li:first-child {
-        padding-top: 20px;
-    }
-    
-    .navigationLatD > li:last-child {
+    .navigationLatD:last-child {
         padding-bottom: 100vh;
-        z-index: 10;
     }
 
     .hamburguesa {
@@ -603,67 +611,6 @@
 
         cursor: pointer;
     }
-
-    .navigation {
-        background: rgba(24, 24, 24, 0.9);
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-items: center;
-    }
-
-    .showI {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 4vw;
-        font-size: 4vw;
-        width: 100%;
-
-        position: absolute;
-        top: 10vh;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9);
-        z-index: 10;
-
-        transform: translateX(0);
-        transition: 0.5s;
-    }
-
-    .showD {
-        list-style: none;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 4vw;
-        
-        font-size: 4vw;
-        width: 100%;
-
-        position: absolute;
-        top: 36.3vh;
-        right: 0px;
-        background: rgba(24, 24, 24, 0.9); 
-        z-index: 10;
-
-        transform: translateX(0);
-        transition: 0.5s;
-    }
-
-    .showI > li:first-child {
-        margin-top: 20px;
-    }    
-
-    .showD > li:first-child {
-        padding-top: 20px;
-    }
-    
-    .showD > li:last-child {
-        padding-bottom: 100vh;
-        z-index: 10;
-    }
-
 
     .back {
         position: fixed;
@@ -687,7 +634,6 @@
         flex-direction: row;
         gap: 40px;
         align-items: center;
-        width: 100%;
         z-index: 10;
 
         list-style: none;

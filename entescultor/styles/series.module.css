@@ -128,7 +128,7 @@ aspect-ratio: auto;
   } */
 
 
-@media (max-width: 1024px ) and (orientation: portrait) {
+@media (max-width: 768px ) and (orientation: portrait) {
 .scroll {
   position: absolute;
   left: 0;
@@ -172,6 +172,51 @@ aspect-ratio: auto;
   font-size: 5vw;
 }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .scroll {
+    position: absolute;
+    left: 0;
+    top: 20rem;
+    width: 99vw;
+    height: 60vh;
+    margin-top: 0;
+    overflow: hidden;
+  }
+  
+  .child {
+    gap: 10rem;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .contenedor {
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .serie {
+    flex-direction: column;
+    gap: 0;
+    max-height: 60vh;
+  }
+  
+  .image {
+    height: 50vh;
+    max-width: 80vw;
+  }
+  
+  .image:hover {
+    transform: scale(1);
+  }
+  
+  .texto {
+    margin: 0;
+    padding: 0;
+    font-size: 5vw;
+  }
+  }
 
 @media (max-width: 1024px ) and (orientation: landscape) {
 .scroll {
