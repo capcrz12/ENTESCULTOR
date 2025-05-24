@@ -1,198 +1,238 @@
-import axios from 'axios'
-import { getToken } from './token'
+import axios from "axios";
+import { getToken } from "./token";
 
-let token = null
+let token = null;
 
 export const getAllObras = () => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, { cache: 'no-store' })
-    .then(res => res.json())
-}
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, {
+    cache: "no-store",
+  }).then((res) => res.json());
+};
 
 export const getObrasBySerie = (name) => {
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/${name}`, { cache: 'no-store' })
-    .then(res => res.json())
-}
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/${name}`, {
+    cache: "no-store",
+  }).then((res) => res.json());
+};
 
-export const createObra = ({ title, images, material, largo, ancho, alto, serieId }) => {
+export const createObra = ({
+  title,
+  images,
+  material,
+  largo,
+  ancho,
+  alto,
+  serieId,
+}) => {
+  token = getToken();
 
-  token = getToken()
-  
+  const formData = new FormData();
+  formData.append("title", title);
+  formData.append("material", material);
+  formData.append("largo", largo);
+  formData.append("ancho", ancho);
+  formData.append("alto", alto);
+  formData.append("serieId", serieId);
+
+  // Añadir cada imagen al formData
+  for (let i = 0; i < images.length; i++) {
+    formData.append("images[]", images[i]);
+  }
+
   const config = {
     headers: {
       Authorization: token,
-      'Content-Type': 'multipart/form-data'
-    }
-  }
+      // "Content-Type": "multipart/form-data",
+    },
+  };
 
-  axios
-    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, { title, images, material, largo, ancho, alto, serieId }, config)
-    .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+  return axios
+    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, formData, config)
+    .then((response) => response.data);
+};
 
 export const putTitleObra = ({ title, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/title/${id}`, { title }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/title/${id}`,
+      { title },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const putAltoObra = ({ alto, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/alto/${id}`, { alto }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/alto/${id}`,
+      { alto },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const putAnchoObra = ({ ancho, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/ancho/${id}`, { ancho }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/ancho/${id}`,
+      { ancho },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const putLargoObra = ({ largo, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/largo/${id}`, { largo }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/largo/${id}`,
+      { largo },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const putMaterialObra = ({ material, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/material/${id}`, { material }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/material/${id}`,
+      { material },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const putSerieObra = ({ serieId, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/serieId/${id}`, { serieId }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/serieId/${id}`,
+      { serieId },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const deleteImageObra = ({ image, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
       Authorization: token,
-    }
-  }
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/deleteImage/${id}`, { image }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/deleteImage/${id}`,
+      { image },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const uploadImageObra = ({ image, id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
       Authorization: token,
-      'Content-Type': 'multipart/form-data'
-    }
-  }
+      "Content-Type": "multipart/form-data",
+    },
+  };
 
   axios
-    .put(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/uploadImage/${id}`, { image }, config)
+    .put(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/obras/uploadImage/${id}`,
+      { image },
+      config
+    )
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
+      const { data } = response;
+      return data;
+    });
+};
 
 export const deleteObra = ({ id }) => {
-
-  token = getToken()
+  token = getToken();
 
   const config = {
     headers: {
-      Authorization: token
-    }
-  }
+      Authorization: token,
+    },
+  };
 
   axios
     .delete(`${process.env.NEXT_PUBLIC_API_URL}/api/obras/${id}`, config)
     .then((response) => {
-      const { data } = response
-      return data
-    })
-}
-
-
+      const { data } = response;
+      return data;
+    });
+};
