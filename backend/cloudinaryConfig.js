@@ -10,8 +10,8 @@ cloudinary.config({
 });
 
 cloudinary.api.resources({ max_results: 1 }, function (error, result) {
-  if (error) return console.error("❌ Error:", error);
-  console.log("✅ Cloudinary OK:", result);
+  if (error) return console.error("Error:", error);
+  console.log("Cloudinary OK:", result);
 });
 
 const removeFileExtension = (filename) => {

@@ -44,22 +44,13 @@ seriesRouter.post(
   "/",
   userExtractor,
   (req, res, next) => {
-    console.log("1️⃣ Paso antes del userExtractor");
-    next();
-  },
-  (req, res, next) => {
     uploadSeries.single("image")(req, res, (err) => {
       if (err) {
-        console.error("❌ Error en multer/cloudinary:", err);
+        console.error("Error en multer/cloudinary:", err);
         return res.status(500).json({ error: "Error en la subida de imagen" });
       }
       next();
     });
-  },
-  (req, res, next) => {
-    console.log("✅ req.body:", req.body);
-    console.log("✅ req.file:", req.file);
-    next();
   },
   async (request, response, next) => {
     try {

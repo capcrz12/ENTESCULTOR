@@ -314,32 +314,15 @@ obrasRouter.delete("/:id", userExtractor, async (request, response, next) => {
 
 obrasRouter.post(
   "/",
-  (req, res, next) => {
-    console.log("1️⃣ Paso antes del userExtractor");
-    next();
-  },
   userExtractor,
-  (req, res, next) => {
-    console.log("2️⃣ Paso después del userExtractor");
-    next();
-  },
   uploadObras.array("images[]"),
-  (req, res, next) => {
-    console.log("3️⃣ Paso después del uploadObras");
-    next();
-  },
   async (req, res, next) => {
-    console.log("ENTRO");
     try {
       const { title, material, largo, ancho, alto, serieId } = req.body;
-
-      console.log(title, material, largo, ancho, alto, serieId);
 
       const numImages = req.files.length;
 
       let urlImages = [];
-
-      console.log("NUM", numImages);
 
       for (let i = 0; i < numImages; i++) {
         urlImages.push(`${req.files[i].path}`);
@@ -347,8 +330,6 @@ obrasRouter.post(
 
       // Buscamos la serie a la que pertenece
       const serie = await Serie.findById(serieId);
-
-      console.log(serie);
 
       const newObra = new Obra({
         title,
