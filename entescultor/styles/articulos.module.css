@@ -8,7 +8,7 @@
 
 .title {
   text-align: center;
-  
+
   font-size: 35px;
   font-style: thin;
   font-weight: 300;
@@ -18,7 +18,7 @@
 
 .fecha {
   text-align: center;
-  
+
   font-size: 22px;
   font-style: thin;
   font-weight: 300;
@@ -40,12 +40,13 @@
 }
 
 .completo::-webkit-scrollbar:vertical {
-  width:10px;
+  width: 10px;
 }
 
-.completo::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+.completo::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .completo::-webkit-scrollbar:horizontal {
   height: 10px;
@@ -60,7 +61,7 @@
   margin: 20px;
   padding: 20px;
   text-align: justify;
-  font-size: 22px;
+  font-size: 1.25rem;
   font-style: thin;
   font-weight: 300;
   line-height: normal;
@@ -91,7 +92,6 @@
 }
 
 @media (max-width: 1024px) and (orientation: portrait) {
-
   .seccion {
     width: 80%;
     margin: 0 10vw;
@@ -101,7 +101,7 @@
     font-size: 3vh;
     margin: 5vh 5vw;
   }
-  
+
   .fecha {
     font-size: 2vh;
     margin: 0vh 5vw;
@@ -111,14 +111,14 @@
     height: 60%;
     align-items: center;
   }
-  
+
   .texto {
     font-size: 2vh;
     width: 90%;
     margin: 0;
     padding: 0;
   }
-  
+
   .enlace {
     font-size: 2vh;
     margin-bottom: 10vh;
@@ -126,7 +126,6 @@
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
-
   .seccion {
     width: 80%;
     height: auto;
@@ -136,7 +135,7 @@
   .title {
     font-size: 3vw;
   }
-  
+
   .fecha {
     font-size: 2vw;
   }
@@ -149,14 +148,14 @@
 
     align-items: center;
   }
-  
+
   .texto {
     font-size: 2vw;
     width: 90%;
     margin: 0;
     padding: 0;
   }
-  
+
   .enlace {
     font-size: 2vw;
   }
