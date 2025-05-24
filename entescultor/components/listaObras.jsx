@@ -1,15 +1,15 @@
-import React from 'react'
-import styles from '@/styles/obras.module.css'
-import AmpliarImagen from './ampliarImagen'
-import { getObrasBySerie } from '@/services/obras'
+import React from "react";
+import styles from "@/styles/obras.module.css";
+import AmpliarImagen from "./ampliarImagen";
+import { getObrasBySerie } from "@/services/obras";
 
-export default async function ListaObras ({ name }) {
-  const obras = await getObrasBySerie(name)
+export default async function ListaObras({ name }) {
+  const obras = await getObrasBySerie(name);
 
   return (
     <section className={styles.scroll}>
       <div className={styles.child}>
-        {obras.map(obra => (
+        {obras.map((obra) => (
           <article key={obra.id}>
             <div className={styles.contenedor}>
               <div className={styles.serie}>
@@ -22,7 +22,9 @@ export default async function ListaObras ({ name }) {
                     </div>
                     <div>
                       <p>DIMENSIONES</p>
-                      <div>{obra.alto} x {obra.ancho} x {obra.largo}</div>
+                      <div>
+                        {obra.alto} x {obra.ancho} x {obra.largo}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -36,5 +38,5 @@ export default async function ListaObras ({ name }) {
         <div />
       </div>
     </section>
-  )
+  );
 }
