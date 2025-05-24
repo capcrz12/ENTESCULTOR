@@ -1,11 +1,11 @@
 .seccion {
   color: #ffffff;
-  height: 100%;
+  height: 95%;
 }
 
 .title {
   text-align: center;
-  
+
   font-size: 35px;
   font-style: thin;
   font-weight: 300;
@@ -15,7 +15,7 @@
 
 .fecha {
   text-align: center;
-  
+
   font-size: 22px;
   font-style: thin;
   font-weight: 300;
@@ -35,9 +35,10 @@
   display: flex;
   flex-direction: column;
 
-  overflow-y: auto;
-  
-  height: 65vh;
+  max-height: 75vh;
+  gap: 30px;
+
+  overflow-y: scroll;
 }
 
 .completo::-webkit-scrollbar {
@@ -45,12 +46,13 @@
 }
 
 .completo::-webkit-scrollbar:vertical {
-  width:10px;
+  width: 10px;
 }
 
-.completo::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+.completo::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .completo::-webkit-scrollbar:horizontal {
   height: 10px;
@@ -74,9 +76,8 @@
   justify-self: center;
 
   width: 50vw;
-  height: 60vh;
+  height: 100%;
 }
-
 
 .imagenes {
   display: flex;
@@ -124,12 +125,12 @@
     margin-left: 1rem;
     margin-right: 1rem;
   }
-  
+
   .fecha {
     font-size: 2vh;
     margin-bottom: 2vh;
   }
-  
+
   .nota {
     font-size: 2vh;
   }
@@ -140,7 +141,7 @@
     align-items: center;
     justify-content: center;
   }
-    
+
   .video {
     width: 100%;
     height: 100%;
@@ -169,11 +170,11 @@
     margin-left: 1rem;
     margin-right: 1rem;
   }
-  
+
   .fecha {
     font-size: 2vw;
   }
-  
+
   .nota {
     font-size: 2vw;
   }
@@ -181,14 +182,14 @@
   .completo {
     height: auto;
   }
-    
+
   .divVideo {
     width: 90%;
     height: auto;
     align-items: center;
     justify-content: center;
   }
-    
+
   .video {
     width: 100%;
     height: 100%;

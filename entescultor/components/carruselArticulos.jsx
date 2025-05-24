@@ -30,10 +30,6 @@ export default function CarruselArticulos({ articulos }) {
     },
   };
 
-  useEffect(() => {
-    console.log(articulos);
-  }, [articulos]);
-
   return (
     <Slider {...settings} className={styles.seccion}>
       {articulos.map((articulo) => (
