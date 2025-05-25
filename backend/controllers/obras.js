@@ -312,46 +312,44 @@ obrasRouter.delete("/:id", userExtractor, async (request, response, next) => {
   }
 });
 
-obrasRouter.post(
-  "/",
-  userExtractor,
-  uploadObras.array("images[]"),
-  async (req, res, next) => {
-    try {
-      const { title, material, largo, ancho, alto, serieId } = req.body;
+obrasRouter.post("/", userExtractor, async (req, res, next) => {
+  try {
+    const { title, material, largo, ancho, alto, images, serieId } = req.body;
 
-      const numImages = req.files.length;
+    // // Si solo llega una imagen, estará como string; si llegan varias, será array
+    // const images = Array.isArray(req.body["images[]"])
+    //   ? req.body["images[]"]
+    //   : [req.body["images[]"]];
 
-      let urlImages = [];
-
-      for (let i = 0; i < numImages; i++) {
-        urlImages.push(`${req.files[i].path}`);
-      }
-
-      // Buscamos la serie a la que pertenece
-      const serie = await Serie.findById(serieId);
-
-      const newObra = new Obra({
-        title,
-        images: urlImages,
-        material,
-        largo,
-        ancho,
-        alto,
-        serieId: serie._id,
-      });
-
-      const savedObra = await newObra.save();
-
-      // Actualizamos el array de obras de la serie
-      serie.obras = serie.obras.concat(savedObra._id);
-      await serie.save();
-
-      res.json(savedObra);
-    } catch (err) {
-      next(err);
+    if (!serieId) {
+      return res.status(400).json({ error: "serieId es obligatorio" });
     }
+
+    const serie = await Serie.findById(serieId);
+
+    if (!serie) {
+      return res.status(400).json({ error: "Serie no encontrada" });
+    }
+
+    const newObra = new Obra({
+      title,
+      images,
+      material,
+      largo,
+      ancho,
+      alto,
+      serieId: serie._id,
+    });
+
+    const savedObra = await newObra.save();
+
+    serie.obras = serie.obras.concat(savedObra._id);
+    await serie.save();
+
+    res.json(savedObra);
+  } catch (err) {
+    next(err);
   }
-);
+});
 
 module.exports = obrasRouter;
