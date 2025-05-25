@@ -1,21 +1,20 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { RViewer, RViewerTrigger } from 'react-viewerjs'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import Slider from 'react-slick'
-import styles from '@/styles/obras.module.css'
+import React from "react";
+import { RViewer, RViewerTrigger } from "react-viewerjs";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import styles from "@/styles/obras.module.css";
 
-export default function AmpliarImagen ({ obra }) {
-
+export default function AmpliarImagen({ obra }) {
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
-  }
+    slidesToScroll: 1,
+  };
 
   const options = {
     toolbar: {
@@ -26,21 +25,25 @@ export default function AmpliarImagen ({ obra }) {
       rotateRight: false,
       flipHorizontal: false,
       flipVertical: false,
-      oneToOne: false
-    }
-  }
+      oneToOne: false,
+    },
+  };
 
   return (
     <Slider {...settings} className={styles.carrusel}>
-      {obra.images.map(image => (
+      {obra.images.map((image) => (
         <div key={image}>
           <RViewer options={options} imageUrls={`${image}`}>
-            <RViewerTrigger >
-              <img alt='No disponible' src={`${image}`} className={styles.image} />
+            <RViewerTrigger>
+              <img
+                alt="No disponible"
+                src={`${image}`}
+                className={styles.image}
+              />
             </RViewerTrigger>
           </RViewer>
         </div>
       ))}
     </Slider>
-  )
+  );
 }
