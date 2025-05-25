@@ -95,6 +95,10 @@
   scroll-snap-align: start;
 }
 
+.contenedor:last-child {
+  margin-bottom: 30vh;
+}
+
 /* 
 // Animacion que hace aparecer la imagen 
 // desde abajo translucida
