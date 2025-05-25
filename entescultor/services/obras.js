@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getToken } from "./token";
+import { uploadToCloudinary } from "./uploadToCloudinary";
 
 let token = null;
 
@@ -15,7 +16,7 @@ export const getObrasBySerie = (name) => {
   }).then((res) => res.json());
 };
 
-export const createObra = ({
+export const createObra = async ({
   title,
   images,
   material,
@@ -26,28 +27,33 @@ export const createObra = ({
 }) => {
   token = getToken();
 
-  const formData = new FormData();
-  formData.append("title", title);
-  formData.append("material", material);
-  formData.append("largo", largo);
-  formData.append("ancho", ancho);
-  formData.append("alto", alto);
-  formData.append("serieId", serieId);
+  const urls = [];
 
-  // Añadir cada imagen al formData
   for (let i = 0; i < images.length; i++) {
-    formData.append("images[]", images[i]);
+    const url = await uploadToCloudinary(images[i], "obras");
+    urls.push(url);
   }
+
+  const body = {
+    title,
+    material,
+    largo,
+    ancho,
+    alto,
+    serieId,
+    images: urls,
+  };
 
   const config = {
     headers: {
       Authorization: token,
       // "Content-Type": "multipart/form-data",
+      "Content-Type": "application/json",
     },
   };
 
   return axios
-    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, formData, config)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}/api/obras`, body, config)
     .then((response) => response.data);
 };
 
