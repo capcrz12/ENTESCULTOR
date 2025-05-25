@@ -106,14 +106,38 @@ const storageIcon = new CloudinaryStorage({
   },
 });
 
-const uploadObras = multer({ storage: storageObras });
-const uploadSeries = multer({ storage: storageSeries });
-const uploadArticulos = multer({ storage: storageArticulos });
-const uploadEventos = multer({ storage: storageEventos });
-const uploadAutor = multer({ storage: storageAutor });
-const uploadFondos = multer({ storage: storageFondos });
-const uploadCriticas = multer({ storage: storageCriticas });
-const uploadIcon = multer({ storage: storageIcon });
+const uploadObras = multer({
+  storage: storageObras,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadSeries = multer({
+  storage: storageSeries,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadArticulos = multer({
+  storage: storageArticulos,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadEventos = multer({
+  storage: storageEventos,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadAutor = multer({
+  storage: storageAutor,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadFondos = multer({
+  storage: storageFondos,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadCriticas = multer({
+  storage: storageCriticas,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
+const uploadIcon = multer({
+  storage: storageIcon,
+  limits: { fileSize: 50 * 1024 * 1024 },
+});
 
 module.exports = {
   cloudinary,
