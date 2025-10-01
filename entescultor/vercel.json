@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/inicio.php",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
